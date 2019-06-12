@@ -43,7 +43,7 @@ while ($donnees = $res->fetch())
 
     echo "<tr> <td>".htmlspecialchars($num) . "</td><td>" .htmlspecialchars($donnees['MEM_NOM']). "</td><td>" .htmlspecialchars($donnees['MEM_PRENOM'])."</td><td>".$donnees['MEM_ROLE']."</td>"?>
     <td>
-        <form action="../../controller/utils.php" method="post">
+        <form action="../../controller/utils.php" method="post" class="usersOptions">
             <input type="number" name="num" value="<?php echo $num ?>" style="display: none;">
             <input type="submit" name="setDirecteur" value="DIRECTEUR" class="red darken-2 waves-effect waves-light small">
             <input type="submit" name="setResponsable" value="RESPONSABLE" class="orange darken-1 waves-effect waves-light small">

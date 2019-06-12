@@ -1,0 +1,9 @@
+form.usersOptions {
+    line-height: 40px;
+}
+
+form.usersOptions input[value] {
+    color: white;
+    font-size: 0.65em;
+    font-weight: bold;
+}
