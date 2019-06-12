@@ -1,0 +1,59 @@
+html {
+    --couleur_principale: green;
+}
+
+nav.nav-extended div.nav-wrapper ul li:first-child {
+    margin-right: 10px;
+}
+
+header nav.nav-extended .nav-content .tabs {
+    overflow: visible;
+}
+
+header nav.nav-extended .nav-content .tabs .tab a {
+    overflow: hidden;
+}
+
+nav.nav-extended .nav-content .index-button .material-icons {
+    line-height: 50px;
+    font-size: 1.5em;
+}
+
+
+header .dropdown-content li {
+    height: 20px;
+}
+
+header .dropdown-content li a {
+    line-height: 50px;
+}
+
+.tabs .tab a {
+    color: var(--couleur_principale);
+}
+
+.tabs .tab a:hover {
+    background-color: #ebebeb;
+    color: var(--couleur_principale);
+}
+
+.tabs .tab a.active {
+    background-color: rgba(0, 0, 0, 0);
+    color: var(--couleur_principale);
+}
+
+.tabs .tab a.index-button {
+    background-color: var(--couleur_principale);
+    color: white;
+}
+
+.tabs .indicator {
+    background-color: var(--couleur_principale);
+    height: 3px;
+}
+
+@media screen and (max-width: 400px) {
+    header nav .nav-content .tabs .tab a {
+        font-size: 0.9em;
+    }
+}

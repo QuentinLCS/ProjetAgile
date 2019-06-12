@@ -14,3 +14,6 @@
 <!-- CSS -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
 
+<link rel="stylesheet" href="../../public/css/footer.css">
+
+<link rel="stylesheet" href="../../public/css/navbar.css">

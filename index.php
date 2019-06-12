@@ -1,6 +1,8 @@
 <?php
 
-$title = "Plongée | ";
+include_once("controller/Menu.php");
+
+$title = "SubAlligator | ";
 $pageRepertory = "view/frontend/";
 if (isset($_GET["page"])) {
     $page = $_GET["page"];
