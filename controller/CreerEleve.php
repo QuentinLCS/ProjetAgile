@@ -18,7 +18,7 @@ try {
 
 //num
 $reqNum = <<<HEREDOC
-SELECT MAX(ELE_NUM) as NOMBRE FROM PLO_MEMBRE
+SELECT MAX(ELE_NUM) as NOMBRE FROM PLO_ELEVE
 HEREDOC;
 
 $rsNum = $pdoConnection->prepare($reqNum);

@@ -3,18 +3,18 @@
     <div class="modal-content center">
         <h4>Connexion</h4>
 
-        <form action="#">
+        <form action="../../controller/identification.php" method="post">
 
             <div class="input-field">
                 <i class="material-icons prefix">person</i>
-                <input autofocus type="text" id="name" data-length="20">
-                <label for="name">Pseudonyme</label>
+                <input autofocus type="text" id="name" data-length="20" name="mail">
+                <label for="name">Mail</label>
             </div>
             <br>
 
             <div class="input-field">
                 <i class="material-icons prefix">lock</i>
-                <input type="password" id="pass" data-length="40">
+                <input type="password" id="pass" data-length="40" name="mdp">
                 <label for="pass">Mot de passe</label>
             </div>
             <br>

@@ -40,7 +40,7 @@ HEREDOC;
 $rs1 = $pdoConnection->prepare($insertsql);
 $rs1->execute();
 
-header("Location: index.php");
+header("Location: ../index.php");
 
 
 
