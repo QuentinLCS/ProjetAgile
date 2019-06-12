@@ -3,7 +3,7 @@
         <a <?php if ($page != 'home') echo 'href="/"'?> class="brand-logo center black-text">Sub<strong class="green-text ">Alligator</strong></a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger black-text "><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
-            <li><a class="blue modal-trigger" href="#login"><strong>CREER UN INITIATEUR</strong></a></li>
+            <li><a class="blue modal-trigger" href="#login"><strong>SE CONNECTER</strong></a></li>
         </ul>
     </div>
     <div class="nav-content">
