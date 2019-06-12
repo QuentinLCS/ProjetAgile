@@ -1,6 +1,6 @@
 <?php
 //Connection Base de Donnee
-
+include("Utils.php");
 $dbhost = 'localhost';
 $dbuser = 'agile8';
 $dbpass = 'ahV2FeemahM6Jiex';
@@ -20,13 +20,15 @@ HEREDOC;
 $res = $pdoConnection->query($req);
 while ($donnees = $res->fetch())
 {
-    echo htmlspecialchars($donnees['MEM_ROLE']) . ' ' .htmlspecialchars($donnees['MEM_NOM']). ' '.htmlspecialchars($donnees['MEM_PRENOM']).' '?><br>;
-    <a class="waves-effect waves-light btn" href="#registerInitiateur">Directeur</a>
-    <a class="waves-effect waves-light btn" href="#registerInitiateur">Responsable</a>
-    <a class="waves-effect waves-light btn" href="#registerInitiateur">Initiateur</a><?php
+    echo htmlspecialchars($donnees['MEM_ROLE']) . ' ' .htmlspecialchars($donnees['MEM_NOM']). ' '.htmlspecialchars($donnees['MEM_PRENOM']).' '?>;
+    <a class="waves-effect waves-light btn" href="#registerInitiateur" onclick="modifierRole($donnees['MEM_NUM'], 'DIRECTEUR');">Directeur</a>
+    <a class="waves-effect waves-light btn" href="#registerInitiateur" onclick="modifierRole($donnees['MEM_NUM'], 'RESPONSABLE');">Responsable</a>
+    <a class="waves-effect waves-light btn" href="#registerInitiateur" onclick="modifierRole($donnees['MEM_NUM'], 'INITIATEUR');">Initiateur</a><br><?php
 
 }
+
 $res->closeCursor();
+
 
 include_once($pageRepertory . "registerInitiateur.php");
 include_once($pageRepertory . "registerEleve.php");
