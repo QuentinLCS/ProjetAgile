@@ -3,7 +3,6 @@
         <a <?php if ($page != 'home') echo 'href="/"'?> class="brand-logo center black-text">Sub<strong class="green-text ">Alligator</strong></a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger black-text "><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
-            <li><a class="green" href="#"><i class="material-icons">shopping_cart</i></a></li>
             <li><a class="blue modal-trigger" href="#login"><strong>CREER UN INITIATEUR</strong></a></li>
         </ul>
     </div>
@@ -29,7 +28,6 @@
 </nav>
 
 <ul class="sidenav grey darken-4" id="mobile-demo">
-    <li><a class="green white-text waves-effect waves-light" href="#"><i class="material-icons white-text">shopping_cart</i><strong>BOUTIQUE</strong></a></li>
     <li><a class="blue white-text waves-effect waves-light modal-trigger" href="#login"><i class="material-icons white-text">account_circle</i><strong>SE CONNECTER</strong></a></li>
 </ul>
 
