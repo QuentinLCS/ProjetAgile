@@ -9,7 +9,7 @@
     <div class="nav-content">
         <ul class="tabs tabs-fixed-width grey lighten-4">
             <li class="tab">
-                <a <?php Menu::isCliquable($page, 'Utilisateurs') ?>>Utilisateurs</a>
+                <a <?php Menu::isCliquable($page, 'Initiateurs') ?>>Initiateur</a>
             </li>
             <li class="tab">
                 <a <?php Menu::isCliquable($page, 'Competences') ?>>Compétences</a>
@@ -18,10 +18,10 @@
                 <a class="index-button <?php if ($page == 'home') echo ' active"'; else echo '" target="_top" href="/"' ?>><i class="material-icons">home</i></a>
             </li>
             <li class="tab">
-                <a <?php Menu::isCliquable($page, 'Planning') ?>>Planning</a>
+                <a <?php Menu::isCliquable($page, 'Planning') ?>>Organisation</a>
             </li>
             <li class="tab">
-                <a <?php Menu::isCliquable($page, 'Profile') ?>>Mon profile</a>
+                <a <?php Menu::isCliquable($page, 'Profile') ?>>Mon profil</a>
             </li>
         </ul>
     </div>
