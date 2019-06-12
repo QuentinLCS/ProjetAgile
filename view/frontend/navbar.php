@@ -9,19 +9,19 @@
     <div class="nav-content">
         <ul class="tabs tabs-fixed-width grey lighten-4">
             <li class="tab">
-                <a <?php Menu::isCliquable($page, 'News') ?>>News</a>
+                <a <?php Menu::isCliquable($page, 'News') ?>>Utilisateurs</a>
             </li>
             <li class="tab">
-                <a class="dropdown-trigger<?php if ($page == 'Manga' || $page == 'Illustration' || $page == 'Scenario' || $page == 'Recrutement') echo ' active"'?>" href="#" data-target="creations">Créations</a>
+                <a class="dropdown-trigger<?php if ($page == 'Manga' || $page == 'Illustration' || $page == 'Scenario' || $page == 'Recrutement') echo ' active"'?>" href="#" data-target="creations">Compétences</a>
             </li>
             <li class="tab">
                 <a class="index-button <?php if ($page == 'home') echo ' active"'; else echo '" target="_top" href="/"' ?>><i class="material-icons">home</i></a>
             </li>
             <li class="tab">
-                <a <?php Menu::isCliquable($page, 'Lexique') ?>>Lexique</a>
+                <a <?php Menu::isCliquable($page, 'Lexique') ?>>Planning</a>
             </li>
             <li class="tab">
-                <a <?php Menu::isCliquable($page, 'Support') ?>>Support</a>
+                <a <?php Menu::isCliquable($page, 'Support') ?>>Mon profile</a>
             </li>
         </ul>
     </div>
