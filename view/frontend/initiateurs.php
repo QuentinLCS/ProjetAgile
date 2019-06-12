@@ -1,6 +1,6 @@
 <?php
 //Connection Base de Donnee
-require "controller/Utils.php";
+include_once "controller/Utils.php";
 $dbhost = 'localhost';
 $dbuser = 'agile8';
 $dbpass = 'ahV2FeemahM6Jiex';
@@ -14,18 +14,35 @@ try {
 }
 
 $req = <<<HEREDOC
-SELECT MEM_ROLE,MEM_NOM,MEM_PRENOM,MEM_MAIL FROM PLO_MEMBRE ORDER BY MEM_NUM desc
+SELECT MEM_NUM, MEM_ROLE,MEM_NOM,MEM_PRENOM,MEM_MAIL FROM PLO_MEMBRE ORDER BY MEM_NUM asc;
 HEREDOC;
 
 $res = $pdoConnection->query($req);
+
+    echo '<table class="striped highlight centered">
+        <thead>
+            <tr>
+                <th>NUMERO</th>
+                <th>NOM</th>
+                <th>PRENOM</th>    
+                <th>FONCTION</th>  
+                <th>EDITER LA FONCTION DU MEMBRE...</th>         
+            </tr>
+        </thead>
+        <tbody>';
+
 while ($donnees = $res->fetch())
 {
-    echo htmlspecialchars($donnees['MEM_ROLE']) . ' ' .htmlspecialchars($donnees['MEM_NOM']). ' '.htmlspecialchars($donnees['MEM_PRENOM']).' '?>;
-    <a class="waves-effect waves-light btn" href="#setDirecteur" onclick="Utils::modifierRole($donnees['MEM_NUM'], 'DIRECTEUR');">Directeur</a>
-    <a class="waves-effect waves-light btn" href="#setResponsable" onclick="Utils::modifierRole($donnees['MEM_NUM'], 'RESPONSABLE');">Responsable</a>
-    <a class="waves-effect waves-light btn" href="#setInitiateur" onclick="Utils::modifierRole($donnees['MEM_NUM'], 'INITIATEUR');">Initiateur</a><br><?php
-
+    echo "<tr> <td>".htmlspecialchars($donnees['MEM_NUM']) . "</td><td>" .htmlspecialchars($donnees['MEM_NOM']). "</td><td>" .htmlspecialchars($donnees['MEM_PRENOM'])."</td><td>".$donnees['MEM_ROLE']."</td>"?>
+    <td>
+        <a class="waves-effect waves-light btn small" onclick="Utils::modifierRole($donnees['MEM_NUM'], 'DIRECTEUR');">Directeur</a>
+        <a class="waves-effect waves-light btn" onclick="Utils::modifierRole($donnees['MEM_NUM'], 'RESPONSABLE');">Responsable</a>
+        <a class="waves-effect waves-light btn" onclick="Utils::modifierRole($donnees['MEM_NUM'], 'INITIATEUR');">Initiateur</a>
+    </td>
+    <?php
 }
+
+echo "</tbody> </table>";
 
 $res->closeCursor();
 
