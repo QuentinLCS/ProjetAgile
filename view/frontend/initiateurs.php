@@ -1,4 +1,8 @@
 <?php
+
+include_once($pageRepertory . "registerInitiateur.php");
+include_once($pageRepertory . "registerEleve.php");
+
 //Connection Base de Donnee
 include_once "controller/Utils.php";
 $dbhost = 'localhost';
@@ -26,7 +30,7 @@ $res = $pdoConnection->query($req);
                 <th>NOM</th>
                 <th>PRENOM</th>    
                 <th>FONCTION</th>  
-                <th>EDITER LA FONCTION DU MEMBRE...</th>         
+                <th>EDITER UN MEMBRE...</th>         
             </tr>
         </thead>
         <tbody>';
@@ -35,9 +39,10 @@ while ($donnees = $res->fetch())
 {
     echo "<tr> <td>".htmlspecialchars($donnees['MEM_NUM']) . "</td><td>" .htmlspecialchars($donnees['MEM_NOM']). "</td><td>" .htmlspecialchars($donnees['MEM_PRENOM'])."</td><td>".$donnees['MEM_ROLE']."</td>"?>
     <td>
-        <a class="waves-effect waves-light btn small" onclick="Utils::modifierRole($donnees['MEM_NUM'], 'DIRECTEUR');">Directeur</a>
-        <a class="waves-effect waves-light btn" onclick="Utils::modifierRole($donnees['MEM_NUM'], 'RESPONSABLE');">Responsable</a>
-        <a class="waves-effect waves-light btn" onclick="Utils::modifierRole($donnees['MEM_NUM'], 'INITIATEUR');">Initiateur</a>
+        <a class="red darken-2 waves-effect waves-light btn small" href="<?php Utils::modifierRole($donnees['MEM_NUM'], 'DIRECTEUR'); ?>"><strong>Directeur</strong></a>
+        <a class="orange darken-1 waves-effect waves-light btn" href="<?php Utils::modifierRole($donnees['MEM_NUM'], 'RESPONSABLE'); ?>"><strong>Responsable</strong></a>
+        <a class="yellow darken-2 waves-effect waves-light btn" href=" <?php Utils::modifierRole($donnees['MEM_NUM'], 'INITIATEUR'); ?>"><strong>Initiateur</strong></a>
+        <a class="grey darken-4 waves-effect waves-light btn" href="<?php ?>"><strong>X</strong></a>
     </td>
     <?php
 }
@@ -45,8 +50,4 @@ while ($donnees = $res->fetch())
 echo "</tbody> </table>";
 
 $res->closeCursor();
-
-
-include_once($pageRepertory . "registerInitiateur.php");
-include_once($pageRepertory . "registerEleve.php");
 ?>
