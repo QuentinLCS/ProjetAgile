@@ -10,7 +10,7 @@ if(isset($_POST['mail']) && isset($_POST['mdp'])){
 	$mdp=md5($_POST['mdp']);
 
 try {
-	 $pdoConnection = new PDO($dsn, $dbuser, $dbpass);
+	$pdoConnection = new PDO($dsn, $dbuser, $dbpass);
 	$pdoConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
 	echo "Erreur connection : ".$e->getMessage();
