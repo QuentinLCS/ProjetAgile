@@ -22,7 +22,7 @@ while ($donnees = $res->fetch())
 {
 	echo $donnees['MEM_NOM'].$donnees['MEM_PRENOM'].$donnees['MEM_MAIL'];
 }
-$req->closeCursor();
+$res->closeCursor();
 
 include_once($pageRepertory . "registerInitiateur.php");
 include_once($pageRepertory . "registerEleve.php");
