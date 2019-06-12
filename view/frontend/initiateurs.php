@@ -18,7 +18,7 @@ SELECT MEM_NUM,MEM_NOM,MEM_PRENOM,MEM_MAIL FROM PLO_MEMBRE ORDER BY MEM_NUM desc
 HEREDOC;
 
 $res = $pdoConnection->query($req);
-while ($donnees = $req->fetch())
+while ($donnees = $res->fetch())
 {
 	echo $donnees['MEM_NOM'].$donnees['MEM_PRENOM'].$donnees['MEM_MAIL'];
 }
