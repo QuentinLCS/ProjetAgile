@@ -1,6 +1,6 @@
 <?php
 //Connection Base de Donnee
-include("Utils.php");
+require "Utils.php";
 $dbhost = 'localhost';
 $dbuser = 'agile8';
 $dbpass = 'ahV2FeemahM6Jiex';
@@ -21,9 +21,9 @@ $res = $pdoConnection->query($req);
 while ($donnees = $res->fetch())
 {
     echo htmlspecialchars($donnees['MEM_ROLE']) . ' ' .htmlspecialchars($donnees['MEM_NOM']). ' '.htmlspecialchars($donnees['MEM_PRENOM']).' '?>;
-    <a class="waves-effect waves-light btn" href="#registerInitiateur" onclick="modifierRole($donnees['MEM_NUM'], 'DIRECTEUR');">Directeur</a>
-    <a class="waves-effect waves-light btn" href="#registerInitiateur" onclick="modifierRole($donnees['MEM_NUM'], 'RESPONSABLE');">Responsable</a>
-    <a class="waves-effect waves-light btn" href="#registerInitiateur" onclick="modifierRole($donnees['MEM_NUM'], 'INITIATEUR');">Initiateur</a><br><?php
+    <a class="waves-effect waves-light btn" href="#registerInitiateur" onclick="Utils.modifierRole($donnees['MEM_NUM'], 'DIRECTEUR');">Directeur</a>
+    <a class="waves-effect waves-light btn" href="#registerInitiateur" onclick="Utils.modifierRole($donnees['MEM_NUM'], 'RESPONSABLE');">Responsable</a>
+    <a class="waves-effect waves-light btn" href="#registerInitiateur" onclick="Utils.modifierRole($donnees['MEM_NUM'], 'INITIATEUR');">Initiateur</a><br><?php
 
 }
 
