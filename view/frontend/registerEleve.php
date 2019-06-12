@@ -4,7 +4,7 @@
         <h4>Créer un initiateur</h4>
 
         <div class="row">
-            <form class="col s12" method="post" action="controller/CreeCompteTest.php">
+            <form class="col s12" method="post" action="controller/CreerCompteEleve.php">
                 <div class="row">
                     <div class="input-field col s6">
                         <input id="Prenom" type="text" class="validate" name="prenom" required>
