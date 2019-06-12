@@ -6,7 +6,7 @@
         <h4>Créer un élève</h4>
 
         <div class="row">
-            <form class="col s12" method="post" action="controller/CreeEleveTest.php">
+            <form class="col s12" method="post" action="controller/CreerEleve.php">
                 <div class="row">
                     <div class="input-field col s6">
                         <input id="PrenomEleve" type="text" class="validate" name="prenom" required>
