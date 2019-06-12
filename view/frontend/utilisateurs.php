@@ -1,4 +1,1 @@
-<a class="blue modal-trigger" href="#login"><strong>CREER UN INITIATEUR</strong></a>
-
-<?php
-echo "utilisateurs";
+<a class="waves-effect waves-light btn modal-trigger " href="#register">Créer un utilisateur</a>
