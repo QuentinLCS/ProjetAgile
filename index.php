@@ -1,5 +1,7 @@
 <?php
 
+global $base;
+
 include_once("controller/Menu.php");
 
 $title = "SubAlligator | ";

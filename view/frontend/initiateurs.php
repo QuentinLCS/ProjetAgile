@@ -4,7 +4,6 @@ include_once($pageRepertory . "registerInitiateur.php");
 include_once($pageRepertory . "registerEleve.php");
 
 //Connection Base de Donnee
-include_once "controller/Utils.php";
 $dbhost = 'localhost';
 $dbuser = 'agile8';
 $dbpass = 'ahV2FeemahM6Jiex';
@@ -37,12 +36,18 @@ $res = $pdoConnection->query($req);
 
 while ($donnees = $res->fetch())
 {
-    echo "<tr> <td>".htmlspecialchars($donnees['MEM_NUM']) . "</td><td>" .htmlspecialchars($donnees['MEM_NOM']). "</td><td>" .htmlspecialchars($donnees['MEM_PRENOM'])."</td><td>".$donnees['MEM_ROLE']."</td>"?>
+    global $num;
+    $num = htmlspecialchars($donnees['MEM_NUM']);
+
+    echo "<tr> <td>".htmlspecialchars($num) . "</td><td>" .htmlspecialchars($donnees['MEM_NOM']). "</td><td>" .htmlspecialchars($donnees['MEM_PRENOM'])."</td><td>".$donnees['MEM_ROLE']."</td>"?>
     <td>
-        <a class="red darken-2 waves-effect waves-light btn small" href="<?php Utils::modifierRole($donnees['MEM_NUM'], 'DIRECTEUR'); ?>"><strong>Directeur</strong></a>
-        <a class="orange darken-1 waves-effect waves-light btn" href="<?php Utils::modifierRole($donnees['MEM_NUM'], 'RESPONSABLE'); ?>"><strong>Responsable</strong></a>
-        <a class="yellow darken-2 waves-effect waves-light btn" href=" <?php Utils::modifierRole($donnees['MEM_NUM'], 'INITIATEUR'); ?>"><strong>Initiateur</strong></a>
-        <a class="grey darken-4 waves-effect waves-light btn" href="<?php ?>"><strong>X</strong></a>
+        <form action="../../controller/utils.php" method="post">
+            <input type="number" name="num" value="<?php echo $num ?>" style="display: none;">
+            <input type="submit" name="setDirecteur" value="DIRECTEUR" class="red darken-2 waves-effect waves-light small">
+            <input type="submit" name="setResponsable" value="RESPONSABLE" class="orange darken-1 waves-effect waves-light small">
+            <input type="submit" name="setInitiateur" value="INITIATEUR" class="yellow darken-2 waves-effect waves-light small">
+            <input type="submit" name="remUtilisateur" value="X" class="grey darken-4 waves-effect waves-light small">
+        </form>
     </td>
     <?php
 }

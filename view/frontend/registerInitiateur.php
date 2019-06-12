@@ -30,8 +30,7 @@
                     </div>
                 </div>
                 <div class="row input-field col s12">
-                    <select id ="Role" name="role">
-                        <option value="" disabled selected>Choisissez le rôle désiré...</option>
+                    <select id ="Role" name="role" class="validate">
                         <option value="INITIATEUR">Initiateur</option>
                         <option value="RESPONSABLE">Responsable</option>
                         <option value="DIRECTEUR">Directeur</option>
