@@ -1,4 +1,4 @@
-<div id="login" class="modal ">
+<div id="login" class="modal">
     <h5 class="modal-close">&#10005;</h5>
     <div class="modal-content center">
         <h4>Connexion</h4>

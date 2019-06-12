@@ -1,4 +1,4 @@
-<div id="register" class="modal ">
+<div id="registerInitiateur" class="modal ">
     <h5 class="modal-close">&#10005;</h5>
     <div class="modal-content center">
         <h4>Créer un initiateur</h4>
