@@ -14,16 +14,19 @@ try {
 }
 
 $req = <<<HEREDOC
-SELECT MEM_NUM,MEM_NOM,MEM_PRENOM,MEM_MAIL FROM PLO_MEMBRE ORDER BY MEM_NUM desc
+SELECT MEM_ROLE,MEM_NOM,MEM_PRENOM,MEM_MAIL FROM PLO_MEMBRE ORDER BY MEM_NUM desc
 HEREDOC;
 
-$res = $pdoConnection->prepare($req);
-$res->execute(array($_GET['MEM_NOM'],$_GET['MEM_PRENOM'],$_GET['MEM_MAIL']));
-while ($donnees = $req->fetch())
+$res = $pdoConnection->query($req);
+while ($donnees = $res->fetch())
 {
-	echo $donnees['MEM_NOM'].$donnees['MEM_PRENOM'].$donnees['MEM_MAIL'];
+    echo htmlspecialchars($donnees['MEM_ROLE']) . ' ' .htmlspecialchars($donnees['MEM_NOM']). ' '.htmlspecialchars($donnees['MEM_PRENOM']).' '?><br>;
+    <a class="waves-effect waves-light btn" href="#registerInitiateur">Directeur</a>
+    <a class="waves-effect waves-light btn" href="#registerInitiateur">Responsable</a>
+    <a class="waves-effect waves-light btn" href="#registerInitiateur">Initiateur</a><?php
+
 }
-$req->closeCursor();
+$res->closeCursor();
 
 include_once($pageRepertory . "registerInitiateur.php");
 include_once($pageRepertory . "registerEleve.php");
