@@ -1,6 +1,6 @@
 <nav class="nav-extended z-depth-3">
     <div class="nav-wrapper white">
-        <a <?php if ($page != 'home') echo 'href="/"'?> class="brand-logo center black-text">Sub<strong class="green-text ">Alligator</strong></a>
+        <a <?php if ($page != 'home') echo 'href="/"'?> class="brand-logo center black-text">Sub'<strong class="blue-text ">Alligators</strong></a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger black-text "><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
             <li><a class="blue modal-trigger" href="#login"><strong>SE CONNECTER</strong></a></li>
@@ -9,7 +9,7 @@
     <div class="nav-content">
         <ul class="tabs tabs-fixed-width grey lighten-4">
             <li class="tab">
-                <a <?php Menu::isCliquable($page, 'Initiateurs') ?>>Initiateur</a>
+                <a <?php Menu::isCliquable($page, 'Initiateurs') ?>>Initiateurs</a>
             </li>
             <li class="tab">
                 <a <?php Menu::isCliquable($page, 'Competences') ?>>Compétences</a>

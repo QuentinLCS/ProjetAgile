@@ -41,7 +41,7 @@
 </div>
 <div class="footer-copyright grey-text darken-4">
     <div class="container text-darken-2 grey-text">
-        © 2019 SubAlligator.fr
+        © 2019 Sub'Alligators.fr
         <a class="right grey-text text-darken-2" href="?page=About">En savoir plus...</a>
     </div>
 </div>

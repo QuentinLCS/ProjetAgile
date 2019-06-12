@@ -24,7 +24,7 @@ if (isset($_GET["page"])) {
         <header>
             <?php
                 include_once($pageRepertory."navbar.php");
-                include_once($pageRepertory . "register.php");
+                include_once($pageRepertory . "registerInitiateur.php");
             include_once($pageRepertory . "login.php");
             ?>
         </header>
