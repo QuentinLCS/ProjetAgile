@@ -30,13 +30,11 @@ $num = $valeur['NOMBRE']+1;
 
 //Insertion des valeurs dans la base de donnee
 $insertsql = <<<HEREDOC
-INSERT INTO PLO_MEMBRE() VALUES ('$num', '$prenom', '$nom');
+INSERT INTO PLO_MEMBRE VALUES ('$num', '$prenom', '$nom')
 HEREDOC;
 
 $rs1 = $pdoConnection->prepare($insertsql);
 $rs1->execute();
-
-//
 
 
 
