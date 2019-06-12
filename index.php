@@ -1,7 +1,5 @@
 <?php
 
-include_once("controller/Menu.php");
-
 $title = "Plongée | ";
 $pageRepertory = "view/frontend/";
 if (isset($_GET["page"])) {
