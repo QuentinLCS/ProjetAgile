@@ -16,6 +16,18 @@ try {
     echo "Erreur connection : ".$e->getMessage();
 }
 
+//num
+$reqNum = <<<HEREDOC
+SELECT MAX(ELE_NUM) as NOMBRE FROM PLO_MEMBRE
+HEREDOC;
+
+$rsNum = $pdoConnection->prepare($reqNum);
+$rsNum->execute();
+
+foreach($rsNum as $valeur){
+}
+$num = $valeur['NOMBRE']+1;
+
 //Insertion des valeurs dans la base de donnee
 $insertsql = <<<HEREDOC
 INSERT INTO PLO_MEMBRE VALUES ('$num', '$prenom', '$nom')

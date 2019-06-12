@@ -1,7 +1,9 @@
+<a class="waves-effect waves-light btn modal-trigger" href="#registerEleve">Ajouter un élève</a>
+
 <div id="registerEleve" class="modal ">
     <h5 class="modal-close">&#10005;</h5>
     <div class="modal-content center">
-        <h4>Créer un initiateur</h4>
+        <h4>Créer un élève</h4>
 
         <div class="row">
             <form class="col s12" method="post" action="/controller/CreerEleve.php">
@@ -32,13 +34,5 @@
                 </button>
             </form>
         </div>
-
-        <script>
-            $(document).ready(function(){
-                $('.modal').modal();
-            });
-
-            $(document).ready(function() {
-                $('input#name, input#pass').characterCounter();
-            });
-        </script>
+    </div>
+</div>

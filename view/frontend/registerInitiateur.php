@@ -1,3 +1,5 @@
+<a class="waves-effect waves-light btn modal-trigger" href="#registerInitiateur">Ajouter un initiateur</a>
+
 <div id="registerInitiateur" class="modal ">
     <h5 class="modal-close">&#10005;</h5>
     <div class="modal-content center">
@@ -32,13 +34,5 @@
                 </button>
             </form>
         </div>
-
-        <script>
-            $(document).ready(function(){
-                $('.modal').modal();
-            });
-
-            $(document).ready(function() {
-                $('input#name, input#pass').characterCounter();
-            });
-        </script>
+    </div>
+</div>
