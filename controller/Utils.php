@@ -4,7 +4,7 @@
 class Utils
 {
     static function modifierRole ($NumUtilisateur, $Role) {
-	
+
         $dbhost = 'localhost';
         $dbuser = 'agile8';
         $dbpass = 'ahV2FeemahM6Jiex';
