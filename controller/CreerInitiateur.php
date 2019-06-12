@@ -3,13 +3,12 @@
 
     include_once('../model/model.php');
 
-    //Recuperation des donnees
-    $num = '2';
     $prenom = $_POST['prenom'];
     $nom = $_POST['nom'];
     $mdp = md5($_POST['mdp']);
     $mail = $_POST['mail'];
     $role = $_POST['role'];
+    $max = 0;
 
     $req = 'SELECT MAX(MEM_NUM) FROM PLO_MEMBRE';
     $res = $base->query($req);
@@ -18,7 +17,6 @@
     }
     $max++;
 
-    //Insertion des valeurs dans la base de donnee
     $req2 = "INSERT INTO PLO_MEMBRE VALUES ('$max', '$prenom', '$nom', '$mail', '$mdp', '$role')";
     $base->query($req2);
 

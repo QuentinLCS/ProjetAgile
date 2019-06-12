@@ -1,4 +1,4 @@
-<a class="waves-effect waves-light btn modal-trigger" href="#registerEleve">Ajouter un élève</a>
+<a class="blue waves-effect waves-light btn modal-trigger" href="#registerEleve"><strong>Ajouter un élève</strong></a>
 
 <div id="registerEleve" class="modal ">
     <h5 class="modal-close">&#10005;</h5>
@@ -6,7 +6,7 @@
         <h4>Créer un élève</h4>
 
         <div class="row">
-            <form class="col s12" method="post" action="controller/CreerEleve.php">
+            <form class="col s12" method="post" action="/controller/CreerEleve.php">
                 <div class="row">
                     <div class="input-field col s6">
                         <input id="PrenomEleve" type="text" class="validate" name="prenom" required>

@@ -1,40 +1,16 @@
 <div class="container">
     <div class="row">
-        <div class="col s12 m12 l3">
+        <div class="col s12 m6 l6">
             <h5 class="black-text">Qui sommes-nous ?</h5>
             <p class="grey-text text-darken-1">
-                SubAlligator sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta
-                sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+                Sub'Alligators Sub’Alligators est un club de plongée de Caen. Ce site est un panel réservé aux initiateurs du club, leur permettant de s'organiser au mieux.
             </p>
         </div>
-        <div class="col offset-l1 offset-m2 s4 m3 l3">
+        <div class="col s12 m6 l6"">
             <h5 class="black-text">Liens utiles</h5>
             <ul class="grey-text darken-3">
-                <li><a href="#">Lien 1</a></li>
-                <li><a href="#">Lien 2</a></li>
-                <li><a href="#">Lien 3</a></li>
-                <li><a href="#">Lien 4</a></li>
-                <li><a href="#">Lien 5</a></li>
-                <li><a href="#">Lien 6</a></li>
-                <li><a href="#">Lien 7</a></li>
-                <li><a href="#">Lien 8</a></li>
-                <li><a href="#">Lien 9</a></li>
-            </ul>
-        </div>
-        <div class="col offset-l1 offset-m2 s4 m3 l3">
-            <h5 class="black-text">Nous suivre</h5>
-            <ul>
-                <li><a href="#">Lien 1</a></li>
-                <li><a href="#">Lien 2</a></li>
-            </ul>
-        </div>
-        <div class="col offset-l1 offset-m2 s4 m3 l3">
-            <h5 class="black-text">Légal</h5>
-            <ul>
-                <li><a href="#">Lien 1</a></li>
-                <li><a href="#">Lien 2</a></li>
-                <li><a href="#">Lien 3</a></li>
+                <li><a href="www.suballigators.fr">Site du club</a></li>
+                <li><a href="iutc3.unicaen.fr">Site du campus 3</a></li>
             </ul>
         </div>
     </div>

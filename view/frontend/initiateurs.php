@@ -1,7 +1,9 @@
 <?php
 
+echo "<div class='container center'>";
 include_once($pageRepertory . "registerInitiateur.php");
 include_once($pageRepertory . "registerEleve.php");
+echo "</div>";
 
 //Connection Base de Donnee
 $dbhost = 'localhost';
@@ -22,7 +24,7 @@ HEREDOC;
 
 $res = $pdoConnection->query($req);
 
-    echo '<table class="striped highlight centered">
+    echo '<table class="striped centered">
         <thead>
             <tr>
                 <th>NUMERO</th>

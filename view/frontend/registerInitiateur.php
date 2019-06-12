@@ -1,4 +1,4 @@
-<a class="waves-effect waves-light btn modal-trigger" href="#registerInitiateur">Ajouter un initiateur</a>
+<a class="yellow darken-2 waves-effect waves-light btn modal-trigger" href="#registerInitiateur"><strong>Ajouter un initiateur</strong></a>
 
 <div id="registerInitiateur" class="modal ">
     <h5 class="modal-close">&#10005;</h5>

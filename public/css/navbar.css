@@ -2,8 +2,8 @@ html {
     --couleur_principale: #2196f3;
 }
 
-nav.nav-extended div.nav-wrapper ul li:first-child {
-    margin-right: 10px;
+header nav {
+    margin-bottom: 20px;
 }
 
 header nav.nav-extended .nav-content .tabs {
