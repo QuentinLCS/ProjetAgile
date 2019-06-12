@@ -1,33 +1,41 @@
 <div id="login" class="modal ">
     <h5 class="modal-close">&#10005;</h5>
     <div class="modal-content center">
-        <h4>Connexion</h4>
+        <h4>Créer un initiateur</h4>
 
         <form action="#">
 
-            <div class="input-field">
-                <i class="material-icons prefix">person</i>
-                <input autofocus type="text" id="name" data-length="20">
-                <label for="name">Pseudonyme</label>
-            </div>
-            <br>
-
-            <div class="input-field">
-                <i class="material-icons prefix">lock</i>
-                <input type="password" id="pass" data-length="40">
-                <label for="pass">Mot de passe</label>
-            </div>
-            <br>
-
-            <div class="center">
-                <label for="check">
-                    <input type="checkbox" id="check">
-                    <span>Se souvenir de moi</span>
-                </label>
-            </div>
-
-            <input type="submit" value="Login" class="btn btn-large blue">
-
+           
+  <div class="row">
+    <form class="col s12">
+      <div class="row">
+      <div class="input-field col s6">
+          <input id="Prenom" type="text" class="validate">
+          <label for="Prenom">Entrez Prénom</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="Nom" type="text" class="validate">
+          <label for="Nom">Entrez Nom</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input placeholder="Entrez votre adresse" id="AdresseMail" type="email" class="validate">
+          <label for="AdresseMail">Adresse Mail</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input placeholder="Créez son mot de passe" id="MDP" type="password" class="validate">
+          <label for="MDP">Mot de passe</label>
+        </div>
+      </div>
+      <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+        <i class="material-icons right">send</i>
+    </button>
+    </form>
+  </div>
+        
         </form>
     </div>
 </div>
