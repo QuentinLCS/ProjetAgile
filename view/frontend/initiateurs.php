@@ -17,7 +17,7 @@ $req = <<<HEREDOC
 SELECT MEM_NUM,MEM_NOM,MEM_PRENOM,MEM_MAIL FROM PLO_MEMBRE ORDER BY MEM_NUM desc
 HEREDOC;
 
-$res = $pdoConnection->query($req);
+$res = $pdoConnection->prepare($req);
 while ($donnees = $res->fetch())
 {
     echo htmlspecialchars($donnees['MEM_NUM']).htmlspecialchars($donnees[' MEM_NOM']).htmlspecialchars($donnees[' MEM_PRENOM']).htmlspecialchars($donnees[' MEM_MAIL'])?><br>;
