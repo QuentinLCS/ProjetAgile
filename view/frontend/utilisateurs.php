@@ -1,1 +1,0 @@
-<a class="waves-effect waves-light btn modal-trigger " href="#register">Créer un utilisateur</a>
