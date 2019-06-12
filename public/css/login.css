@@ -1,0 +1,39 @@
+input[type="submit"]{
+    width: 100%;
+    margin-top: 50px;
+}
+
+.modal-close{
+    position: absolute;
+    top:10px;
+    right:10px;
+    padding:0;
+    margin:0;
+}
+
+.input-field label {
+    color: #929292;
+}
+
+.input-field input:focus + label {
+    color: #b5b5b5 !important;
+}
+
+.input-field input:focus, .materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #2196f3 !important;
+    box-shadow: 0 1px 0 0 #2196f3 !important;
+}
+
+.input-field input.valid {
+    border-bottom: 1px solid #2196f3;
+    box-shadow: 0 1px 0 0 #2196f3;
+}
+
+.input-field input.invalid {
+    border-bottom: 1px solid #b10900;
+    box-shadow: 0 1px 0 0 #b10900;
+}
+
+.input-field .prefix.active {
+    color: #2196f3;
+}
