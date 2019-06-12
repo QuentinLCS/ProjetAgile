@@ -29,6 +29,15 @@
                         <label for="MDP">Mot de passe</label>
                     </div>
                 </div>
+                <div class="row input-field col s12">
+                    <select id ="Role" name="role">
+                        <option value="" disabled selected>Choisissez le rôle désiré...</option>
+                        <option value="INITIATEUR">Initiateur</option>
+                        <option value="RESPONSABLE">Responsable</option>
+                        <option value="DIRECTEUR">Directeur</option>
+                    </select>
+                    <label>Rôle de départ</label>
+                </div>
                 <button class="btn waves-effect waves-light" type="submit" name="action">Submit
                     <i class="material-icons right">send</i>
                 </button>

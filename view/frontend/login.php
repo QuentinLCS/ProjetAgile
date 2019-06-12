@@ -31,13 +31,3 @@
         </form>
     </div>
 </div>
-
-<script>
-    $(document).ready(function(){
-        $('.modal').modal();
-    });
-
-    $(document).ready(function() {
-        $('input#name, input#pass').characterCounter();
-    });
-</script>

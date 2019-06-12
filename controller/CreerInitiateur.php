@@ -5,6 +5,7 @@ $prenom = $_POST['prenom'];
 $nom = $_POST['nom'];
 $mdp = md5($_POST['mdp']);
 $mail = $_POST['mail'];
+$role = $_POST['role'];
 
 //Connection Base de Donnee
 
@@ -34,7 +35,7 @@ $num = $valeur['NOMBRE']+1;
 
 //Insertion des valeurs dans la base de donnee
 $insertsql = <<<HEREDOC
-INSERT INTO PLO_MEMBRE VALUES ('$num', '$prenom', '$nom', '$mail', '$mdp', 'INITIATEUR')
+INSERT INTO PLO_MEMBRE VALUES ('$num', '$prenom', '$nom', '$mail', '$mdp', '$role')
 HEREDOC;
 
 $rs1 = $pdoConnection->prepare($insertsql);

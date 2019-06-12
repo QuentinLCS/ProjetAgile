@@ -38,3 +38,18 @@ if (isset($_GET["page"])) {
 
     </body>
 </html>
+
+
+<script>
+    $(document).ready(function(){
+        $('.modal').modal();
+    });
+
+    $(document).ready(function() {
+        $('input#name, input#pass').characterCounter();
+    });
+
+    $(document).ready(function(){
+        $('select').formSelect();
+    });
+</script>
