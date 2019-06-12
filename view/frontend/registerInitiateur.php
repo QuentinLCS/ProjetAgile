@@ -1,10 +1,12 @@
+<a class="waves-effect waves-light btn modal-trigger" href="#registerInitiateur">Ajouter un initiateur</a>
+
 <div id="registerInitiateur" class="modal ">
     <h5 class="modal-close">&#10005;</h5>
     <div class="modal-content center">
         <h4>Créer un initiateur</h4>
 
         <div class="row">
-            <form class="col s12" method="post" action="controller/CreeCompteTest.php">
+            <form class="col s12" method="post" action="/controller/CreerInitiateur.php">
                 <div class="row">
                     <div class="input-field col s6">
                         <input id="PrenomIni" type="text" class="validate" name="prenom" required>
@@ -32,13 +34,5 @@
                 </button>
             </form>
         </div>
-
-        <script>
-            $(document).ready(function(){
-                $('.modal').modal();
-            });
-
-            $(document).ready(function() {
-                $('input#name, input#pass').characterCounter();
-            });
-        </script>
+    </div>
+</div>
