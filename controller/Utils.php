@@ -20,8 +20,11 @@ class Utils
 
         $boutonDirecteurs = <<<HEREDOC
 UPDATE PLO_MEMBRE
-SET MEM_ROLE = '$Role'
+SET MEM_ROLE = '$Role' where MEM_NUM = $NumUtilisateur
 HEREDOC;
+
+        $rs1 = $pdoConnection->prepare($boutonDirecteurs);
+        $rs1->execute();
 
     }
 }
