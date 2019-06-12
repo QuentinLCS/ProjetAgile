@@ -20,7 +20,7 @@ HEREDOC;
 $res = $pdoConnection->query($req);
 while ($donnees = $res->fetch())
 {
-    echo ($donnees['MEM_NUM']).($donnees[' MEM_NOM']).($donnees[' MEM_PRENOM']).($donnees[' MEM_MAIL']).$donnees[' MEM_ROLE']?><br>;
+    echo htmlspecialchars($donnees['MEM_NUM']).htmlspecialchars($donnees[' MEM_NOM']).htmlspecialchars($donnees[' MEM_PRENOM']).htmlspecialchars($donnees[' MEM_MAIL'])?><br>;
     <a class="waves-effect waves-light btn" href="#registerInitiateur">Directeur</a>
     <a class="waves-effect waves-light btn" href="#registerInitiateur">Responsable</a>
     <a class="waves-effect waves-light btn" href="#registerInitiateur">Initiateur</a><?php
