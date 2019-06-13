@@ -1,9 +1,12 @@
 <?php
+if(isset($_SESSION['role'])){
+    if($_SESSION['role']=='DIRECTEUR'){ 
+        echo "<div class='container center'>";
+        include_once($pageRepertory . "registerInitiateur.php");
+        echo "</div>";
+    }
+}
 
-echo "<div class='container center'>";
-include_once($pageRepertory . "registerInitiateur.php");
-
-echo "</div>";
 
 //Connection Base de Donnee
 $dbhost = 'localhost';
