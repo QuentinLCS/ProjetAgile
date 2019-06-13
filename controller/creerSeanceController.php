@@ -8,7 +8,7 @@ $membreNumMeet = null;
 
 $req = "SELECT MEM_NUM, MEM_NOM, MEM_PRENOM FROM PLO_MEMBRE";
 
-while($donnees = $res->fetch())
+while($donnees = $req->fetch())
 {
 	if($membrePrenomMeet == $donnees['MEM_PRENOM'] AND $membreNomMeet == $donnees['MEM_NOM'])
 	{
