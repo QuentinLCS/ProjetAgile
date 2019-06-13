@@ -15,7 +15,7 @@ try {
   echo "Erreur connection : ".$e->getMessage();
 }
 ?>
-<a class="blue waves-effect waves-light btn modal-trigger" href="#planning"><strong>Ajouter une séance</strong></a>
+<a class="blue waves-effect waves-light btn modal-trigger" href="#registerEleve"><strong>Ajouter une séance</strong></a>
 
 <div id="registerEleve" class="modal ">
     <h5 class="modal-close">&#10005;</h5>
@@ -29,7 +29,7 @@ try {
                         <input autofocus type="text" id="name" data-length="20" name="typeSeance">
               			<label for="name"> </label>
                     </div>
-                    
+
                     <br>
                     <div class="input-field col s6">
               			<input type="date" id="start" name="dateSeance">
