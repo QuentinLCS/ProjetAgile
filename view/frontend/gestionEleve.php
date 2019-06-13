@@ -24,8 +24,7 @@ echo '<table class="striped centered">
             <tr>
                 <th>NUMERO</th>
                 <th>NOM</th>
-                <th>PRENOM</th>    
-                <th> </th>  
+                <th>PRENOM</th>     
                 <th>EDITER UN ELEVE...</th>         
             </tr>
         </thead>
