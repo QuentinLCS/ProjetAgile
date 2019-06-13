@@ -29,18 +29,7 @@ try {
                         <input autofocus type="text" id="name" data-length="20" name="typeSeance">
               			<label for="name"> </label>
                     </div>
-                    <div class="input-field col s6">
-                        <select name="selectMembre">
-                            <?php
-                            $sql='SELECT MEM_NUM, MEM_NOM, MEM_PRENOM FROM PLO_MEMBRE'; 
-                            $list = mysql_query($sql); 
-                            while ($data = mysql_fetch_array($list)) 
-                            {
-                                echo '<option>'.$data["MEM_NOM"].$data["MEM_PRENOM"].'</option><br/>';
-                            } 
-                            ?> 
-                        </select>
-                    </div>
+                    
                     <br>
                     <div class="input-field col s6">
               			<input type="date" id="start" name="dateSeance">
