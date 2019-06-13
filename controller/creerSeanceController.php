@@ -31,7 +31,7 @@ try {
     
     exit();
 ?>
-history.go(-2);
+<a href="javascript:history.go(-2)">
 
 
 
