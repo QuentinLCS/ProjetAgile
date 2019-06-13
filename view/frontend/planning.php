@@ -39,7 +39,7 @@ try {
                 <input type="text" name="nomMembre">
                 <label for="name">Prenom</label>
                 <input type="text" name="prenomMembre">
-                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <button class="btn waves-effect waves-light" type="submit" name="action">Ajouter
                     <i class="material-icons right">send</i>
                 </button>
 
