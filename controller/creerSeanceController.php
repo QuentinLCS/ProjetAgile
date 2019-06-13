@@ -30,8 +30,7 @@ while($donnees = $reponse->fetch())
 }
 */
 
-$req2 = "INSERT INTO PLO_SEANCE(SEA_CODE, SEA_DATE) VALUES ('$name','$dateMeet')";
-$base->query($req2);
+$req2->exec('INSERT INTO PLO_SEANCE(SEA_CODE, SEA_DATE) VALUES (\'$name\',\'$dateMeet\')');
 header('Location: /index.php');
 exit();
 ?>
