@@ -24,7 +24,7 @@ while($donnees = $reponse->fetch()){
         }
        
     }
-    if($compteur==0){
+    /*if($compteur==0){
         header("Location: view/frontend/visiteur.php");
     }
     else{
@@ -44,8 +44,8 @@ while($donnees = $reponse->fetch()){
         }
             header("Location: view/frontend/visiteur.php");
         }
-        else
-    }
+    }*/
+    header("Location: view/frontend/visiteur.php");
 }
 else{
     header("Location: view/frontend/visiteur.php");
