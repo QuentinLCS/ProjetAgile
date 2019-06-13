@@ -1,6 +1,8 @@
 <?php
+echo "<div class='container center'>";
 include_once($pageRepertory . "formComp.php");
 include_once($pageRepertory . "formApti.php");
+echo "</div>";
 
 //Connection Base de Donnee
 $dbhost = 'localhost';
@@ -28,7 +30,7 @@ echo '<table class="striped centered">
                 <th>NIVEAU</th>
                 <th>NOM</th>    
                 <th>DESCRIPTION</th>  
-                <th>EDITER UN MEMBRE...</th>         
+                <th>EDITER UNE COMPETENCE...</th>         
             </tr>
         </thead>
         <tbody>';
@@ -38,7 +40,7 @@ while ($donnees = $res->fetch())
     global $num;
     $num = htmlspecialchars($donnees['COM_CODE']);
 
-    echo "<tr> <td>".htmlspecialchars($num) . "</td><td>" .htmlspecialchars($donnees['MEM_NOM']). "</td><td>" .htmlspecialchars($donnees['MEM_PRENOM'])."</td><td>".$donnees['MEM_ROLE']."</td>"?>
+    echo "<tr> <td>".htmlspecialchars($num) . "</td><td>" .htmlspecialchars($donnees['FOR_CODE']). "</td><td>" .htmlspecialchars($donnees['COM_NOM'])."</td><td>".$donnees['COM_DESC']."</td>"?>
     <td>
         <form action="../../controller/utils.php" method="post" class="usersOptions">
             <input type="number" name="num" value="<?php echo $num ?>" style="display: none;">
