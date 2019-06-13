@@ -20,11 +20,11 @@
 
                             include_once("../../model/model.php");
 
-                            $req = 'SELECT * FROM PLO_APTITUDES';
+                            $req = 'SELECT * FROM PLO_COMPETENCES';
                             $res = $base->query($req);
 
                             foreach (mysqli_fetch_array($res) as $data) {
-                                echo '<option value="'.$data["COM_CODE"].'">'.$data["APT_NOM"].'</option>';
+                                echo '<option value="'.$data["COM_CODE"].'">'.$data["COM_CODE"].'</option>';
                             }
                             ?>
                         </select>
