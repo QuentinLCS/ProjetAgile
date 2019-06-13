@@ -1,57 +1,54 @@
 <?php
 
-global $base;
+if(isset($_COOKIE['mail']) && isset($_COOKIE['mdp'])){
+        $compteur=0;
+        include_once('connexionMySQL.php');
 
-include_once("controller/Menu.php");
+$reqsql = <<<HEREDOC
+SELECT MEM_NOM, MEM_PRENOM, MEM_ROLE from PLO_MEMBRE WHERE MEM_MAIL= '$mail' AND MEM_MDP= '$mdp'
+HEREDOC;
+        
+$reponse=$pdoConnection->prepare($reqsql);
 
-$title = "SubAlligator | ";
-$pageRepertory = "view/frontend/";
-if (isset($_GET["page"])) {
-    $page = $_GET["page"];
-    if  (!file_exists($pageRepertory.strtolower($page).".php")) $page = "Error_404";
-    $title = $title . $page;
-} else {
-    $page = "home";
-    $title = $title . "Home";
+$reponse->execute();
+        
+while($donnees = $reponse->fetch()){
+        if($_COOKIE['mail']==$donnees['MEM_MAIL'] && $_COOKIE['mdp']==md5($donnees['MEM_MDP']) && ){
+            session_start();
+            $compteur++;
+            $_SESSION['nom']=$donnees['MEM_NOM'];
+            $_SESSION['prenom']=$donnees['MEM_PRENOM'];
+            $_SESSION['role']=$donnees['MEM_ROLE'];
+            setcookie('mail', htmlspecialchars($_POST['mail']), time() + 24*3600, null, null, false, true);
+            setcookie('mdp', md5(htmlspecialchars($_POST['mdp'])), time() + 24*3600, null, null, false, true);
+        }
+       
+    }
+    if($compteur==0){
+        header("Location: view/frontend/visiteur.php");
+    }
+    else{
+        switch ($_SESSION['role']) {
+            case 'INITIATEUR':
+                header("Location: view/frontend/initiateur.php");
+                break;
+             case 'RESPONSABLE':
+                header("Location: view/frontend/responsable.php");
+                break;
+             case 'DIRECTEUR':
+                header("Location: view/frontend/directeur.php");
+                break;
+            default:
+                header("Location: view/frontend/visiteur.php");
+                break;
+        }
+            header("Location: view/frontend/visiteur.php");
+        }
+        else
+    }
 }
+else{
+    header("Location: view/frontend/visiteur.php");
+}
+
 ?>
-
-<html lang="fr">
-    <head>
-        <?php include_once($pageRepertory."head.php"); ?>
-        <title><?php echo $title ?></title>
-    </head>
-
-    <body>
-        <header>
-            <?php
-                include_once($pageRepertory."navbar.php");
-                include_once($pageRepertory . "login.php");
-            ?>
-        </header>
-
-        <main>
-            <?php include_once($pageRepertory.strtolower($page).".php"); ?>
-        </main>
-
-        <footer class="page-footer white z-depth-3">
-            <?php include_once($pageRepertory."footer.php"); ?>
-        </footer>
-
-    </body>
-</html>
-
-
-<script>
-    $(document).ready(function(){
-        $('.modal').modal();
-    });
-
-    $(document).ready(function() {
-        $('input#name, input#pass').characterCounter();
-    });
-
-    $(document).ready(function(){
-        $('select').formSelect();
-    });
-</script>
