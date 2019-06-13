@@ -23,6 +23,8 @@ $reponse->execute();
 		$_SESSION['num']=$donnees['MEM_NUM'];
 		setcookie('mail', htmlspecialchars($_POST['mail']), time() + 24*3600, null, null, false, true);
 		setcookie('mdp', md5(htmlspecialchars($_POST['mdp'])), time() + 24*3600, null, null, false, true);
+        setcookie('role', $donnees['MEM_ROLE'], time() + 24*3600, null, null, false, true);
+        setcookie('num', $donnees['MEM_NUM'], time() + 24*3600, null, null, false, true);
 	}
 	if($compteur==0){
 		echo "Ce compte n'existe pas";
