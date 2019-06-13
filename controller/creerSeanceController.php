@@ -23,7 +23,7 @@ $reponse = $bdd->query("SELECT MEM_NUM, MEM_NOM, MEM_PRENOM FROM PLO_MEMBRE");
 
 while($donnees = $reponse->fetch())
 {
-	if($membrePrenomMeet == $donnees['MEM_PRENOM']  $membreNomMeet == $donnees['MEM_NOM'])
+	if($membrePrenomMeet == $donnees['MEM_PRENOM'] AND $membreNomMeet == $donnees['MEM_NOM'])
 	{
 		$membreNumMeet = $donnees['MEM_NUM'];
 	}
