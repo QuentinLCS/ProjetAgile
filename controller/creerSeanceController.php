@@ -4,7 +4,20 @@ $nameMeet = htmlentities($_POST['typeSeance']);
 $dateMeet = htmlentities(date('d-m-Y', strtotime($_POST['dateSeance'])));
 $membreNomMeet = "H";
 $membrePrenomMeet = "N";
-$membreNumMeet = null;
+$membreNumMeet;
+//Connection Base de Donnee
+
+$dbhost = 'localhost';
+$dbuser = 'agile8';
+$dbpass = 'ahV2FeemahM6Jiex';
+$dsn = 'mysql:host=localhost;dbname=agile8_bd;charset=utf8';
+
+try {
+  $pdoConnection = new PDO($dsn, $dbuser, $dbpass);
+  $pdoConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+  echo "Erreur connection : ".$e->getMessage();
+}
 
 $reponse = $bdd->require("SELECT MEM_NUM, MEM_NOM, MEM_PRENOM FROM PLO_MEMBRE");
 
