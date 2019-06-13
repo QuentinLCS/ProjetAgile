@@ -35,15 +35,12 @@ HEREDOC;
                             $res = $pdoConnection->query($req);
                             //session_start();
                             while ($donnees = $res->fetch()) {
-                                echo '<option value="'.htmlspecialchars($donnees["COM_CODE"]).'">'.htmlspecialchars($donnees["COM_NOM"]).'</option>';
+                                echo '<option value="'.$donnees["COM_CODE"].'">'.$donnees["COM_NOM"].'</option>';
                             }
                             ?>
                         </select>
                         <label>Compétence mère</label>
                     </div>
-                </div>
-                <div class="row">
-                    
                 </div>
                 <div class="row">
                     <div class="input-field col s12">

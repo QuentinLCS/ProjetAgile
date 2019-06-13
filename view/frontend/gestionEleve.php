@@ -23,9 +23,14 @@ echo '<table class="striped centered">
             <tr>
                 <th>FORMATION</th>
                 <th>NOM</th>
-                <th>PRENOM</th>     
-                <th>EDITER UN ELEVE...</th>         
-            </tr>
+                <th>PRENOM</th>';
+if(isset($_SESSION['role'])){
+        if($_SESSION['role']=='DIRECTEUR' || $_SESSION['role']=='RESPONSABLE'){  
+            echo'<th>EDITER UN ELEVE...</th>  ';
+        }
+    }     
+                       
+echo '  </tr>
         </thead>
         <tbody>';
 
@@ -35,14 +40,18 @@ while ($donnees = $res->fetch())
     $num = htmlspecialchars($donnees['ELE_NUM']);
 
     echo "<tr> <td>".htmlspecialchars($donnees['FOR_NOM']) . "</td><td>" .htmlspecialchars($donnees['ELE_NOM']). "</td><td>" .htmlspecialchars($donnees['ELE_PRENOM'])."</td>"?>
-    <td>
-        <form action="../../controller/Eleve.php" method="post" class="usersOptions">
-            <input type="number" name="numEleve" value="<?php echo $num ?>" style="display: none;">
-            <input type="submit" name="formulaireModifier" value="MODIFIER" class="red darken-2 waves-effect waves-light small">
-            <input type="submit" name="remEleve" value="X" class="grey darken-4 waves-effect waves-light small">
-        </form>
-    </td>
-    <?php
+    <?php if(isset($_SESSION['role'])){
+            if($_SESSION['role']=='DIRECTEUR' || $_SESSION['role']=='RESPONSABLE'){ ?>
+                <td>
+                    <form action="../../controller/Eleve.php" method="post" class="usersOptions">
+                        <input type="number" name="numEleve" value="<?php echo $num ?>" style="display: none;">
+                        <input type="submit" name="formulaireModifier" value="MODIFIER" class="red darken-2 waves-effect waves-light small">
+                        <input type="submit" name="remEleve" value="X" class="grey darken-4 waves-effect waves-light small">
+                    </form>
+                </td>
+            <?php
+            }
+        }
 }
 
 echo "</tbody> </table>";
