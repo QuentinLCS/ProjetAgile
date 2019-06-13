@@ -36,16 +36,15 @@ try {
                     </div>
                 </div>
                 <select name="selectMembre">
-                <?php
-                $sql = "SELECT MEM_NUM, MEM_NOM, MEM_PRENOM FROM PLO_MEMBRE";
-                $res = mysql_query($sql) or exit(mysql_error());
-                while($data=mysql_fetch_array($res)) 
-                {
-                    echo '<option>'.$data["MEM_NOM"].$data["MEM_PRENOM"].'</option><br/>';
-                }
-                ?>
+                    <?php
+                    $sql = "SELECT MEM_NUM, MEM_NOM, MEM_PRENOM FROM PLO_MEMBRE";
+                    $res = mysql_query($sql) or exit(mysql_error());
+                    while($data=mysql_fetch_array($res)) 
+                    {
+                        echo '<option>'.$data["MEM_NOM"].$data["MEM_PRENOM"].'</option><br/>';
+                    }
+                    ?>
                 </select>
-                <input type="hidden" name="numMembre" values <?php echo $data["MEM_NUM"];?>>
                 
                 <button class="btn waves-effect waves-light" type="submit" name="action">Submit
                     <i class="material-icons right">send</i>
