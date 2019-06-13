@@ -17,6 +17,14 @@
                         <input id="NomEleve" type="text" class="validate" name="nom" required>
                         <label for="nom">Entrez Nom</label>
                     </div>
+                    <div class="row input-field col s12">
+                    <select id ="Role" name="niveau" class="validate">
+                        <option value="1">F1</option>
+                        <option value="2">F2</option>
+                        <option value="3">F3</option>
+                    </select>
+                    <label>Rôle de départ</label>
+                </div>
                 </div>
                 <button class="btn waves-effect waves-light" type="submit" name="action">Ajouter
                     <i class="material-icons right">send</i>

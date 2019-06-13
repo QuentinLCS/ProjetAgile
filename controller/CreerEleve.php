@@ -5,6 +5,7 @@
 
     $prenom = $_POST['prenom'];
     $nom = $_POST['nom'];
+    $niveau = $_POST['niveau'];
     $max = 0;
 
     $req = 'SELECT MAX(ELE_NUM) FROM PLO_ELEVE';
@@ -14,7 +15,7 @@
     }
     $max++;
 
-    $req2 = "INSERT INTO PLO_ELEVE VALUES ('$max', '$prenom', '$nom')";
+    $req2 = "INSERT INTO PLO_ELEVE(ELE_NUM, ELE_PRENOM , ELE_NOM, FOR_CODE) VALUES ('$max', '$prenom', '$nom', '$niveau')";
     $base->query($req2);
 
     header('Location: ../view/frontend/visiteur.php?page=eleve');
