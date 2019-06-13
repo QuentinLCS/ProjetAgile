@@ -36,9 +36,9 @@ try {
                     </div>
                 </div>
                 <label for="name">Nom</label>
-                <input type="text" name="nomMembre">
+                <input autofocus type="text" id="name" data-length="20" name="nomMembre">
                 <label for="name">Prenom</label>
-                <input type="text" name="prenomMembre">
+                <input autofocus type="text" id="name" data-length="20" name="prenomMembre">
                 <button class="btn waves-effect waves-light" type="submit" name="action">Ajouter
                     <i class="material-icons right">send</i>
                 </button>
