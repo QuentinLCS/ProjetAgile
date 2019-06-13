@@ -17,7 +17,7 @@
                         <label for="nom">Entrez Nom</label>
                     </div>
                 </div>
-                <button class="btn waves-effect waves-light" type="submit" name="action">Ajouter
+                <button class="btn waves-effect waves-light" type="submit" name="action" value="Ajouter">Ajouter
                     <i class="material-icons right">envoyé</i>
                 </button>
             </form>
