@@ -19,7 +19,7 @@ try {
   echo "Erreur connection : ".$e->getMessage();
 }
 
-$reponse = $bdd->require("SELECT MEM_NUM, MEM_NOM, MEM_PRENOM FROM PLO_MEMBRE");
+$reponse = $bdd->query("SELECT MEM_NUM, MEM_NOM, MEM_PRENOM FROM PLO_MEMBRE");
 
 while($donnees = $req->fetch())
 {
