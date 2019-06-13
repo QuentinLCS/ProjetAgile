@@ -19,12 +19,25 @@
     </div>
     <div class="nav-content">
         <ul class="tabs tabs-fixed-width grey lighten-4">
-            <li class="tab">
-                <a <?php Menu::isCliquable($page, 'Initiateurs') ?>>Initiateurs</a>
-            </li>
-            <li class="tab">
-                <a <?php Menu::isCliquable($page, 'Competences') ?>>Compétences</a>
-            </li>
+
+            <?php 
+                if(isset($_SESSION['role'])){
+                    if($_SESSION['role']=='DIRECTEUR')?>
+                        <li class='tab'>
+                            <a <?php Menu::isCliquable($page, 'Initiateurs')?>>Initiateurs</a>
+                        </li>
+                       
+                     <?php
+                    if(!$_SESSION['role']=='INITIATEUR')?>
+                        <li class="tab">
+                            <a <?php Menu::isCliquable($page, 'Competences') ?>>Compétences</a>
+                        </li>
+                    <?php
+                    
+                }
+                
+             
+            ?>
             <li class="tab">
                 <a class="index-button <?php if ($page == 'home') echo ' active"'; else echo '" target="_top" href="/"' ?>><i class="material-icons">home</i></a>
             </li>

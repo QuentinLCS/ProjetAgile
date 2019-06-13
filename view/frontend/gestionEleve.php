@@ -14,14 +14,14 @@ try {
   echo "Erreur connection : ".$e->getMessage();
 }
 
-$req = "SELECT ELE_NUM, ELE_NOM,ELE_PRENOM FROM PLO_ELEVE ORDER BY ELE_NUM asc";
+$req = "SELECT ELE_NUM, ELE_NOM,ELE_PRENOM, FOR_NOM FROM PLO_ELEVE JOIN FORMATION USING(FOR_CODE) ORDER BY ELE_NUM asc";
 
 $res = $pdoConnection->query($req);
 
 echo '<table class="striped centered">
         <thead>
             <tr>
-                <th>NUMERO</th>
+                <th>FORMATION</th>
                 <th>NOM</th>
                 <th>PRENOM</th>     
                 <th>EDITER UN ELEVE...</th>         
@@ -34,7 +34,7 @@ while ($donnees = $res->fetch())
     global $num;
     $num = htmlspecialchars($donnees['ELE_NUM']);
 
-    echo "<tr> <td>".htmlspecialchars($num) . "</td><td>" .htmlspecialchars($donnees['ELE_NOM']). "</td><td>" .htmlspecialchars($donnees['ELE_PRENOM'])."</td>"?>
+    echo "<tr> <td>".htmlspecialchars($donnees['FOR_NOM']) . "</td><td>" .htmlspecialchars($donnees['ELE_NOM']). "</td><td>" .htmlspecialchars($donnees['ELE_PRENOM'])."</td>"?>
     <td>
         <form action="../../controller/Eleve.php" method="post" class="usersOptions">
             <input type="number" name="numEleve" value="<?php echo $num ?>" style="display: none;">

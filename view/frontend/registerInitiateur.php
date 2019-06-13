@@ -37,7 +37,7 @@
                     </select>
                     <label>Rôle de départ</label>
                 </div>
-                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <button class="btn waves-effect waves-light" type="submit" name="action">Ajouter
                     <i class="material-icons right">send</i>
                 </button>
             </form>
