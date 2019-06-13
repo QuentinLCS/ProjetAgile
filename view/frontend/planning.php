@@ -1,9 +1,4 @@
-<?php
-echo "planning";
 
-//Connection Base de Donnee
-
-?>
 <a class="blue waves-effect waves-light btn modal-trigger" href="#planning"><strong>Ajouter une séance</strong></a>
 
 <div id="planning" class="modal ">
@@ -44,3 +39,30 @@ echo "planning";
         </div>
     </div>
 </div>
+
+<?php
+//Connection Base de Donnee
+
+$dbhost = 'localhost';
+$dbuser = 'agile8';
+$dbpass = 'ahV2FeemahM6Jiex';
+$dsn = 'mysql:host=localhost;dbname=agile8_bd;charset=utf8';
+
+try {
+  $pdoConnection = new PDO($dsn, $dbuser, $dbpass);
+  $pdoConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+  echo "Erreur connection : ".$e->getMessage();
+}
+$req = <<<HEREDOC
+SELECT SEA_CODE, SEA_DATE FROM PLO_SEANCE ORDER BY SEA_CODE asc;
+HEREDOC;
+
+$res = $pdoConnection->query($req);
+while ($donnees = $res->fetch())
+{
+    echo "<tr> <td>" "</td><td>" .htmlspecialchars($donnees['SEA_CODE']). "</td>";
+}
+
+?>
+
