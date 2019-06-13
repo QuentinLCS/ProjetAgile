@@ -21,14 +21,10 @@
                     
                 </div>
                 <div class="row">
-                    <form class="col s12">
-                        <div class="row">
-                        <div class="input-field col s12">
-                            <textarea id="description" class="materialize-textarea" data-length="500" name="description"></textarea>
-                            <label for="description">Description de la compétence</label>
-                        </div>
-                        </div>
-                    </form>
+                    <div class="input-field col s12">
+                        <textarea id="description" class="materialize-textarea" data-length="500" name="description"></textarea>
+                        <label for="description">Description de la compétence</label>
+                    </div>
                 </div>
                 
                 <button class="btn waves-effect waves-light" type="submit" name="action">Submit

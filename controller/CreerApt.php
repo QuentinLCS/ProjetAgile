@@ -19,5 +19,5 @@ $max++;
 $req2 = "INSERT INTO PLO_APTITUDES VALUES ('$max', '$compCode', '$nom', '$description')";
 $base->query($req2);
 
-header('Location: /index.php/?page=Competences');
+header('Location: ../view/frontend/visiteur.php?page=Competences');
 exit();
