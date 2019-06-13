@@ -14,7 +14,7 @@ try {
   echo "Erreur connection : ".$e->getMessage();
 }
 
-$req = "SELECT ELE_NUM, ELE_NOM,ELE_PRENOM, FOR_NOM FROM PLO_ELEVE JOIN FORMATION USING(FOR_CODE) ORDER BY ELE_NUM asc";
+$req = "SELECT ELE_NUM, ELE_NOM,ELE_PRENOM, FOR_NOM FROM PLO_ELEVE JOIN FORMATION USING(FOR_CODE) ORDER BY ELE_NOM asc";
 
 $res = $pdoConnection->query($req);
 

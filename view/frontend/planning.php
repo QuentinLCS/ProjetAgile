@@ -35,19 +35,11 @@ try {
               			<input type="date" id="start" name="dateSeance">
                     </div>
                 </div>
-                <select name="selectMembre">
-                    <?php
-                    $reponse = $sql->query('SELECT MEM_NUM, MEM_NOM, MEM_PRENOM FROM PLO_MEMBRE');
-                    
-                    while($donnee = $reponse->fetch()) 
-                    {
-                        echo '<option>'.$data['MEM_NOM'].$data['MEM_PRENOM'].'</option><br/>';
-                    }
-                    $reponse->closeCursor();
-                    ?>
-                </select>
-
-                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <label for="name">Nom</label>
+                <input type="text" name="nomMembre">
+                <label for="name">Prenom</label>
+                <input type="text" name="prenomMembre">
+                <button class="btn waves-effect waves-light" type="submit" name="action">Ajouter
                     <i class="material-icons right">send</i>
                 </button>
 
