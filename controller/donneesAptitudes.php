@@ -30,6 +30,8 @@ function heures($idEleve){
         $i++;
     }
 
+    echo 'nb date : '.$i;
+
 }
 
 function statutAptitude($idEleve){
@@ -70,11 +72,12 @@ function statutAptitude($idEleve){
 
         /*Seconde ligne*/
         $comCode = $donnees['COM_CODE'];
-        $requeteAptitude = "SELECT DISTINCT APT_NOM FROM PLO_APTITUDES WHERE COM_CODE = '$comCode'";
+        $requeteAptitude = "SELECT DISTINCT APT_NOM, APT_CODE FROM PLO_APTITUDES WHERE COM_CODE = '$comCode'";
         $resAptitude = $pdoConnection->query($requeteAptitude);
 
         while($donneesLigne2 = $resAptitude->fetch()) {
             $tableau[1][$j] = $donneesLigne2['APT_NOM']." ";
+            $aptitude[$j] = $donneesLigne2['APT_CODE'];
             $j++;
         }
         $resAptitude->closeCursor();
@@ -85,26 +88,47 @@ function statutAptitude($idEleve){
     }
     $res->closeCursor();
 
+    $nombreAptitudes = $j;
 
+    echo 'Nombre aptitudes : '.$nombreAptitudes;
 
     $i =2;
     foreach ($listeDates as $uneDate){
         $tableau[$i][0] = $uneDate;
+
+        for ($j=0; $j<$nombreAptitudes; $j++){
+
+            $requeteValidation = "SELECT VAL_STATUT FROM VALIDE WHERE APT_CODE = '$aptitude[$j]' AND ELE_NUM = '$idEleve'";
+            $resValidation = $pdoConnection->query($requeteValidation);
+
+            $statut =" X ";
+            while($donneesValidation = $resValidation->fetch()) {
+                $statut = " ".$donneesValidation['VAL_SATUT']." ";
+            }
+
+            $tableau[$i][($j+1)] = $statut;
+
+            $j++;
+        }
+
+
+
         $i++;
     }
 
 
-
     /*TEST*/
+    echo '<table>';
     foreach ($tableau as $ligne){
+        echo "<tr>";
         foreach ($ligne as $case){
 
-            echo $case;
+            echo "<td>".$case."</td>";
 
         }
-        echo "<br>";
+        echo "</tr>";
     }
-
+    echo "</table>";
 
 
 }
