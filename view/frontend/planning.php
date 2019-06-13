@@ -55,7 +55,7 @@ try {
   echo "Erreur connection : ".$e->getMessage();
 }
 $req = <<<HEREDOC
-SELECT SEA_CODE, SEA_DATE FROM PLO_SEANCE ORDER BY SEA_CODE asc;
+SELECT DAT_DATE,ELU_NUM FROM TRAVAILLE;
 HEREDOC;
 
 $res = $pdoConnection->query($req);
