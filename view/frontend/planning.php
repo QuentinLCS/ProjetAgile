@@ -31,14 +31,13 @@ try {
                     </div>
                     <div class="input-field col s6">
                         <select name="selectMembre">
-                            <?php
-                            $sql = "SELECT MEM_NUM, MEM_NOM, MEM_PRENOM FROM PLO_MEMBRE";
-                            $res = mysql_query($sql) or exit(mysql_error());
-                            while ($donnees = $res->fetch()){
-                               echo '<option>'.$data["MEM_NOM"].$data["MEM_PRENOM"].'</option><br/>';
-                            }
-                            ?>
-                            <input type="hidden" name="numMembre" values <?php echo $data["MEM_NUM"];?>>
+                            <?php sql='SELECT MEM_NUM, MEM_NOM, MEM_PRENOM FROM PLO_MEMBRE'; 
+                            $list = mysql_query($sql); 
+                            while ($data = mysql_fetch_array($list)) 
+                            {
+                                echo '<option>'.$data["MEM_NOM"].$data["MEM_PRENOM"].'</option><br/>';
+                            } 
+                            ?> 
                         </select>
                     </div>
                     <br>
