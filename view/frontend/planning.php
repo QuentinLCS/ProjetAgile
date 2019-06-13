@@ -23,7 +23,7 @@ try {
 }
 
 $req = <<<HEREDOC
-SELECT MEM_NUM, MEM_NOM, MEM_PRENOM, MEM_ROLE, MEM_MAIL FROM PLO_MEMBRE ORDER BY MEM_NUM asc;
+SELECT * FROM TRAVAILLE JOIN PLO_ELEVE USING (ELE_NUM) JOIN PLO_APTITUDES USING(APT_CODE) ORDER BY DAT_DATE asc;
 HEREDOC;
 
 $res = $pdoConnection->query($req);
@@ -31,10 +31,10 @@ $res = $pdoConnection->query($req);
     echo '<table class="striped centered">
         <thead>
             <tr>
-                <th>NUMERO</th>
-                <th>NOM</th>
-                <th>PRENOM</th>    
-                <th>FONCTION</th>
+                <th>DATE</th>
+                <th>ELEVE</th>
+                <th>APTITUDE</th>    
+                <th>COMMENTAIRE</th>
                 ';
     if(isset($_SESSION['role'])){
         if($_SESSION['role']=='DIRECTEUR' || $_SESSION['role']=='RESPONSABLE'){  
@@ -46,14 +46,12 @@ $res = $pdoConnection->query($req);
         <tbody>';
 while ($donnees = $res->fetch())
 {
-        $num = htmlspecialchars($donnees['MEM_NUM']);
-        echo "<tr> <td>".htmlspecialchars($num) . "</td><td>" .htmlspecialchars($donnees['MEM_NOM']). "</td><td>" .htmlspecialchars($donnees['MEM_PRENOM'])."</td><td>".$donnees['MEM_ROLE']."</td>";
+        echo "<tr> <td>".htmlspecialchars($donnees['DAT_DATE']) . "</td><td>" .htmlspecialchars($donnees['ELE_NOM'])." ".htmlspecialchars($donnees['ELE_PRENOM']). "</td><td>" .htmlspecialchars($donnees['APT_NOM'])."</td><td>".$donnees['EVA_COMMENTAIRE']."</td>";
         
         if(isset($_SESSION['role'])){
             if($_SESSION['role']=='DIRECTEUR' || $_SESSION['role']=='RESPONSABLE'){ ?>
                <td>
                     <form action="../../controller/utils.php" method="post" class="usersOptions">
-                        <input type="number" name="num" value="<?php echo $num ?>" style="display: none;">
                         <input type="submit" name="setDirecteur" value="DIRECTEUR" class="red darken-2 waves-effect waves-light small">
                         <input type="submit" name="setResponsable" value="RESPONSABLE" class="orange darken-1 waves-effect waves-light small">
                         <input type="submit" name="setInitiateur" value="INITIATEUR" class="yellow darken-2 waves-effect waves-light small">

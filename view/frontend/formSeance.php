@@ -61,11 +61,11 @@ HEREDOC;
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
-                        <input type="text" class="datepicker" name="date">
+                        <input type="text" class="datepicker" name="date" required>
                         <label for="description">Date</label>
                     </div>
                     <div class="input-field col s6">
-                        <input type="text" class="timepicker" name="heure">
+                        <input type="text" class="timepicker" name="heure" required>
                         <label for="description">Heure</label>
                     </div>
                 </div>
@@ -77,13 +77,13 @@ HEREDOC;
                 </div>
                 <div class="switch">
                     <label>
-                        Off
-                        <input disabled type="checkbox" name="estValide">
+                        NON VALIDE
+                        <input type="checkbox" name="estValide">
                         <span class="lever"></span>
-                        On
+                        VALIDE
                     </label>
                 </div>
-                <button class="btn waves-effect waves-light" type="submit" name="action">Ajouter
+                <button class="btn waves-effect waves-light" type="submit" name="action" style="margin-top: 20px">Ajouter
                     <i class="material-icons right">send</i>
                 </button>
             </form>

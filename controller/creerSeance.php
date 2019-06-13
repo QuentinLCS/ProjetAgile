@@ -6,13 +6,15 @@ include_once('../model/model.php');
 $eleveNum = $_POST['eleve'];
 $aptitude = $_POST['aptitude'];
 $date = $_POST['date'];
+$heure = $_POST['heure'];
 $commentaire = $_POST['commentaire'];
 $estValide = $_POST['estValide'];
 
-echo $eleveNum;
-echo $aptitude;
-echo $date;
-echo $commentaire;
+echo $eleveNum." ; ";
+echo $aptitude." ; ";
+echo $date." ; ";
+echo $heure." ; ";
+echo $commentaire." ; ";
 echo $estValide;
 
 $req = 'SELECT MAX(MEM_NUM) FROM PLO_MEMBRE';
