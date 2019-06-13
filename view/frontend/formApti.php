@@ -27,8 +27,8 @@
                     </div>
                 </div>
                 
-                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-                    <i class="material-icons right">send</i>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Ajouter
+                    <i class="material-icons right">envoyé</i>
                 </button>
             </form>
         </div>
