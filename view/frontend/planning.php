@@ -37,15 +37,15 @@ try {
                 </div>
                 <select name="selectMembre">
                     <?php
-                    $sql = "SELECT MEM_NUM, MEM_NOM, MEM_PRENOM FROM PLO_MEMBRE";
-                    $res = mysql_query($sql) or exit(mysql_error());
-                    while($data=mysql_fetch_array($res)) 
+                    $reponse = $sql->query("SELECT MEM_NUM, MEM_NOM, MEM_PRENOM FROM PLO_MEMBRE");
+                    
+                    while($donnee = $reponse->fetch()) 
                     {
                         echo '<option>'.$data["MEM_NOM"].$data["MEM_PRENOM"].'</option><br/>';
                     }
                     ?>
                 </select>
-                
+
                 <button class="btn waves-effect waves-light" type="submit" name="action">Submit
                     <i class="material-icons right">send</i>
                 </button>
