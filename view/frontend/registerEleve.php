@@ -1,3 +1,4 @@
+
 <a class="blue waves-effect waves-light btn modal-trigger" href="#registerEleve"><strong>Ajouter un élève</strong></a>
 
 <div id="registerEleve" class="modal ">
@@ -17,8 +18,8 @@
                         <label for="nom">Entrez Nom</label>
                     </div>
                 </div>
-                <button class="btn waves-effect waves-light" type="submit" name="action" value="Ajouter">Ajouter
-                    <i class="material-icons right">envoyé</i>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Ajouter
+                    <i class="material-icons right">send</i>
                 </button>
             </form>
         </div>
