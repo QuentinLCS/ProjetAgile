@@ -1,9 +1,4 @@
 <?php
-if(isset($_SESSION['role'])){
-    if($_SESSION['role']=='DIRECTEUR'){ 
-        echo "<div class='container center'>";
-        include_once($pageRepertory . "registerInitiateur.php");
-        echo "</div>";
 
 //Connection Base de Donnee
 $dbhost = 'localhost';
@@ -40,7 +35,7 @@ while ($donnees = $res->fetch())
     global $num;
         $num = htmlspecialchars($donnees['MEM_NUM']);
         echo "<tr> <td>".htmlspecialchars($num) . "</td><td>" .htmlspecialchars($donnees['MEM_NOM']). "</td><td>" .htmlspecialchars($donnees['MEM_PRENOM'])."</td><td>".$donnees['MEM_ROLE']."</td>";
-        if($_SESSION['num']!=$donnees['MEM_NUM'])?>
+        ?>
         <td>
             <form action="../../controller/utils.php" method="post" class="usersOptions">
                 <input type="number" name="num" value="<?php echo $num ?>" style="display: none;">
@@ -56,6 +51,4 @@ while ($donnees = $res->fetch())
 echo "</tbody> </table>";
 
 $res->closeCursor();
-}
-}
 ?>
