@@ -20,22 +20,12 @@
     </div>
     <div class="nav-content">
         <ul class="tabs tabs-fixed-width grey lighten-4">
-
-            <?php 
-                if(isset($_SESSION['role'])):
-                    if($_SESSION['role']=='DIRECTEUR'): ?>
                         <li class='tab'>
                             <a <?php Menu::isCliquable($page, 'Initiateurs')?>>Initiateurs</a>
                         </li>
-                    <?php endif; ?>
-                       
-                     <?php
-                    if($_SESSION['role']=='DIRECTEUR' || $_SESSION['role']=='RESPONSABLE'): ?>
                         <li class="tab">
                             <a <?php Menu::isCliquable($page, 'Competences') ?>>Compétences</a>
                         </li>
-                    <?php endif; ?>
-                <?php endif; ?>
             <li class="tab">
                 <a class="index-button <?php if ($page == 'home') echo ' active"'; else echo '" target="_top" href="visiteur.php"' ?>><i class="material-icons">home</i></a>
             </li>
