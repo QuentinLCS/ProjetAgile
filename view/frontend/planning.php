@@ -31,7 +31,8 @@ try {
                     </div>
                     <div class="input-field col s6">
                         <select name="selectMembre">
-                            <?php sql='SELECT MEM_NUM, MEM_NOM, MEM_PRENOM FROM PLO_MEMBRE'; 
+                            <?php
+                            $sql='SELECT MEM_NUM, MEM_NOM, MEM_PRENOM FROM PLO_MEMBRE'; 
                             $list = mysql_query($sql); 
                             while ($data = mysql_fetch_array($list)) 
                             {
