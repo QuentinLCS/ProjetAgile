@@ -29,7 +29,7 @@ function modifierRole ($NumUtilisateur, $Role) {
     $reqModifierRole = "UPDATE PLO_MEMBRE SET MEM_ROLE = '$Role' where MEM_NUM = '$NumUtilisateur'";
     $base->query($reqModifierRole);
 
-    header('Location: /index.php/?page=Competences');
+    header('Location: /index.php?page=Competences');
     exit();
 }
 
@@ -42,6 +42,6 @@ function supprimerDonnee ($condition, $table) {
     $reqSupprimerLigne = "DELETE FROM '$table' WHERE '$condition'";
     $base->query($reqSupprimerLigne);
 
-    header('Location: /index.php/?page=Competences');
+    header('Location: /index.php?page=Competences');
     exit();
 }
