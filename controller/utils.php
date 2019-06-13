@@ -42,6 +42,6 @@ function supprimerDonnee ($condition, $table) {
     $reqSupprimerLigne = "DELETE FROM '$table' WHERE '$condition'";
     $base->query($reqSupprimerLigne);
 
-    header('Location: /index.php?page=Competences');
+    header('Location: ../view/frontend/visiteur.php?page=Initiateurs');
     exit();
 }
