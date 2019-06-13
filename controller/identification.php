@@ -1,20 +1,10 @@
 <?php
 
 if(isset($_POST['mail']) && isset($_POST['mdp'])){
+	$mail=htmlentities($_POST['mail']);
+	$mdp=md5(htmlentities($_POST['mdp']));
 	$compteur=0;
-	$dbhost = 'localhost';
-	$dbuser = 'agile8';
-	$dbpass = 'ahV2FeemahM6Jiex';
-	$dsn = 'mysql:host=localhost;dbname=agile8_bd;charset=utf8';
-	$mail=$_POST['mail'];
-	$mdp=md5($_POST['mdp']);
-
-try {
-	$pdoConnection = new PDO($dsn, $dbuser, $dbpass);
-	$pdoConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-	echo "Erreur connection : ".$e->getMessage();
-}
+	include_once('../view/frontend/connexionMySQL.php');
 
 $reqsql = <<<HEREDOC
 SELECT MEM_NOM, MEM_PRENOM, MEM_ROLE from PLO_MEMBRE WHERE MEM_MAIL= '$mail' AND MEM_MDP= '$mdp'
@@ -30,10 +20,14 @@ $reponse->execute();
 		$_SESSION['nom']=$donnees['MEM_NOM'];
 		$_SESSION['prenom']=$donnees['MEM_PRENOM'];
 		$_SESSION['role']=$donnees['MEM_ROLE'];
-		echo 'Bonjour '. $_SESSION['prenom']. ' '. $_SESSION['nom'];
+		setcookie('mail', htmlspecialchars($_POST['mail']), time() + 24*3600, null, null, false, true);
+		setcookie('mdp', md5(htmlspecialchars($_POST['mdp'])), time() + 24*3600, null, null, false, true);
 	}
 	if($compteur==0){
 		echo "Ce compte n'existe pas";
+	}
+	else{
+		header("Location: ../view/frontend/visiteur.php");
 	}
 
 }
