@@ -1,27 +1,31 @@
 <?php
 
-include_once("model/model.php");
 
-class Eleve
-{
-    private $numEleve;
-
-    public function __construct($idEleve){
-        $this->numEleve = $idEleve;
-    }
-
-    public function supprimer()
-    {
-        global $base;
-        $reqSupp1 = "DELETE FROM PLO_ELEVE WHERE ELE_NUM = $this->numEleve";
-        $base->query($reqSupp1);
-    }
-
-    public function modifier($prenom, $nom){
-        global $base;
-        $reqModif = "UPDATE PLO_ELEVE SET ELE_PRENOM = '$prenom', ELE_NOM = '$nom' WHERE ELE_NUM = $this->numEleve";
-        $base->query($reqSupp1);
-    }
+$numEleve = $_POST['numEleve'];
 
 
+if (isset($_POST['updateInfos'])) {
+    $nouveauNom = $_POST['Nom'];
+    $nouveauPrenom = $_POST['Prenom'];
+    modifier($nouveauPrenom, $nouveauNom, $numEleve);
+}
+
+elseif (isset($_POST['remEleve'])) {
+    supprimer($numEleve);
+}
+
+
+
+function supprimer($numEleve){
+    include_once("model/model.php");
+    global $base;
+    $reqSupp = "DELETE FROM PLO_ELEVE WHERE ELE_NUM = $numEleve";
+    $base->query($reqSupp);
+}
+
+function modifier($prenom, $nom, $numEleve){
+    include_once("model/model.php");
+    global $base;
+    $reqModif = "UPDATE PLO_ELEVE SET ELE_PRENOM = '$prenom', ELE_NOM = '$nom' WHERE ELE_NUM = $numEleve";
+    $base->query($reqModif);
 }
