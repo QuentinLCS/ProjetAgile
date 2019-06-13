@@ -24,7 +24,8 @@
                             $res = $base->query($req);
 
                             foreach (mysqli_fetch_array($res) as $data) {
-                                echo '<option value="'.$data["COM_CODE"].'">'.$data["COM_CODE"].'</option>';
+                                $result = $data;
+                                echo '<option value="'.$result["COM_CODE"].'">'.$result["COM_CODE"].'</option>';
                             }
                             ?>
                         </select>
