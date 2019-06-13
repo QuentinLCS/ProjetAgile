@@ -1,7 +1,3 @@
-<?php if (isset($_GET["page"]))
-$page = $_GET["page"];
-?>
-
 <nav class="nav-extended z-depth-3">
     <div class="nav-wrapper white">
         <a <?php if ($page != 'home') echo 'href="visiteur.php"'?> class="brand-logo center black-text">Sub'<strong class="blue-text ">Alligators<?php echo $page ?></strong></a>

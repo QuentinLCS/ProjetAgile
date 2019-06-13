@@ -59,7 +59,7 @@ function afficherAptitudes($compCode) {
     echo ' <html lang="fr"> <head> ';
         include_once("../view/frontend/head.php");
     echo '<title>SubAlligators | '.$page.'</title></head><body><header>';
-    include_once("../view/frontend/navbar.php?page='Aptitudes'");
+    include_once("../view/frontend/navbar.php");
     include_once("../view/frontend/login.php");
     echo '</header><main>';
 
@@ -101,7 +101,6 @@ $preDonnees = $res->fetch();
         echo "<td>";
             echo '<form action="../controller/utils.php" method="post" class="usersOptions">';
                 echo '<input type="text" name="num" value="<?php $donnees[\'COM_CODE\'] ?>" style="display: none;">';
-                echo '<input type="submit" name="afficherAptitudes" value="Aptitudes" class="green darken-4 waves-effect waves-light small">';
                 echo '<input type="submit" name="remUtilisateur" value="X" class="grey darken-4 waves-effect waves-light small">';
             echo '</form>';
         echo '</td>';
