@@ -13,7 +13,7 @@ $reponse=$pdoConnection->prepare($reqsql);
 $reponse->execute();
         
 while($donnees = $reponse->fetch()){
-        if($_COOKIE['mail']==$donnees['MEM_MAIL'] && $_COOKIE['mdp']==md5($donnees['MEM_MDP']) && ){
+        if($_COOKIE['mail']==$donnees['MEM_MAIL'] && $_COOKIE['mdp']==md5($donnees['MEM_MDP']) ){
             session_start();
             $compteur++;
             $_SESSION['nom']=$donnees['MEM_NOM'];

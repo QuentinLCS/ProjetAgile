@@ -3,10 +3,10 @@
 session_start();
 global $base;
 
-include_once("controller/Menu.php");
+include_once("../../controller/Menu.php");
 
 $title = "SubAlligator | ";
-$pageRepertory = "view/frontend/";
+$pageRepertory = "./";
 if (isset($_GET["page"])) {
     $page = $_GET["page"];
     if  (!file_exists($pageRepertory.strtolower($page).".php")) $page = "Error_404";

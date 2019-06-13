@@ -20,6 +20,6 @@
     $req2 = "INSERT INTO PLO_MEMBRE VALUES ('$max', '$prenom', '$nom', '$mail', '$mdp', '$role')";
     $base->query($req2);
 
-    header('Location: /index.php/?page=Initiateurs');
+    header('Location: /view/frontend/visiteur.php');
     exit();
 ?>

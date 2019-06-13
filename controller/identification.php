@@ -1,8 +1,10 @@
 <?php
 
 if(isset($_POST['mail']) && isset($_POST['mdp'])){
-
-	include_once('connexionMySQL.php');
+	$mail=htmlentities($_POST['mail']);
+	$mdp=md5(htmlentities($_POST['mdp']));
+	$compteur=0;
+	include_once('../view/frontend/connexionMySQL.php');
 
 $reqsql = <<<HEREDOC
 SELECT MEM_NOM, MEM_PRENOM, MEM_ROLE from PLO_MEMBRE WHERE MEM_MAIL= '$mail' AND MEM_MDP= '$mdp'
@@ -23,6 +25,9 @@ $reponse->execute();
 	}
 	if($compteur==0){
 		echo "Ce compte n'existe pas";
+	}
+	else{
+		header("Location: view/frontend/visiteur.php");
 	}
 
 }
