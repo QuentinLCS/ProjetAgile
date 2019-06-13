@@ -37,11 +37,11 @@ try {
                 </div>
                 <select name="selectMembre">
                     <?php
-                    $reponse = $sql->query("SELECT MEM_NUM, MEM_NOM, MEM_PRENOM FROM PLO_MEMBRE");
+                    $reponse = $sql->query('SELECT MEM_NUM, MEM_NOM, MEM_PRENOM FROM PLO_MEMBRE');
                     
                     while($donnee = $reponse->fetch()) 
                     {
-                        echo '<option> salut </option><br/>';
+                        echo '<option>'.$data['MEM_NOM'].$data['MEM_PRENOM'].'</option><br/>';
                     }
                     ?>
                 </select>
@@ -50,6 +50,7 @@ try {
                     <i class="material-icons right">send</i>
                 </button>
             </form>
+            $reponse->closeCursor();
         </div>
     </div>
 </div>
