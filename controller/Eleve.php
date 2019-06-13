@@ -1,17 +1,23 @@
 <?php
 
-
-$numEleve = $_POST['numEleve'];
+session_start();
+$_SESSION['numEleve'] = $_POST['numEleve'];
 
 
 if (isset($_POST['updateInfos'])) {
     $nouveauNom = $_POST['Nom'];
     $nouveauPrenom = $_POST['Prenom'];
-    modifier($nouveauPrenom, $nouveauNom, $numEleve);
+    modifier($nouveauPrenom, $nouveauNom, $_SESSION['numEleve']);
+    session_destroy();
+}
+
+elseif (isset($_POST['formulaireModifier'])) {
+    header('localisation: ../view/frontend/modifierEleve.php');
 }
 
 elseif (isset($_POST['remEleve'])) {
-    supprimer($numEleve);
+    supprimer($_SESSION['numEleve']);
+    session_destroy();
 }
 
 
