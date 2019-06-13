@@ -17,7 +17,7 @@
     }
     $max++;
 
-    $req2 = "INSERT INTO PLO_MEMBRE VALUES ('$max', '$prenom', '$nom', '$mail', '$mdp', '$role')";
+    $req2 = "INSERT INTO PLO_MEMBRE(MEM_NUM, MEM_PRENOM,MEM_NOM, MEM_MAIL, MEM_MDP, MEM_ROLE) VALUES ('$max', '$prenom', '$nom', '$mail', '$mdp', '$role')";
     $base->query($req2);
 
     header('Location: ../view/frontend/visiteur.php?page=Initiateurs');
