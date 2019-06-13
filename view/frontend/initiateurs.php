@@ -4,9 +4,6 @@ if(isset($_SESSION['role'])){
         echo "<div class='container center'>";
         include_once($pageRepertory . "registerInitiateur.php");
         echo "</div>";
-    }
-}
-
 
 //Connection Base de Donnee
 $dbhost = 'localhost';
@@ -59,4 +56,6 @@ while ($donnees = $res->fetch())
 echo "</tbody> </table>";
 
 $res->closeCursor();
+}
+}
 ?>
