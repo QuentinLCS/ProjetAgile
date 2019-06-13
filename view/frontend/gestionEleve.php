@@ -1,13 +1,23 @@
 <?php
 
-include_once("model/model.php");
+include_once($pageRepertory . "modifierEleve.php");
 
 //Connection Base de Donnee
-global $base;
+$dbhost = 'localhost';
+$dbuser = 'agile8';
+$dbpass = 'ahV2FeemahM6Jiex';
+$dsn = 'mysql:host=localhost;dbname=agile8_bd;charset=utf8';
+
+try {
+  $pdoConnection = new PDO($dsn, $dbuser, $dbpass);
+  $pdoConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+  echo "Erreur connection : ".$e->getMessage();
+}
 
 $req = "SELECT ELE_NUM, ELE_NOM,ELE_PRENOM FROM PLO_ELEVE ORDER BY ELE_NUM asc";
 
-$res = $base->query($req);
+$res = $pdoConnection->query($req);
 
 echo '<table class="striped centered">
         <thead>
@@ -26,7 +36,7 @@ while ($donnees = $res->fetch())
     global $num;
     $num = htmlspecialchars($donnees['ELE_NUM']);
 
-    echo "<tr> <td>".htmlspecialchars($num) . "</td><td>" .htmlspecialchars($donnees['ELE_NOM']). "</td><td>" .htmlspecialchars($donnees['MEM_PRENOM'])."</td><td>".$donnees['MEM_ROLE']."</td>"?>
+    echo "<tr> <td>".htmlspecialchars($num) . "</td><td>" .htmlspecialchars($donnees['ELE_NOM']). "</td><td>" .htmlspecialchars($donnees['ELE_PRENOM'])."</td>"?>
     <td>
         <form action="../../controller/Eleve.php" method="post" class="usersOptions">
             <input type="number" name="numEleve" value="<?php echo $num ?>" style="display: none;">

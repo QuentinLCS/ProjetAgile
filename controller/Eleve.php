@@ -23,14 +23,15 @@ elseif (isset($_POST['remEleve'])) {
 
 
 function supprimer($numEleve){
-    include_once("model/model.php");
+    include_once('../model/model.php');
     global $base;
     $reqSupp = "DELETE FROM PLO_ELEVE WHERE ELE_NUM = $numEleve";
     $base->query($reqSupp);
+    header('Location: ../view/frontend/visiteur.php?page=eleve');
 }
 
 function modifier($prenom, $nom, $numEleve){
-    include_once("model/model.php");
+    include_once('../model/model.php');
     global $base;
     $reqModif = "UPDATE PLO_ELEVE SET ELE_PRENOM = '$prenom', ELE_NOM = '$nom' WHERE ELE_NUM = $numEleve";
     $base->query($reqModif);
