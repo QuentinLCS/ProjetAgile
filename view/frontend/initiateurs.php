@@ -39,7 +39,7 @@ session_start();
 while ($donnees = $res->fetch())
 {
     global $num;
-    if($_SERVER['NUM']!=$donnees['MEM_NUM']){
+    //if($_SERVER['NUM']!=$donnees['MEM_NUM']){
         $num = htmlspecialchars($donnees['MEM_NUM']);
         echo "<tr> <td>".htmlspecialchars($num) . "</td><td>" .htmlspecialchars($donnees['MEM_NOM']). "</td><td>" .htmlspecialchars($donnees['MEM_PRENOM'])."</td><td>".$donnees['MEM_ROLE']."</td>"?>
         <td>
@@ -51,9 +51,7 @@ while ($donnees = $res->fetch())
                 <input type="submit" name="remUtilisateur" value="X" class="grey darken-4 waves-effect waves-light small">
             </form>
         </td>
-        }
     <?php
-}
 }
 
 echo "</tbody> </table>";
