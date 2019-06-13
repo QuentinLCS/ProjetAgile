@@ -1,3 +1,7 @@
+<?php
+echo "planning";
+?>
+<a>
 <div id="createMeeting" class="modal">
     <h5 class="modal-close">&#10005;</h5>
     <div class="modal-content center">
@@ -33,7 +37,3 @@
     </div>
 </div>
 
-
-<?php
-echo "planning";
-?>
