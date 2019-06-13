@@ -4,7 +4,7 @@ global $base;
 
 include_once("../../controller/Menu.php");
 
-$title = "SubAlligator | ";
+$title = "Sub'Alligators | ";
 $pageRepertory = "./";
 if (isset($_GET["page"])) {
     $page = $_GET["page"];

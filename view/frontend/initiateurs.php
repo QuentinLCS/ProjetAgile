@@ -46,7 +46,6 @@ $res = $pdoConnection->query($req);
         <tbody>';
 while ($donnees = $res->fetch())
 {
-    global $num;
         $num = htmlspecialchars($donnees['MEM_NUM']);
         echo "<tr> <td>".htmlspecialchars($num) . "</td><td>" .htmlspecialchars($donnees['MEM_NOM']). "</td><td>" .htmlspecialchars($donnees['MEM_PRENOM'])."</td><td>".$donnees['MEM_ROLE']."</td>";
         

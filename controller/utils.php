@@ -52,7 +52,16 @@ function supprimerDonnee ($condition, $table) {
 
 function afficherAptitudes($compCode) {
 
+    include_once("Menu.php");
     include_once ("../view/frontend/head.php");
+    $page = "Competences";
+
+    echo ' <html lang="fr"> <head> ';
+        include_once("../view/frontend/head.php");
+    echo '<title>SubAlligators | Aptitudes</title></head><body><header>';
+    include_once("../view/frontend/navbar.php");
+    include_once("../view/frontend/login.php");
+    echo '</header><main>';
 
 
 $dbhost = 'localhost';
@@ -72,7 +81,7 @@ SELECT * FROM PLO_APTITUDES JOIN PLO_COMPETENCES USING(COM_CODE) WHERE COM_CODE 
 HEREDOC;
 
 $res = $pdoConnection->query($req);
-
+    echo "<h1 class='center'>".$compCode."</h1>";
     echo '<table class="striped centered">
         <thead>
             <tr>
@@ -86,16 +95,17 @@ $res = $pdoConnection->query($req);
 
     while ($donnees = $res->fetch())
     {
-        global $num;
-        echo "<h1>".htmlspecialchars($num)."</h1>";
-        echo "<tr> <td>".htmlspecialchars($donnees['APT_CODE']) . "</td><td>" .htmlspecialchars($donnees['APT_NOM']). "</td><td>" .htmlspecialchars($donnees['COM_NOM'])."</td><td>".$donnees['COM_DESC']."</td>"?>
-        <td>
-            <form action="../controller/utils.php" method="post" class="usersOptions">
-                <input type="text" name="num" value="<?php $donnees['COM_CODE'] ?>" style="display: none;">
-                <input type="submit" name="afficherAptitudes" value="Aptitudes" class="green darken-4 waves-effect waves-light small">
-                <input type="submit" name="remUtilisateur" value="X" class="grey darken-4 waves-effect waves-light small">
-            </form>
-        </td>
-        <?php
+        echo "<tr> <td>".htmlspecialchars($donnees['APT_CODE']) . "</td><td>" .htmlspecialchars($donnees['APT_NOM']). "</td><td>" .htmlspecialchars($donnees['COM_NOM'])."</td><td>".$donnees['COM_DESC']."</td>";
+        echo "<td>";
+            echo '<form action="../controller/utils.php" method="post" class="usersOptions">';
+                echo '<input type="text" name="num" value="<?php $donnees[\'COM_CODE\'] ?>" style="display: none;">';
+                echo '<input type="submit" name="afficherAptitudes" value="Aptitudes" class="green darken-4 waves-effect waves-light small">';
+                echo '<input type="submit" name="remUtilisateur" value="X" class="grey darken-4 waves-effect waves-light small">';
+            echo '</form>';
+        echo '</td>';
     }
+    echo "</tbody> </table>";
+    echo '</main><footer class="page-footer white z-depth-3">';
+    include_once("../view/frontend/footer.php");
+    echo '</footer></body></html>';
 }
