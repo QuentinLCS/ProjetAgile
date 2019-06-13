@@ -1,7 +1,6 @@
-
-<div id="modifierEleve" class="modal ">
-    <h5 class="modal-close">&#10005;</h5>
-    <div class="modal-content center">
+<?php include_once("head.php");?>
+<div id="modifierEleve">
+    <div class=" center">
         <h4>Modifier élève</h4>
 
         <div class="row">
