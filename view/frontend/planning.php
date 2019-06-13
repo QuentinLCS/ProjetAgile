@@ -15,7 +15,7 @@ try {
   echo "Erreur connection : ".$e->getMessage();
 }
 ?>
-<a class="blue waves-effect waves-light btn modal-trigger" href="#registerEleve"><strong>Ajouter une séance</strong></a>
+<a class="blue waves-effect waves-light btn modal-trigger"><strong>Ajouter une séance</strong></a>
 
 <div id="registerEleve" class="modal ">
     <h5 class="modal-close">&#10005;</h5>
