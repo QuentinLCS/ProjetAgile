@@ -6,7 +6,7 @@
             if(isset($_SESSION['role'])){
                 echo '<ul class="right hide-on-med-and-down">
                         <li><a class="blue modal-trigger" href="#"><strong>MON PROFIL</strong></a></li>
-                        <li><a class="blue modal-trigger" href="#login"><strong>SE DECONNECTER</strong></a></li>
+                        <li><a class="blue modal-trigger" href="../../controller/deconnexion.php"><strong>SE DECONNECTER</strong></a></li>
                     </ul>';
             }
             else{
