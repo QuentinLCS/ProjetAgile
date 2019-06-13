@@ -4,13 +4,26 @@ $nameMeet = htmlentities($_POST['typeSeance']);
 $dateMeet = htmlentities(date('d-m-Y', strtotime($_POST['dateSeance'])));
 $membreNomMeet = "H";
 $membrePrenomMeet = "N";
-$membreNumMeet = null;
+$membreNumMeet;
+//Connection Base de Donnee
 
-$reponse = $bdd->require("SELECT MEM_NUM, MEM_NOM, MEM_PRENOM FROM PLO_MEMBRE");
+$dbhost = 'localhost';
+$dbuser = 'agile8';
+$dbpass = 'ahV2FeemahM6Jiex';
+$dsn = 'mysql:host=localhost;dbname=agile8_bd;charset=utf8';
 
-while($donnees = $req->fetch())
+try {
+  $pdoConnection = new PDO($dsn, $dbuser, $dbpass);
+  $pdoConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+  echo "Erreur connection : ".$e->getMessage();
+}
+
+$reponse = $bdd->query("SELECT MEM_NUM, MEM_NOM, MEM_PRENOM FROM PLO_MEMBRE");
+
+while($donnees = $reponse->fetch())
 {
-	if($membrePrenomMeet == $donnees['MEM_PRENOM'] AND $membreNomMeet == $donnees['MEM_NOM'])
+	if(($membrePrenomMeet == $donnees['MEM_PRENOM']) && ($membreNomMeet == $donnees['MEM_NOM']))
 	{
 		$membreNumMeet = $donnees['MEM_NUM'];
 	}
