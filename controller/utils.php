@@ -97,7 +97,7 @@ $preDonnees = $res->fetch();
 
     while ($donnees = $res->fetch())
     {
-        echo "<tr> <td>".htmlspecialchars($donnees['APT_CODE']) . "</td><td>" .htmlspecialchars($donnees['APT_NOM']). "</td><td>" .htmlspecialchars($donnees['COM_NOM'])."</td><td>".$donnees['COM_DESC']."</td>";
+        echo "<tr> <td>".htmlspecialchars($donnees['APT_CODE']) . "</td><td>" .htmlspecialchars($donnees['APT_NOM']). "</td><td>".$donnees['COM_DESC']."</td>";
         echo "<td>";
             echo '<form action="../controller/utils.php" method="post" class="usersOptions">';
                 echo '<input type="text" name="num" value="<?php $donnees[\'COM_CODE\'] ?>" style="display: none;">';
