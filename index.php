@@ -1,5 +1,5 @@
 <?php
-
+include_once("view/frontend/head.php");
 if(isset($_COOKIE['mail']) && isset($_COOKIE['mdp'])){
         $compteur=0;
         include_once('connexionMySQL.php');
@@ -24,31 +24,17 @@ while($donnees = $reponse->fetch()){
         }
        
     }
-    /*if($compteur==0){
-        header("Location: view/frontend/visiteur.php");
+    if($compteur==0){
+        include_once("view/frontend/loginDepart.php");
     }
     else{
-        switch ($_SESSION['role']) {
-            case 'INITIATEUR':
-                header("Location: view/frontend/initiateur.php");
-                break;
-             case 'RESPONSABLE':
-                header("Location: view/frontend/responsable.php");
-                break;
-             case 'DIRECTEUR':
-                header("Location: view/frontend/directeur.php");
-                break;
-            default:
-                header("Location: view/frontend/visiteur.php");
-                break;
-        }
-            header("Location: view/frontend/visiteur.php");
-        }
-    }*/
-    header("Location: view/frontend/visiteur.php");
+        header("Location: view/frontend/visiteur.php");
+    }
+    
+    
 }
 else{
-    header("Location: view/frontend/visiteur.php");
+    include_once("view/frontend/loginDepart.php");
 }
 
 ?>
