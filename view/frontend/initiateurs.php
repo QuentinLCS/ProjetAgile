@@ -1,6 +1,5 @@
 <?php
-session_start();
-if($_SESSION['role']='DIRECTEUR'){}
+
 echo "<div class='container center'>";
 include_once($pageRepertory . "registerInitiateur.php");
 
@@ -58,9 +57,4 @@ while ($donnees = $res->fetch())
 echo "</tbody> </table>";
 
 $res->closeCursor();
-}
-else{
-    echo"vous n'avez pas les droits";
-}
-}
 ?>
