@@ -5,8 +5,8 @@ $_SESSION['numEleve'] = $_POST['numEleve'];
 
 
 if (isset($_POST['updateInfos'])) {
-    $nouveauNom = $_POST['Nom'];
-    $nouveauPrenom = $_POST['Prenom'];
+    $nouveauNom = $_POST['nouveauNom'];
+    $nouveauPrenom = $_POST['nouveauPrenom'];
     modifier($nouveauPrenom, $nouveauNom, $_SESSION['numEleve']);
     session_destroy();
 }

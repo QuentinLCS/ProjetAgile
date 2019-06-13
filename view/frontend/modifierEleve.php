@@ -9,11 +9,11 @@
             <form class="col s12" method="post" action="/controller/Eleve.php">
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="nouveauPrenom" type="text" class="validate" name="prenom" required>
+                        <input id="nouveauPrenom" type="text" class="validate" name="nouveauPrenom" required>
                         <label for="Prenom">Entrez Prénom</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="nouveauNom" type="text" class="validate" name="nom" required>
+                        <input id="nouveauNom" type="text" class="validate" name="nouveauNom" required>
                         <label for="Nom">Entrez Nom</label>
                     </div>
                 </div>
