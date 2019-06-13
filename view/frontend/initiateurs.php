@@ -2,7 +2,7 @@
 
 echo "<div class='container center'>";
 include_once($pageRepertory . "registerInitiateur.php");
-include_once($pageRepertory . "registerEleve.php");
+
 echo "</div>";
 
 //Connection Base de Donnee

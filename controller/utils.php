@@ -29,8 +29,8 @@ function modifierRole ($NumUtilisateur, $Role) {
     $reqModifierRole = "UPDATE PLO_MEMBRE SET MEM_ROLE = '$Role' where MEM_NUM = '$NumUtilisateur'";
     $base->query($reqModifierRole);
 
-    header('Location: ../view/frontend/visiteur.php?page=Initiateurs');
-    
+    header('Location: /view/frontend/visiteur.php?page=Initiateurs');
+    exit();
 }
 
 function supprimerDonnee ($condition, $table) {
