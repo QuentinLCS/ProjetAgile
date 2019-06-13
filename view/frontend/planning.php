@@ -61,8 +61,8 @@ HEREDOC;
 $res = $pdoConnection->query($req);
 while ($donnees = $res->fetch())
 {
-    echo "<tr> <td>".htmlspecialchars($donnees['SEA_CODE'])."</td><td>" .htmlspecialchars($donnees['SEA_DATE']). "</td>" </br>;
-}
+    echo "<tr> <td>".htmlspecialchars($donnees['SEA_CODE'])."</td><td>" .htmlspecialchars($donnees['SEA_DATE']). "</td><br>";
+
 
 ?>
 
