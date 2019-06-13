@@ -43,13 +43,14 @@ try {
                     {
                         echo '<option>'.$data['MEM_NOM'].$data['MEM_PRENOM'].'</option><br/>';
                     }
+                    $reponse->closeCursor();
                     ?>
                 </select>
 
                 <button class="btn waves-effect waves-light" type="submit" name="action">Submit
                     <i class="material-icons right">send</i>
                 </button>
-                <?php $reponse->closeCursor(); ?>
+
             </form>
             
         </div>
