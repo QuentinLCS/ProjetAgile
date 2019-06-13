@@ -13,8 +13,8 @@ $dbpass = 'ahV2FeemahM6Jiex';
 $dsn = 'mysql:host=localhost;dbname=agile8_bd;charset=utf8';
 
 try {
-  $pdoConnection = new PDO($dsn, $dbuser, $dbpass);
-  $pdoConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  $pdoConnection = new PDO(, $dbuser, $dbpass);
+  $bdd = new PDO('mysql:host='$dsn';dbname="agile8_bd";charset=utf8', $dbuser, $dbpass);
 } catch (PDOException $e) {
   echo "Erreur connection : ".$e->getMessage();
 }

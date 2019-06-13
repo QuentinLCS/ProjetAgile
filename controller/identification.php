@@ -7,7 +7,7 @@ if(isset($_POST['mail']) && isset($_POST['mdp'])){
 	include_once('../view/frontend/connexionMySQL.php');
 
 $reqsql = <<<HEREDOC
-SELECT MEM_NOM, MEM_PRENOM, MEM_ROLE from PLO_MEMBRE WHERE MEM_MAIL= '$mail' AND MEM_MDP= '$mdp'
+SELECT MEM_NUM,MEM_NOM, MEM_PRENOM, MEM_ROLE from PLO_MEMBRE WHERE MEM_MAIL= '$mail' AND MEM_MDP= '$mdp'
 HEREDOC;
 		
 $reponse=$pdoConnection->prepare($reqsql);
@@ -20,6 +20,7 @@ $reponse->execute();
 		$_SESSION['nom']=$donnees['MEM_NOM'];
 		$_SESSION['prenom']=$donnees['MEM_PRENOM'];
 		$_SESSION['role']=$donnees['MEM_ROLE'];
+		$_SESSION['num']=$donnees['MEM_NUM'];
 		setcookie('mail', htmlspecialchars($_POST['mail']), time() + 24*3600, null, null, false, true);
 		setcookie('mdp', md5(htmlspecialchars($_POST['mdp'])), time() + 24*3600, null, null, false, true);
 	}
