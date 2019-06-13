@@ -38,9 +38,10 @@ try {
                         {
                             echo '<option>'.$data["MEM_NOM"].$data["MEM_PRENOM"].'</option><br/>';
                         }
-                    ?>
-                </select>
-                <input type="hidden" name="numMembre" values <?php echo $data["MEM_NUM"];?>>
+                        ?>
+                        </select>
+                    <input type="hidden" name="numMembre" values <?php echo $data["MEM_NUM"];?>>
+                    </div>
                     <br>
                     <div class="input-field col s6">
               			<input type="date" id="start" name="dateSeance">
