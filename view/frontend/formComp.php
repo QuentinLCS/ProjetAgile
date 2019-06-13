@@ -12,9 +12,34 @@
                         <input id="nomComp" type="text" class="validate" name="nomComp" required>
                         <label for="nomComp">Nom de la compétence</label>
                     </div>
-                    <div class="input-field col s6">
-                        <input placeholder="Entrez la formation lié à cette compétence" id="formationComp" type="text" class="validate" name="formationComp" required>
-                        <label for="formationComp">Code de formation</label>
+                    <div class="row input-field col s6">
+                        <select id ="formation" name="formation" class="validate">
+                            <?php
+
+                            $dbhost = 'localhost';
+                            $dbuser = 'agile8';
+                            $dbpass = 'ahV2FeemahM6Jiex';
+                            $dsn = 'mysql:host=localhost;dbname=agile8_bd;charset=utf8';
+
+                            try {
+                                $pdoConnection = new PDO($dsn, $dbuser, $dbpass);
+                                $pdoConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                            } catch (PDOException $e) {
+                                echo "Erreur connection : ".$e->getMessage();
+                            }
+
+                            $req = <<<HEREDOC
+SELECT * FROM FORMATION ORDER BY FOR_CODE asc;
+HEREDOC;
+
+                            $res = $pdoConnection->query($req);
+                            //session_start();
+                            while ($donnees = $res->fetch()) {
+                                echo '<option value="'.htmlspecialchars($donnees["FOR_CODE"]).'">'.htmlspecialchars($donnees["FOR_NOM"]).'</option>';
+                            }
+                            ?>
+                        </select>
+                        <label>Formation mère</label>
                     </div>
                 </div>
                 <div class="row">

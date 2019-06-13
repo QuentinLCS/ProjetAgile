@@ -16,16 +16,26 @@
                         <select id ="competence" name="competence" class="validate">
                             <?php
 
-                            global $base;
+                            $dbhost = 'localhost';
+                            $dbuser = 'agile8';
+                            $dbpass = 'ahV2FeemahM6Jiex';
+                            $dsn = 'mysql:host=localhost;dbname=agile8_bd;charset=utf8';
 
-                            include_once("../../model/model.php");
+                            try {
+                                $pdoConnection = new PDO($dsn, $dbuser, $dbpass);
+                                $pdoConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                            } catch (PDOException $e) {
+                                echo "Erreur connection : ".$e->getMessage();
+                            }
 
-                            $req = 'SELECT * FROM PLO_COMPETENCES';
-                            $res = $base->query($req);
+                            $req = <<<HEREDOC
+SELECT * FROM PLO_COMPETENCES ORDER BY COM_CODE asc;
+HEREDOC;
 
-                            foreach (mysqli_fetch_array($res) as $data) {
-                                $result = $data;
-                                echo '<option value="'.$result["COM_CODE"].'">'.$result["COM_CODE"].'</option>';
+                            $res = $pdoConnection->query($req);
+                            //session_start();
+                            while ($donnees = $res->fetch()) {
+                                echo '<option value="'.htmlspecialchars($donnees["COM_CODE"]).'">'.htmlspecialchars($donnees["COM_NOM"]).'</option>';
                             }
                             ?>
                         </select>
