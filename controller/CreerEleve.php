@@ -17,6 +17,6 @@
     $req2 = "INSERT INTO PLO_ELEVE VALUES ('$max', '$prenom', '$nom')";
     $base->query($req2);
 
-    header('Location: /index.php/?page=Initiateurs');
+    header('Location: ../view/frontend/visiteur.php?page=eleve');
     exit();
 ?>

@@ -1,4 +1,4 @@
-
+<?php echo 'test'?>
 
 <div id="modifEleve" class="modal ">
     <h5 class="modal-close">&#10005;</h5>
