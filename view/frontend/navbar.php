@@ -32,19 +32,11 @@
                 <a <?php Menu::isCliquable($page, 'Planning') ?>>Organisation</a>
             </li>
             <li class="tab">
-                <a <?php Menu::isCliquable($page, 'Profile') ?>>Mon profil</a>
+                <a <?php Menu::isCliquable($page, 'eleve') ?>>Élève</a>
             </li>
         </ul>
     </div>
 </nav>
-
-<ul id="creations" class="dropdown-content">
-    <li><a <?php Menu::isCliquable($page, 'Manga') ?>>Mangas</a></li>
-    <li><a <?php Menu::isCliquable($page, 'Illustration') ?>>Illustrations</a></li>
-    <li><a <?php Menu::isCliquable($page, 'Scenario') ?>>Scénarios</a></li>
-    <li class="divider"></li>
-    <li><a <?php Menu::isCliquable($page, 'Recrutement') ?>>Recrutement</a></li>
-</ul>
 
 <script>
     $(document).ready(function () {
