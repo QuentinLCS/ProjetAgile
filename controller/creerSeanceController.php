@@ -1,6 +1,6 @@
 <?php
 global $base;
-$nameMeet = htmlentities($_POST['name']);
+$nameMeet = htmlentities($_POST['typeSeance']);
 $dateMeet = htmlentities(date('d-m-Y', strtotime($_POST['dateSeance'])));
 $membreNomMeet = htmlentities($_POST('nomMembre'));
 $membrePrenomMeet = htmlentities($_POST('prenomMembre'));
