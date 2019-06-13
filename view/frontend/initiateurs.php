@@ -35,7 +35,7 @@ $res = $pdoConnection->query($req);
             </tr>
         </thead>
         <tbody>';
-session_start();
+//session_start();
 while ($donnees = $res->fetch())
 {
     global $num;
