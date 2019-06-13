@@ -35,7 +35,9 @@ try {
               			<input type="date" id="start" name="dateSeance">
                     </div>
                 </div>
+                <label for="name">Nom</label>
                 <input type="text" name="nomMembre">
+                <label for="name">Prenom</label>
                 <input type="text" name="prenomMembre">
                 <button class="btn waves-effect waves-light" type="submit" name="action">Submit
                     <i class="material-icons right">send</i>
