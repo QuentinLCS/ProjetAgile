@@ -1,7 +1,8 @@
+
 <nav class="nav-extended z-depth-3">
     <div class="nav-wrapper white">
-        <a <?php if ($page != 'home') echo 'href="/"'?> class="brand-logo center black-text">Sub'<strong class="blue-text ">Alligators</strong></a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger black-text "><i class="material-icons">menu</i></a>
+        <a <?php if ($page != 'home') echo 'href="visiteur.php"'?> class="brand-logo center black-text">Sub'<strong class="blue-text ">Alligators</strong></a>
+        <a href="visiteur.php" data-target="mobile-demo" class="sidenav-trigger black-text "><i class="material-icons">menu</i></a>
         <?php 
             if(isset($_SESSION['role'])){
                 echo '<ul class="right hide-on-med-and-down">
@@ -21,25 +22,22 @@
         <ul class="tabs tabs-fixed-width grey lighten-4">
 
             <?php 
-                if(isset($_SESSION['role'])){
-                    if($_SESSION['role']=='DIRECTEUR')?>
+                if(isset($_SESSION['role'])):
+                    if($_SESSION['role']=='DIRECTEUR'): ?>
                         <li class='tab'>
                             <a <?php Menu::isCliquable($page, 'Initiateurs')?>>Initiateurs</a>
                         </li>
+                    <?php endif; ?>
                        
                      <?php
-                    if(!$_SESSION['role']=='INITIATEUR')?>
+                    if($_SESSION['role']=='DIRECTEUR' || $_SESSION['role']=='RESPONSABLE'): ?>
                         <li class="tab">
                             <a <?php Menu::isCliquable($page, 'Competences') ?>>Compétences</a>
                         </li>
-                    <?php
-                    
-                }
-                
-             
-            ?>
+                    <?php endif; ?>
+                <?php endif; ?>
             <li class="tab">
-                <a class="index-button <?php if ($page == 'home') echo ' active"'; else echo '" target="_top" href="/"' ?>><i class="material-icons">home</i></a>
+                <a class="index-button <?php if ($page == 'home') echo ' active"'; else echo '" target="_top" href="visiteur.php"' ?>><i class="material-icons">home</i></a>
             </li>
             <li class="tab">
                 <a <?php Menu::isCliquable($page, 'Planning') ?>>Organisation</a>
@@ -47,6 +45,7 @@
             <li class="tab">
                 <a <?php Menu::isCliquable($page, 'eleve') ?>>Élève</a>
             </li>
+
         </ul>
     </div>
 </nav>

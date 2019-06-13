@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 global $base;
 
@@ -32,6 +31,7 @@ if (isset($_GET["page"])) {
 
         <main>
             <?php include_once($pageRepertory.strtolower($page).".php"); ?>
+            <?php echo 'Bonjour '.$_SESSION['nom']. ' '. $_SESSION['prenom']. ' '. $_SESSION['role']; ?>
         </main>
 
         <footer class="page-footer white z-depth-3">
