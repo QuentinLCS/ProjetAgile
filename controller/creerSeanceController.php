@@ -28,10 +28,10 @@ try {
     $req2 = "INSERT INTO PLO_SEANCE (SEA_CODE,SEA_DATE) VALUES ('$code', '$date')";
     $base->query($req2);
 
-    history.go(-2);
+    
     exit();
 ?>
-
+history.go(-2);
 
 
 
