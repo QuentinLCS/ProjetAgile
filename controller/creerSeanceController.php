@@ -20,6 +20,6 @@ include('../view/frontend/connexionMySQL.php');
 
 $req2 = "INSERT INTO PLO_SEANCE VALUES ('$name','$membreNumMeet','$dateMeet')";
 $base->query($req2);
-header('Location: /index.php')
+header('Location: /index.php');
 exit();
 ?>
