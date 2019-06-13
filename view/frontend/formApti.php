@@ -12,9 +12,23 @@
                         <input id="nomApti" type="text" class="validate" name="nomApti" required>
                         <label for="nomApti">Nom de la Aptitude</label>
                     </div>
-                    <div class="input-field col s6">
-                        <input placeholder="Entrez la compétence lié à cette Aptitude" id="compApti" type="number" class="validate" name="compApti" required>
-                        <label for="compApti">Numéro de compétence</label>
+                    <div class="row input-field col s6">
+                        <select id ="Role" name="role" class="validate">
+                            <?php
+
+                            global $base;
+
+                            include_once("../../model/model.php");
+
+                            $req = 'SELECT * FROM PLO_APTITUDES';
+                            $res = $base->query($req);
+
+                            foreach (mysqli_fetch_array($res) as $data) {
+                                echo '<option value="'.$data["COM_CODE"].'">'.$data["APT_NOM"].'</option>';
+                            }
+                            ?>
+                        </select>
+                        <label>Rôle de départ</label>
                     </div>
                 </div>
                 <div class="row">
