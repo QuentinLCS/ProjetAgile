@@ -48,6 +48,8 @@ while ($donnees = $res->fetch())
     echo "<tr> <td>".htmlspecialchars($num) . "</td><td>" .htmlspecialchars($donnees['FOR_CODE']). "</td><td>" .htmlspecialchars($donnees['COM_NOM'])."</td><td>".$donnees['COM_DESC']."</td>"?>
     <td>
         <form action="../../controller/utils.php" method="post" class="usersOptions">
+            <input type="text" name="num" value="<?php $donnees['COM_CODE'] ?>" style="display: none;">
+            <input type="submit" name="afficherAptitudes" value="Aptitudes" class="green darken-4 waves-effect waves-light small">
             <input type="submit" name="remUtilisateur" value="X" class="grey darken-4 waves-effect waves-light small">
         </form>
     </td>
