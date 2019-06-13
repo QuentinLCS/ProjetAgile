@@ -14,9 +14,9 @@ if (isset($_POST['estValide']))
 $req = 'SELECT MAX(MEM_NUM) FROM PLO_MEMBRE';
 $res = $base->query($req);
 
-$dateheure = $date.$heure;
+$dateheure = $date." ".$heure;
 
-$req2 = "INSERT INTO TRAVAILLE(ELE_NUM, APT_CODE, DAT_DATE, EVA_COMMENTAIRE) VALUES ('$eleveNum', '$aptitude', '$dateheure', '$commentaire')";
+$req2 = "INSERT INTO TRAVAILLE(ELE_NUM, APT_CODE, DAT_DATE, EVA_COMMENTAIRE) VALUES ('$eleveNum', '$aptitude', STR_TO_DATE('$dateheure', '%Y-%m-%d %H:%i'), '$commentaire')";
 $base->query($req2);
 
 header('Location: ../view/frontend/visiteur.php?page=planning');

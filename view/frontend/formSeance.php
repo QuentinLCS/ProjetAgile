@@ -93,10 +93,20 @@ HEREDOC;
 
 <script>
     $(document).ready(function(){
-        $('.datepicker').datepicker();
+        $('.datepicker').datepicker({
+            format: 'yyyy-mm-dd',
+            selectMonths: true,
+            selectYears: 10,
+            autoClose: true
+            }
+        );
     });
 
     $(document).ready(function(){
-        $('.timepicker').timepicker();
+        $('.timepicker').timepicker({
+            format: 'hh:mm',
+            autoClose: true,
+            twelveHour: false
+        });
     });
 </script>
