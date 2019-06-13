@@ -28,7 +28,7 @@ try {
     $req2 = "INSERT INTO PLO_SEANCE (SEA_CODE,SEA_DATE) VALUES ('$code', '$date')";
     $base->query($req2);
 
-    header('Location: ../view/frontend/planning.php');
+    header('Location: https://dev-agile8.users.info.unicaen.fr/view/frontend/visiteur.php?page=Planning');
     exit();
 ?>
 
