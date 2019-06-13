@@ -35,14 +35,17 @@ try {
               			<input type="date" id="start" name="dateSeance">
                     </div>
                 </div>
+                <!--  
                 <label for="name">Nom</label>
-                <input autofocus type="text" id="name" data-length="20" name="nomMembre">
+                <input autofocus type="text" id="nom" name="nomMembre">
                 <label for="name">Prenom</label>
-                <input autofocus type="text" id="name" data-length="20" name="prenomMembre">
+                <input autofocus type="text" id="prenom" name="prenomMembre">
+                -->
+
                 <button class="btn waves-effect waves-light" type="submit" name="action">Ajouter
                     <i class="material-icons right">send</i>
                 </button>
-
+                
             </form>
             
         </div>
