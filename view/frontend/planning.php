@@ -33,12 +33,13 @@ $res = $pdoConnection->query($req);
             <tr>
                 <th>DATE</th>
                 <th>ELEVE</th>
+                <th>INITIATEUR</th>
                 <th>APTITUDE</th>    
                 <th>COMMENTAIRE</th>
                 ';
     if(isset($_SESSION['role'])){
         if($_SESSION['role']=='DIRECTEUR' || $_SESSION['role']=='RESPONSABLE'){  
-            echo'<th>EDITER UN MEMBRE...</th>';
+            echo'<th>EDITER UNE SEANCE...</th>';
         }
     }
     echo '</tr>
@@ -46,15 +47,16 @@ $res = $pdoConnection->query($req);
         <tbody>';
 while ($donnees = $res->fetch())
 {
-        echo "<tr> <td>".htmlspecialchars($donnees['DAT_DATE']) . "</td><td>" .htmlspecialchars($donnees['ELE_NOM'])." ".htmlspecialchars($donnees['ELE_PRENOM']). "</td><td>" .htmlspecialchars($donnees['APT_NOM'])."</td><td>".$donnees['EVA_COMMENTAIRE']."</td>";
+        echo "<tr> <td>".htmlspecialchars($donnees['DAT_DATE']) . "</td><td>" .htmlspecialchars($donnees['ELE_NOM'])." ".htmlspecialchars($donnees['ELE_PRENOM']). "</td><td>" .htmlspecialchars($_SESSION['nom'])." ".htmlspecialchars($_SESSION['prenom'])."</td><td>" .htmlspecialchars($donnees['APT_NOM'])."</td><td>".$donnees['EVA_COMMENTAIRE']."</td>";
         
         if(isset($_SESSION['role'])){
             if($_SESSION['role']=='DIRECTEUR' || $_SESSION['role']=='RESPONSABLE'){ ?>
                <td>
                     <form action="../../controller/utils.php" method="post" class="usersOptions">
-                        <input type="submit" name="setDirecteur" value="DIRECTEUR" class="red darken-2 waves-effect waves-light small">
-                        <input type="submit" name="setResponsable" value="RESPONSABLE" class="orange darken-1 waves-effect waves-light small">
-                        <input type="submit" name="setInitiateur" value="INITIATEUR" class="yellow darken-2 waves-effect waves-light small">
+                        <input type="number" name="numEleve" value="<?php echo $donnees['ELE_NUM'] ?>" style="display: none;">
+                        <input type="number" name="date" value="<?php echo $donnees['DAT_DATE'] ?>" style="display: none;">
+                        <input type="number" name="aptitude" value="<?php echo $donnees['APT_CODE'] ?>" style="display: none;">
+                        <input type="submit" name="modifierSeance" value="MODIFIER" class="red darken-2 waves-effect waves-light small">
                         <input type="submit" name="remUtilisateur" value="X" class="grey darken-4 waves-effect waves-light small">
                     </form>
                 </td>
