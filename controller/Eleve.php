@@ -10,7 +10,6 @@ if (isset($_POST['updateInfos'])) {
     $nouveauNom = $_POST['nouveauNom'];
     $nouveauPrenom = $_POST['nouveauPrenom'];
     modifier($nouveauPrenom, $nouveauNom, $_SESSION['numEleve']);
-    session_destroy();
 }
 
 elseif (isset($_POST['formulaireModifier'])) {
@@ -19,7 +18,6 @@ elseif (isset($_POST['formulaireModifier'])) {
 
 elseif (isset($_POST['remEleve'])) {
     supprimer($_SESSION['numEleve']);
-    session_destroy();
 }
 
 elseif (isset($_POST['plusdinfos'])) {
@@ -33,7 +31,7 @@ function supprimer($numEleve){
     global $base;
     $reqSupp = "DELETE FROM PLO_ELEVE WHERE ELE_NUM = $numEleve";
     $base->query($reqSupp);
-    header('Location: ../view/frontend/visiteur.php');
+    header('Location: ../view/frontend/visiteur.php?page=eleve');
 }
 
 function modifier($prenom, $nom, $numEleve){
@@ -41,7 +39,7 @@ function modifier($prenom, $nom, $numEleve){
     global $base;
     $reqModif = "UPDATE PLO_ELEVE SET ELE_PRENOM = '$prenom', ELE_NOM = '$nom' WHERE ELE_NUM = $numEleve";
     $base->query($reqModif);
-    header('Location: ../view/frontend/visiteur.php');
+    header('Location: ../view/frontend/visiteur.php?page=eleve');
 }
 
 function afficher($numEleve) {
