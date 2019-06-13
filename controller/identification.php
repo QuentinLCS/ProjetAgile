@@ -27,7 +27,7 @@ $reponse->execute();
 		echo "Ce compte n'existe pas";
 	}
 	else{
-		header("Location: view/frontend/visiteur.php");
+		header("Location: ../view/frontend/visiteur.php");
 	}
 
 }
