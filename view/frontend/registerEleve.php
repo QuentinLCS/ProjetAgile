@@ -10,11 +10,11 @@
                 <div class="row">
                     <div class="input-field col s6">
                         <input id="PrenomEleve" type="text" class="validate" name="prenom" required>
-                        <label for="Prenom">Entrez Prénom</label>
+                        <label for="prenom">Entrez Prénom</label>
                     </div>
                     <div class="input-field col s6">
                         <input id="NomEleve" type="text" class="validate" name="nom" required>
-                        <label for="Nom">Entrez Nom</label>
+                        <label for="nom">Entrez Nom</label>
                     </div>
                 </div>
                 <button class="btn waves-effect waves-light" type="submit" name="action">Submit
