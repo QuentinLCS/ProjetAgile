@@ -26,8 +26,11 @@ try {
             <form class="col s12" method="post" action="/controller/creerSeanceController.php">
                 <div class="row">
                     <div class="input-field col s6">
-                        <input autofocus type="text" id="name" data-length="20" name="typeSeance">
+                       <!-- <input autofocus type="text" id="name" data-length="20" name="typeSeance">
               			<label for="name"> </label>
+                        -->
+                        <input type="time" name="wakeup">
+
                     </div>
                     
                     <br>

@@ -13,8 +13,7 @@ $dbpass = 'ahV2FeemahM6Jiex';
 $dsn = 'mysql:host=localhost;dbname=agile8_bd;charset=utf8';
 
 try {
-  $pdoConnection = new PDO(, $dbuser, $dbpass);
-  $bdd = new PDO('mysql:host='$dsn';dbname="agile8_bd";charset=utf8', $dbuser, $dbpass);
+  $bdd = new PDO('mysql:host="localhost";dbname="agile8_bd";charset=utf8',"agile8", "ahV2FeemahM6Jiex");
 } catch (PDOException $e) {
   echo "Erreur connection : ".$e->getMessage();
 }
@@ -30,7 +29,7 @@ while($donnees = $reponse->fetch())
 }
 */
 
-$pdoConnection->exec('INSERT INTO PLO_SEANCE(SEA_CODE, SEA_DATE) VALUES (\'$nameMeet\',\'$dateMeet\')');
+$bdd->exec('INSERT INTO PLO_SEANCE(SEA_CODE, SEA_DATE) VALUES (\'$nameMeet\',\'$dateMeet\')');
 header('Location: /index.php');
 exit();
 ?>
