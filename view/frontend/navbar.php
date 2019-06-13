@@ -1,7 +1,10 @@
+<?php if (isset($_GET["page"]))
+$page = $_GET["page"];
+?>
 
 <nav class="nav-extended z-depth-3">
     <div class="nav-wrapper white">
-        <a <?php if ($page != 'home') echo 'href="visiteur.php"'?> class="brand-logo center black-text">Sub'<strong class="blue-text ">Alligators</strong></a>
+        <a <?php if ($page != 'home') echo 'href="visiteur.php"'?> class="brand-logo center black-text">Sub'<strong class="blue-text ">Alligators<?php echo $page ?></strong></a>
         <a href="visiteur.php" data-target="mobile-demo" class="sidenav-trigger black-text "><i class="material-icons">menu</i></a>
         <?php 
             if(isset($_SESSION['role'])){

@@ -54,12 +54,12 @@ function afficherAptitudes($compCode) {
 
     include_once("Menu.php");
     include_once ("../view/frontend/head.php");
-    $page = "Competences";
+    $page = "Aptitudes";
 
     echo ' <html lang="fr"> <head> ';
         include_once("../view/frontend/head.php");
-    echo '<title>SubAlligators | Aptitudes</title></head><body><header>';
-    include_once("../view/frontend/navbar.php");
+    echo '<title>SubAlligators | '.$page.'</title></head><body><header>';
+    include_once("../view/frontend/navbar.php?page='Aptitudes'");
     include_once("../view/frontend/login.php");
     echo '</header><main>';
 
@@ -81,7 +81,9 @@ SELECT * FROM PLO_APTITUDES JOIN PLO_COMPETENCES USING(COM_CODE) WHERE COM_CODE 
 HEREDOC;
 
 $res = $pdoConnection->query($req);
-    echo "<h1 class='center'>".$compCode."</h1>";
+$preDonnees = $res->fetch();
+
+    echo "<h1 class='center'>".$preDonnees['COM_NOM']."</h1>";
     echo '<table class="striped centered">
         <thead>
             <tr>
