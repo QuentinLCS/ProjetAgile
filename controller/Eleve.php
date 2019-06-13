@@ -29,7 +29,7 @@ function supprimer($numEleve){
     global $base;
     $reqSupp = "DELETE FROM PLO_ELEVE WHERE ELE_NUM = $numEleve";
     $base->query($reqSupp);
-    header('Location: ../view/frontend/visiteur.php?page=eleve');
+    header('Location: ../view/frontend/visiteur.php');
 }
 
 function modifier($prenom, $nom, $numEleve){
@@ -37,5 +37,5 @@ function modifier($prenom, $nom, $numEleve){
     global $base;
     $reqModif = "UPDATE PLO_ELEVE SET ELE_PRENOM = '$prenom', ELE_NOM = '$nom' WHERE ELE_NUM = $numEleve";
     $base->query($reqModif);
-    header('Location: ../view/frontend/visiteur.php?page=eleve');
+    header('Location: ../view/frontend/visiteur.php');
 }

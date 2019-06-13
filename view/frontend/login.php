@@ -7,14 +7,14 @@
 
             <div class="input-field">
                 <i class="material-icons prefix">person</i>
-                <input autofocus type="text" id="name" data-length="20" name="mail">
+                <input autofocus type="text" id="name" data-length="20" name="mail"  required>
                 <label for="name">Mail</label>
             </div>
             <br>
 
             <div class="input-field">
                 <i class="material-icons prefix">lock</i>
-                <input type="password" id="pass" data-length="40" name="mdp">
+                <input type="password" id="pass" data-length="40" name="mdp" required>
                 <label for="pass">Mot de passe</label>
             </div>
             <br>

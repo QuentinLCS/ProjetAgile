@@ -1,8 +1,13 @@
 <?php
-echo "<div class='container center'>";
-include_once($pageRepertory . "formComp.php");
-include_once($pageRepertory . "formApti.php");
-echo "</div>";
+if(isset($_SESSION['role'])){
+    if($_SESSION['role']=='DIRECTEUR' || $_SESSION['role']=='RESPONSABLE'){ 
+        echo "<div class='container center'>";
+        include_once($pageRepertory . "formComp.php");
+        include_once($pageRepertory . "formApti.php");
+        echo "</div>";
+    }
+}
+
 
 //Connection Base de Donnee
 $dbhost = 'localhost';
