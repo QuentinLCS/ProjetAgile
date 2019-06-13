@@ -59,4 +59,8 @@ echo "</tbody> </table>";
 
 $res->closeCursor();
 }
+else{
+    echo"vous n'avez pas les droits";
+}
+}
 ?>
