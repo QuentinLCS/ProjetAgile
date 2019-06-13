@@ -8,7 +8,7 @@ class Menu
         else
             if ($page == 'Aptitudes') {
                 if ($pageToVerify == 'Competences')
-                    echo 'class="center active" target="_top" href="../view/frontend/visiteur?page=' . $pageToVerify . '"';
+                    echo 'class="center active" target="_top" href="../view/frontend/visiteur.php?page=' . $pageToVerify . '"';
                 else
                     echo 'class="center" target="_top" href="../view/frontend/visiteur.php?page=' . $pageToVerify . '"';
             } else

@@ -18,11 +18,13 @@ elseif (isset($_POST['remUtilisateur'])) {
 }
 
 elseif (isset($_POST['remCompetences'])) {
-    supprimerDonnee("COM_CODE = $num","PLO_COMPETENCES");
+    supprimerDonnee("COM_CODE = '$num'","PLO_COMPETENCES");
 }
 
 elseif (isset($_POST['remAptitudes'])) {
-    supprimerDonnee("APT_CODE = $num","PLO_APTITUDES");
+    supprimerDonnee("APT_CODE = '$num'","PLO_APTITUDES");
+    echo 'coucou';
+    echo $num;
 }
 
 elseif (isset($_POST['afficherAptitudes'])) {
@@ -35,8 +37,6 @@ function modifierRole ($NumUtilisateur, $Role) {
     global $base;
 
     include_once('../model/model.php');
-
-    //Changer rôle
 
     $reqModifierRole = "UPDATE PLO_MEMBRE SET MEM_ROLE = '$Role' where MEM_NUM = '$NumUtilisateur'";
     $base->query($reqModifierRole);
@@ -54,8 +54,12 @@ function supprimerDonnee ($condition, $table) {
     $reqSupprimerLigne = "DELETE FROM $table WHERE $condition";
     $base->query($reqSupprimerLigne);
 
-    header('Location: ../view/frontend/visiteur.php?page=Initiateurs');
+    if ($table == "PLO_MEMBRE")
+        header('Location: ../view/frontend/visiteur.php?page=Initiateurs');
+    if ($table == "PLO_COMPETENCES" || $table == "PLO_APTITUDES")
+        header('Location: ../view/frontend/visiteur.php?page=Competences');
     exit();
+
 }
 
 function afficherAptitudes($compCode) {
@@ -108,7 +112,9 @@ $preDonnees = $res->fetch();
         echo "<tr> <td>".htmlspecialchars($donnees['APT_CODE']) . "</td><td>" .htmlspecialchars($donnees['APT_NOM']). "</td><td>".$donnees['COM_DESC']."</td>";
         echo "<td>";
             echo '<form action="../controller/utils.php" method="post" class="usersOptions">';
-                echo '<input type="text" name="num" value="<?php $donnees[\'COM_CODE\'] ?>" style="display: none;">';
+                echo '<input type="text" name="num" value="';
+                echo $donnees["APT_CODE"];
+                echo '" style="display: none;">';
                 echo '<input type="submit" name="remAptitudes" value="X" class="grey darken-4 waves-effect waves-light small">';
             echo '</form>';
         echo '</td>';

@@ -1,6 +1,6 @@
 <nav class="nav-extended z-depth-3">
     <div class="nav-wrapper white">
-        <a <?php if ($page != 'home') echo 'href="visiteur.php"'?> class="brand-logo center black-text">Sub'<strong class="blue-text ">Alligators<?php echo $page ?></strong></a>
+        <a <?php if ($page != 'home') echo 'href="visiteur.php"'?> class="brand-logo center black-text">Sub'<strong class="blue-text ">Alligators</a>
         <a href="visiteur.php" data-target="mobile-demo" class="sidenav-trigger black-text "><i class="material-icons">menu</i></a>
         <?php 
             if(isset($_SESSION['role'])){
@@ -26,7 +26,7 @@
                             <a <?php Menu::isCliquable($page, 'Competences') ?>>Compétences</a>
                         </li>
             <li class="tab">
-                <a class="index-button <?php if ($page == 'home') echo ' active"'; else echo '" target="_top" href="visiteur.php"' ?>><i class="material-icons">home</i></a>
+                <a class="index-button <?php if ($page == 'home') echo ' active"'; elseif ($page == 'Aptitudes') echo '" target="_top" href="../view/frontend/visiteur.php"';else echo '" target="_top" href="visiteur.php"' ?>><i class="material-icons">home</i></a>
             </li>
             <li class="tab">
                 <a <?php Menu::isCliquable($page, 'Planning') ?>>Organisation</a>
