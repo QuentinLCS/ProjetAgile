@@ -4,9 +4,6 @@ if(isset($_SESSION['role'])){
         echo "<div class='container center'>";
         include_once($pageRepertory . "registerInitiateur.php");
         echo "</div>";
-    }
-}
-
 
 //Connection Base de Donnee
 $dbhost = 'localhost';
@@ -38,7 +35,6 @@ $res = $pdoConnection->query($req);
             </tr>
         </thead>
         <tbody>';
-session_start();
 while ($donnees = $res->fetch())
 {
     global $num;
@@ -60,4 +56,6 @@ while ($donnees = $res->fetch())
 echo "</tbody> </table>";
 
 $res->closeCursor();
+}
+}
 ?>
