@@ -1,6 +1,5 @@
-<?php echo 'test'?>
 
-<div id="modifEleve" class="modal ">
+<div id="modifierEleve" class="modal ">
     <h5 class="modal-close">&#10005;</h5>
     <div class="modal-content center">
         <h4>Modifier élève</h4>

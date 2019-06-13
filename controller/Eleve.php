@@ -1,7 +1,10 @@
 <?php
 
 session_start();
-$_SESSION['numEleve'] = $_POST['numEleve'];
+if(isset($_POST['numEleve'])){
+    $_SESSION['numEleve'] = $_POST['numEleve'];
+}
+
 
 if (isset($_POST['updateInfos'])) {
     $nouveauNom = $_POST['nouveauNom'];
@@ -11,7 +14,8 @@ if (isset($_POST['updateInfos'])) {
 }
 
 elseif (isset($_POST['formulaireModifier'])) {
-    header('localisation: .../view/frontend/visiteur.php?page=modifierEleve.php');
+    include("../view/frontend/modifierEleve.php");
+    //header("Location: ../view/frontend/visiteur.php?page=modifierEleve");
 }
 
 elseif (isset($_POST['remEleve'])) {
@@ -34,4 +38,5 @@ function modifier($prenom, $nom, $numEleve){
     global $base;
     $reqModif = "UPDATE PLO_ELEVE SET ELE_PRENOM = '$prenom', ELE_NOM = '$nom' WHERE ELE_NUM = $numEleve";
     $base->query($reqModif);
+    header('Location: ../view/frontend/visiteur.php?page=eleve');
 }
