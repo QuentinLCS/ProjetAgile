@@ -55,7 +55,7 @@ try {
   echo "Erreur connection : ".$e->getMessage();
 }
 $req = <<<HEREDOC
-SELECT DAT_DATE,ELU_NUM FROM TRAVAILLE;
+SELECT DAT_DATE,ELE_NUM FROM TRAVAILLE;
 HEREDOC;
 
 $res = $pdoConnection->query($req);
