@@ -6,6 +6,7 @@ $dbuser = 'agile8';
 $dbpass = 'ahV2FeemahM6Jiex';
 $dsn = 'mysql:host=localhost;dbname=agile8_bd;charset=utf8';
 
+include_once("registerInitiateur.php");
 try {
   $pdoConnection = new PDO($dsn, $dbuser, $dbpass);
   $pdoConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
