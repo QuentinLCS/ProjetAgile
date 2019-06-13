@@ -12,12 +12,13 @@ echo "planning";
             <form class="col s12" method="post" action="/controller/CreerEleve.php">
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="PrenomEleve" type="text" class="validate" name="prenom" required>
-                        <label for="Prenom">Choisir un élève</label>
+                        <input autofocus type="text" id="name" data-length="20" name="typeSeance">
+              			<label for="name"> </label>
                     </div>
+                    
+                    <br>
                     <div class="input-field col s6">
-                        <input id="NomEleve" type="text" class="validate" name="nom" required>
-                        <label for="Nom">entrer une date</label>
+              			<input type="date" id="start" name="dateSeance">
                     </div>
                 </div>
                 <button class="btn waves-effect waves-light" type="submit" name="action">Submit
