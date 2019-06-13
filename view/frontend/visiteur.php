@@ -31,6 +31,9 @@ if (isset($_GET["page"])) {
 
         <main>
             <?php include_once($pageRepertory.strtolower($page).".php"); ?>
+            <?php include_once("../../controller/donneesAptitudes.php");
+            statutAptitude(2);
+            ?>
         </main>
 
         <footer class="page-footer white z-depth-3">
