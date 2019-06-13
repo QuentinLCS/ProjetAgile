@@ -39,9 +39,9 @@ $res = $pdoConnection->query($req);
 while ($donnees = $res->fetch())
 {
     global $num;
-    //if($_SERVER['NUM']!=$donnees['MEM_NUM']){
         $num = htmlspecialchars($donnees['MEM_NUM']);
-        echo "<tr> <td>".htmlspecialchars($num) . "</td><td>" .htmlspecialchars($donnees['MEM_NOM']). "</td><td>" .htmlspecialchars($donnees['MEM_PRENOM'])."</td><td>".$donnees['MEM_ROLE']."</td>"?>
+        echo "<tr> <td>".htmlspecialchars($num) . "</td><td>" .htmlspecialchars($donnees['MEM_NOM']). "</td><td>" .htmlspecialchars($donnees['MEM_PRENOM'])."</td><td>".$donnees['MEM_ROLE']."</td>"
+        if($_SERVER['NUM']!=$donnees['MEM_NUM'])?>
         <td>
             <form action="../../controller/utils.php" method="post" class="usersOptions">
                 <input type="number" name="num" value="<?php echo $num ?>" style="display: none;">
