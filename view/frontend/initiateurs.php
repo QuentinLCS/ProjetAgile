@@ -54,6 +54,7 @@ while ($donnees = $res->fetch())
         }
     <?php
 }
+}
 
 echo "</tbody> </table>";
 
