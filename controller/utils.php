@@ -18,8 +18,7 @@ elseif (isset($_POST['remUtilisateur'])) {
 }
 
 elseif (isset($_POST['compCode'])) {
-    afficherAptitudes($_POST['compCode']);
-    exit();
+    afficherAptitudes($num);
 }
 
 
@@ -66,9 +65,13 @@ try {
     echo "Erreur connection : ".$e->getMessage();
 }
 
+    echo "cc";
+
 $req = <<<HEREDOC
 SELECT * FROM PLO_APTITUDES JOIN PLO_COMPETENCES USING(COM_CODE) WHERE COM_CODE = $compCode;
 HEREDOC;
+
+echo "cc";
 
 $res = $pdoConnection->query($req);
 
