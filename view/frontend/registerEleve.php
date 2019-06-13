@@ -4,7 +4,7 @@
 <div id="registerEleve" class="modal ">
     <h5 class="modal-close">&#10005;</h5>
     <div class="modal-content center">
-        <h4>Créer un élève</h4>
+        <h4>Ajouter un élève</h4>
 
         <div class="row">
             <form class="col s12" method="post" action="/controller/CreerEleve.php">
