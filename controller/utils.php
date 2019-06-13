@@ -96,6 +96,11 @@ echo "<tr> <td>".htmlspecialchars($num) . "</td><td>" .htmlspecialchars($donnees
                 <input type="submit" name="remUtilisateur" value="X" class="grey darken-4 waves-effect waves-light small">
             </form>
         </td>;
-<?php 
+
+
+<?php
+
+        header('Location: ../view/frontend/visiteur.php?page=aptitudes');
+        exit();
     }
 }
