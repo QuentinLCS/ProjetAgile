@@ -27,10 +27,19 @@
     </div>
 </nav>
 
-<ul class="sidenav grey darken-4" id="mobile-demo">
-    <li><a class="blue white-text waves-effect waves-light modal-trigger" href="#login"><i class="material-icons white-text">account_circle</i><strong>SE CONNECTER</strong></a></li>
-</ul>
+<?php if(isset($_SESSION['role'])){
+    echo '<ul class="sidenav grey darken-4" id="mobile-demo">
+                <li><a class="blue white-text waves-effect waves-light modal-trigger" href="#login"><i class="material-icons white-text">account_circle</i><strong>MON PROFIL</strong></a></li>
+                <li><a class="blue white-text waves-effect waves-light modal-trigger" href="#login"><i class="material-icons white-text">account_circle</i><strong>SE DECONNECTER</strong></a></li>
+            </ul>';
+}
+else{
+    echo '<ul class="sidenav grey darken-4" id="mobile-demo">
+                <li><a class="blue white-text waves-effect waves-light modal-trigger" href="#login"><i class="material-icons white-text">account_circle</i><strong>SE CONNECTER</strong></a></li>
+            </ul>';
+}
 
+?>
 <ul id="creations" class="dropdown-content">
     <li><a <?php Menu::isCliquable($page, 'Manga') ?>>Mangas</a></li>
     <li><a <?php Menu::isCliquable($page, 'Illustration') ?>>Illustrations</a></li>
