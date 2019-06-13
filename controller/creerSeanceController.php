@@ -6,7 +6,7 @@ $membreNomMeet = "H";
 $membrePrenomMeet = "N";
 $membreNumMeet = null;
 
-$reponse = $bdd->query("SELECT MEM_NUM, MEM_NOM, MEM_PRENOM FROM PLO_MEMBRE");
+$reponse = $bdd->require("SELECT MEM_NUM, MEM_NOM, MEM_PRENOM FROM PLO_MEMBRE");
 
 while($donnees = $req->fetch())
 {
