@@ -49,7 +49,7 @@ while ($donnees = $res->fetch())
         <form action="../../controller/utils.php" method="post" class="usersOptions">
             <input type="text" name="num" value="<?php echo $num ?>" style="display: none;">
             <input type="submit" name="afficherAptitudes" value="Aptitudes" class="green darken-4 waves-effect waves-light small">
-            <input type="submit" name="remUtilisateur" value="X" class="grey darken-4 waves-effect waves-light small">
+            <input type="submit" name="remCompetences" value="X" class="grey darken-4 waves-effect waves-light small">
         </form>
     </td>
     <?php

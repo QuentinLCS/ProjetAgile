@@ -17,6 +17,14 @@ elseif (isset($_POST['remUtilisateur'])) {
     supprimerDonnee("MEM_NUM = $num","PLO_MEMBRE");
 }
 
+elseif (isset($_POST['remCompetences'])) {
+    supprimerDonnee("COM_CODE = $num","PLO_COMPETENCES");
+}
+
+elseif (isset($_POST['remAptitudes'])) {
+    supprimerDonnee("APT_CODE = $num","PLO_APTITUDES");
+}
+
 elseif (isset($_POST['afficherAptitudes'])) {
     afficherAptitudes($num);
 }
@@ -101,7 +109,7 @@ $preDonnees = $res->fetch();
         echo "<td>";
             echo '<form action="../controller/utils.php" method="post" class="usersOptions">';
                 echo '<input type="text" name="num" value="<?php $donnees[\'COM_CODE\'] ?>" style="display: none;">';
-                echo '<input type="submit" name="remUtilisateur" value="X" class="grey darken-4 waves-effect waves-light small">';
+                echo '<input type="submit" name="remAptitudes" value="X" class="grey darken-4 waves-effect waves-light small">';
             echo '</form>';
         echo '</td>';
     }
