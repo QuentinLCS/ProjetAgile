@@ -1,6 +1,5 @@
 <?php
 
-include_once($pageRepertory . "modifierEleve.php");
 
 //Connection Base de Donnee
 $dbhost = 'localhost';

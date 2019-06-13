@@ -3,7 +3,6 @@
 session_start();
 $_SESSION['numEleve'] = $_POST['numEleve'];
 
-
 if (isset($_POST['updateInfos'])) {
     $nouveauNom = $_POST['nouveauNom'];
     $nouveauPrenom = $_POST['nouveauPrenom'];
@@ -12,7 +11,7 @@ if (isset($_POST['updateInfos'])) {
 }
 
 elseif (isset($_POST['formulaireModifier'])) {
-    header('localisation: ../view/frontend/modifierEleve.php');
+    header('localisation: .../view/frontend/visiteur.php?page=modifierEleve.php');
 }
 
 elseif (isset($_POST['remEleve'])) {
