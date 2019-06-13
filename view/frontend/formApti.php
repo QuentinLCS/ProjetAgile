@@ -25,7 +25,7 @@
                         <div class="row">
                         <div class="input-field col s12">
                             <textarea id="descriptionApti" class="materialize-textarea" data-length="500" name="descriptionApti"></textarea>
-                            <label for="descriptionApti">Description de la Aptitude</label>
+                            <label for="descriptionApti">Description de l'Aptitude</label>
                         </div>
                         </div>
                     </form>
