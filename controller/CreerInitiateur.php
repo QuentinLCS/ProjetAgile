@@ -1,48 +1,25 @@
 <?php
-//Recuperation des donnees
-$num = '2';
-$prenom = $_POST['prenom'];
-$nom = $_POST['nom'];
-$mdp = md5($_POST['mdp']);
-$mail = $_POST['mail'];
+    global $base;
 
-//Connection Base de Donnee
+    include_once('../model/model.php');
 
-$dbhost = 'localhost';
-$dbuser = 'agile8';
-$dbpass = 'ahV2FeemahM6Jiex';
-$dsn = 'mysql:host=localhost;dbname=agile8_bd;charset=utf8';
+    $prenom = $_POST['prenom'];
+    $nom = $_POST['nom'];
+    $mdp = md5($_POST['mdp']);
+    $mail = $_POST['mail'];
+    $role = $_POST['role'];
+    $max = 0;
 
-try {
-  $pdoConnection = new PDO($dsn, $dbuser, $dbpass);
-  $pdoConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-  echo "Erreur connection : ".$e->getMessage();
-}
+    $req = 'SELECT MAX(MEM_NUM) FROM PLO_MEMBRE';
+    $res = $base->query($req);
+    foreach (mysqli_fetch_array($res) as $data) {
+        $max = $data;
+    }
+    $max++;
 
-//num
-$reqNum = <<<HEREDOC
-SELECT MAX(MEM_NUM) as NOMBRE FROM PLO_MEMBRE
-HEREDOC;
+    $req2 = "INSERT INTO PLO_MEMBRE VALUES ('$max', '$prenom', '$nom', '$mail', '$mdp', '$role')";
+    $base->query($req2);
 
-$rsNum = $pdoConnection->prepare($reqNum);
-$rsNum->execute();
-
-foreach($rsNum as $valeur){
-}
-$num = $valeur['NOMBRE']+1;
-
-//Insertion des valeurs dans la base de donnee
-$insertsql = <<<HEREDOC
-INSERT INTO PLO_MEMBRE VALUES ('$num', '$prenom', '$nom', '$mail', '$mdp', 'INITIATEUR')
-HEREDOC;
-
-$rs1 = $pdoConnection->prepare($insertsql);
-$rs1->execute();
-
-header("Location: ../index.php");
-
-
-
-
- ?>
+    header('Location: /index.php/?page=Initiateurs');
+    exit();
+?>

@@ -1,4 +1,4 @@
-<a class="waves-effect waves-light btn modal-trigger" href="#registerInitiateur">Ajouter un initiateur</a>
+<a class="yellow darken-2 waves-effect waves-light btn modal-trigger" href="#registerInitiateur"><strong>Ajouter un initiateur</strong></a>
 
 <div id="registerInitiateur" class="modal ">
     <h5 class="modal-close">&#10005;</h5>
@@ -28,6 +28,14 @@
                         <input placeholder="Créez son mot de passe" id="MDP" type="password" class="validate" name="mdp" required>
                         <label for="MDP">Mot de passe</label>
                     </div>
+                </div>
+                <div class="row input-field col s12">
+                    <select id ="Role" name="role" class="validate">
+                        <option value="INITIATEUR">Initiateur</option>
+                        <option value="RESPONSABLE">Responsable</option>
+                        <option value="DIRECTEUR">Directeur</option>
+                    </select>
+                    <label>Rôle de départ</label>
                 </div>
                 <button class="btn waves-effect waves-light" type="submit" name="action">Submit
                     <i class="material-icons right">send</i>
