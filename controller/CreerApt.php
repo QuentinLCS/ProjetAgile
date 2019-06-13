@@ -6,7 +6,7 @@ include_once("../model/model.php");
 
 $nom = $_POST['nomApti'];
 $description = $_POST['descriptionApti'];
-$compCode = $_POST['compApti'];
+$compCode = $_POST['competence'];
 $aptCode = $compCode."F";
 
 $req = 'SELECT COUNT(*) FROM PLO_APTITUDES';

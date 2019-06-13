@@ -10,10 +10,10 @@
                 <div class="row">
                     <div class="input-field col s6">
                         <input id="nomApti" type="text" class="validate" name="nomApti" required>
-                        <label for="nomApti">Nom de la Aptitude</label>
+                        <label for="nomApti">Nom de l' Aptitude</label>
                     </div>
                     <div class="row input-field col s6">
-                        <select id ="Role" name="role" class="validate">
+                        <select id ="competence" name="competence" class="validate">
                             <?php
 
                             global $base;
@@ -28,7 +28,7 @@
                             }
                             ?>
                         </select>
-                        <label>Rôle de départ</label>
+                        <label>Compétence mère</label>
                     </div>
                 </div>
                 <div class="row">
