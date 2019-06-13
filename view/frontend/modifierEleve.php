@@ -19,7 +19,7 @@ $reponse=$pdoConnection->query($req);
     <div class=" center">
         <h4>Modifier élève</h4>
         <div class="row">
-            <h5><?php echo $prenom.' '.$nom; echo $num;?></h5>
+            <h5><?php echo $prenom.' '.$nom;?></h5>
             <form class="col s12" method="post" action="/controller/Eleve.php">
                 <div class="row">
                     <div class="input-field col s6">
