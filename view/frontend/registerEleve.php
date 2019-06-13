@@ -1,3 +1,4 @@
+
 <a class="blue waves-effect waves-light btn modal-trigger" href="#registerEleve"><strong>Ajouter un élève</strong></a>
 
 <div id="registerEleve" class="modal ">

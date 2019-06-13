@@ -14,8 +14,7 @@ if (isset($_POST['updateInfos'])) {
 }
 
 elseif (isset($_POST['formulaireModifier'])) {
-    include("../view/frontend/modifierEleve.php");
-    //header("Location: ../view/frontend/visiteur.php?page=modifierEleve");
+    include_once("../view/frontend/modifierEleve.php");
 }
 
 elseif (isset($_POST['remEleve'])) {
