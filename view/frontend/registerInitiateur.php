@@ -9,12 +9,12 @@
             <form class="col s12" method="post" action="/controller/CreerInitiateur.php">
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="PrenomIni" type="text" class="validate" name="prenom" required>
-                        <label for="Prenom">Entrez Prénom</label>
-                    </div>
-                    <div class="input-field col s6">
                         <input id="NomIni" type="text" class="validate" name="nom" required>
                         <label for="Nom">Entrez Nom</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="PrenomIni" type="text" class="validate" name="prenom" required>
+                        <label for="Prenom">Entrez Prénom</label>
                     </div>
                 </div>
                 <div class="row">
