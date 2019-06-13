@@ -41,7 +41,7 @@ try {
                     
                     while($donnee = $reponse->fetch()) 
                     {
-                        echo '<option>'.$data["MEM_NOM"].$data["MEM_PRENOM"].'</option><br/>';
+                        echo '<option> salut </option><br/>';
                     }
                     ?>
                 </select>
