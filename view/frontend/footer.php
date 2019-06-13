@@ -9,7 +9,7 @@
         <div class="col s12 m6 l6"">
             <h5 class="black-text">Liens utiles</h5>
             <ul class="grey-text darken-3">
-                <li><a href="www.suballigators.fr">Site du club</a></li>
+                <li><a href="http://www.suballigators.fr">Site du club</a></li>
                 <li><a href="iutc3.unicaen.fr">Site du campus 3</a></li>
             </ul>
         </div>
