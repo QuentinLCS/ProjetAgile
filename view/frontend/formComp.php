@@ -13,8 +13,8 @@
                         <label for="nomComp">Nom de la compétence</label>
                     </div>
                     <div class="input-field col s6">
-                        <input placeholder="Entrez la formation lié à cette compétence" id="formationComp" type="number" class="validate" name="formationComp" required>
-                        <label for="formationComp">Numéro de formation</label>
+                        <input placeholder="Entrez la formation lié à cette compétence" id="formationComp" type="text" class="validate" name="formationComp" required>
+                        <label for="formationComp">Code de formation</label>
                     </div>
                 </div>
                 <div class="row">

@@ -6,17 +6,17 @@ include_once("../model/model.php");
 
 $nom = $_POST['nomApti'];
 $description = $_POST['descriptionApti'];
-$compCode = $_POST['compApti'];
-$max = 0;
+$compCode = $_POST['competence'];
+$aptCode = $compCode."F";
 
-$req = 'SELECT MAX(APT_CODE) FROM PLO_APTITUDES';
+$req = 'SELECT COUNT(*) FROM PLO_APTITUDES';
 $res = $base->query($req);
 foreach (mysqli_fetch_array($res) as $data) {
     $max = $data;
 }
 $max++;
 
-$req2 = "INSERT INTO PLO_APTITUDES VALUES ('$max', '$compCode', '$nom', '$description')";
+$req2 = "INSERT INTO PLO_APTITUDES VALUES ('$aptCode.$max', '$compCode', '$nom', '$description')";
 $base->query($req2);
 
 header('Location: ../view/frontend/visiteur.php?page=Competences');
