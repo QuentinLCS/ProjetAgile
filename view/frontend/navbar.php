@@ -32,7 +32,7 @@
                 <a <?php Menu::isCliquable($page, 'Planning') ?>>Organisation</a>
             </li>
             <li class="tab">
-                <a <?php Menu::isCliquable($page, 'eleve') ?>>Élève</a>
+                <a <?php Menu::isCliquable($page, 'eleve') ?>>Les Élèves</a>
             </li>
 
         </ul>

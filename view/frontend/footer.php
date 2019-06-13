@@ -3,7 +3,7 @@
         <div class="col s12 m6 l6">
             <h5 class="black-text">Qui sommes-nous ?</h5>
             <p class="grey-text text-darken-1">
-                Sub'Alligators Sub’Alligators est un club de plongée de Caen. Ce site est un panel réservé aux initiateurs du club, leur permettant de s'organiser au mieux.
+                Sub’Alligators est un club de plongée de Caen. Ce site est un panel réservé aux initiateurs du club, leur permettant de s'organiser au mieux.
             </p>
         </div>
         <div class="col s12 m6 l6"">
