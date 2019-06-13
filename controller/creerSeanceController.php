@@ -1,10 +1,15 @@
 <?php
-global $base;
-$nameMeet = htmlentities($_POST['typeSeance']);
-$dateMeet = htmlentities(date('d-m-Y', strtotime($_POST['dateSeance'])));
-$membreNomMeet = "H";
-$membrePrenomMeet = "N";
-$membreNumMeet;
+  global $base;
+
+
+    include_once ("../model/model.php");
+
+
+ $code = $_POST['typeSeance'];
+ $date = $_POST['dateSeance'];
+
+
+
 //Connection Base de Donnee
 
 $dbhost = 'localhost';
@@ -13,23 +18,20 @@ $dbpass = 'ahV2FeemahM6Jiex';
 $dsn = 'mysql:host=localhost;dbname=agile8_bd;charset=utf8';
 
 try {
-  $bdd = new PDO('mysql:host="localhost";dbname="agile8_bd";charset=utf8',"agile8", "ahV2FeemahM6Jiex");
+  $pdoConnection = new PDO($dsn, $dbuser, $dbpass);
+  $pdoConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
   echo "Erreur connection : ".$e->getMessage();
 }
-/*
-$reponse = $bdd->query("SELECT MEM_NUM, MEM_NOM, MEM_PRENOM FROM PLO_MEMBRE");
 
-while($donnees = $reponse->fetch())
-{
-	if(($membrePrenomMeet == $donnees['MEM_PRENOM']) && ($membreNomMeet == $donnees['MEM_NOM']))
-	{
-		$membreNumMeet = $donnees['MEM_NUM'];
-	}
-}
-*/
 
-$bdd->exec('INSERT INTO PLO_SEANCE(SEA_CODE, SEA_DATE) VALUES (\'$nameMeet\',\'$dateMeet\')');
-header('Location: /index.php');
-exit();
+    $req2 = "INSERT INTO PLO_SEANCE (SEA_CODE,SEA_DATE) VALUES ('$code', '$date')";
+    $base->query($req2);
+
+    header('Location: ../view/frontend/planning.php');
+    exit();
 ?>
+
+
+
+
