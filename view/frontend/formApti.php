@@ -6,7 +6,7 @@
         <h4>Créer une Aptitude</h4>
 
         <div class="row">
-            <form class="col s12" method="post" action="/controller/CreerComp.php">
+            <form class="col s12" method="post" action="/controller/CreerApt.php">
                 <div class="row">
                     <div class="input-field col s6">
                         <input id="nomApti" type="text" class="validate" name="nomApti" required>

@@ -16,8 +16,15 @@ foreach (mysqli_fetch_array($res) as $data) {
 }
 $max++;
 
-$req2 = "INSERT INTO PLO_APTITUDES VALUES ('$aptCode.$max', '$compCode', '$nom', '$description')";
+$aptCode = $aptCode.$max;
+
+echo "$max\n";
+echo "$aptCode\n";
+echo "$nom\n";
+echo "$description\n";
+
+$req2 = "INSERT INTO PLO_APTITUDES VALUES ('$aptCode', '$compCode', '$nom', '$description')";
 $base->query($req2);
 
-header('Location: ../view/frontend/visiteur.php?page=Competences');
-exit();
+//header('Location: ../view/frontend/visiteur.php?page=Competences');
+//exit();
