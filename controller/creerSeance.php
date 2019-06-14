@@ -19,7 +19,7 @@ while ($donnees0 = $res0->fetch()) {
 
     $eleveNum = $donnees0['ELE_NUM'];
 
-    echo $eleveNum." ; ".$dateheure." ; ".$niveauFormation;
+    echo $eleveNum . " ; " . $dateheure . " ; " . $niveauFormation;
 
     $dateheure = $date . " " . $heure;
 
@@ -27,14 +27,14 @@ while ($donnees0 = $res0->fetch()) {
     $base->query($req2);
 
 
-if (isset($_POST['estValide'])) {
+    if (isset($_POST['estValide'])) {
 
-    $req3 = "INSERT INTO VALIDE(ELE_NUM, APT_CODE, VAL_DATE, VAL_STATUT) VALUES ('$eleveNum', '$aptitude', STR_TO_DATE('$dateheure', '%Y-%m-%d %H:%i'), 'VALIDE')";
-    $base->query($req3);
-}
-else{
-	$req3 = "INSERT INTO VALIDE(ELE_NUM, APT_CODE, VAL_DATE, VAL_STATUT) VALUES ('$eleveNum', '$aptitude', STR_TO_DATE('$dateheure', '%Y-%m-%d %H:%i'), 'EN COURS')";
-    $base->query($req3);
+        $req3 = "INSERT INTO VALIDE(ELE_NUM, APT_CODE, VAL_DATE, VAL_STATUT) VALUES ('$eleveNum', '$aptitude', STR_TO_DATE('$dateheure', '%Y-%m-%d %H:%i'), 'VALIDE')";
+        $base->query($req3);
+    } else {
+        $req3 = "INSERT INTO VALIDE(ELE_NUM, APT_CODE, VAL_DATE, VAL_STATUT) VALUES ('$eleveNum', '$aptitude', STR_TO_DATE('$dateheure', '%Y-%m-%d %H:%i'), 'EN COURS')";
+        $base->query($req3);
+    }
 }
 //header('Location: ../view/frontend/visiteur.php?page=planning');
 //exit();
