@@ -1,5 +1,6 @@
 <?php
-
+include_once($pageRepertory."navbar.php");
+include_once($pageRepertory . "login.php");
 include_once("head.php");
 
 //?id=2;
