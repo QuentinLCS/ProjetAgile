@@ -28,8 +28,14 @@ try {
                         <select id ="eleve" name="eleve" class="validate">
                             <?php
 
+                            $numSession=$_SESSION['num'];
+                            $num = "SELECT MEM_NIVEAU_FORM FROM PLO_MEMBRE where MEM_NUM='$numSession' ";
+                            $resultat = $pdoConnection->query($num);
+                            $niveau = $resultat->fetch();
+                            $niveauMembre=$niveau['MEM_NIVEAU_FORM'];
+
                             $req = <<<HEREDOC
-SELECT ELE_NUM, ELE_NOM, ELE_PRENOM FROM PLO_ELEVE ORDER BY ELE_NOM asc;
+SELECT ELE_NUM, ELE_NOM, ELE_PRENOM FROM PLO_ELEVE JOIN TRAVAILLE USING (ELE_NUM) WHERE FOR_CODE = '$niveauMembre' ORDER BY ELE_NOM asc;
 HEREDOC;
 
                             $res = $pdoConnection->query($req);
@@ -45,7 +51,14 @@ HEREDOC;
                         <select id ="aptitude" name="aptitude" class="validate">
                             <?php
 
+                            $numSession=$_SESSION['num'];
+                            $num = "SELECT MEM_NIVEAU_FORM FROM PLO_MEMBRE where MEM_NUM='$numSession' ";
+                            $resultat = $pdoConnection->query($num);
+                            $niveau = $resultat->fetch();
+                            $niveauMembre=$niveau['MEM_NIVEAU_FORM'];
+
                             $req = <<<HEREDOC
+                            SELECT APT_CODE, APT_NOM FROM FORMATION LEFT JOIN PLO_COMPETENCES USING(FOR_CODE) LEFT JOIN PLO_APTITUDES USING(COM_CODE) WHERE FOR_CODE = '$niveauMembre';
 SELECT APT_CODE, APT_NOM FROM PLO_APTITUDES ORDER BY APT_NOM asc;
 HEREDOC;
 
