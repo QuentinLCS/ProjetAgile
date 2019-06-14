@@ -168,16 +168,19 @@ function statutAptitude($idEleve)
 
             if (isset($tableau[$i][$j])) {
 
-                if ($i==0){
+                if ($i == 0){
+                    echo '<td colspan="'.$nbCaseCompetences[$j].'" class = "center">'. $tableau[$i][$j] . '</td>';
+                }
+                if ($i==1){
 
                     if( $validiteComp[$j] >= 3){
-                        echo '<td  colspan="'.$nbCaseCompetences[$j].'" class = "center" style="background-color:#00C853">'. $tableau[$i][$j] . '</td>';
+                        echo '<td  class = "center" style="background-color:#00C853">'. $tableau[$i][$j] . '</td>';
                     }
                     elseif ($valTester[$j] >= 1){
-                        echo '<td  colspan="'.$nbCaseCompetences[$j].'" class = "center" style="background-color:#8d6e63">'. $tableau[$i][$j] . '</td>';
+                        echo '<td  class = "center" style="background-color:#8d6e63">'. $tableau[$i][$j] . '</td>';
                     }
                     else{
-                        echo '<td colspan="'.$nbCaseCompetences[$j].'" class = "center">'. $tableau[$i][$j] . '</td>';
+                        echo '<td  class = "center" >'. $tableau[$i][$j] . '</td>';
                     }
 
                 }
