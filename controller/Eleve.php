@@ -45,6 +45,7 @@ function modifier($prenom, $nom, $numEleve){
     $reqModif = "UPDATE PLO_ELEVE SET ELE_PRENOM = '$prenom', ELE_NOM = '$nom' WHERE ELE_NUM = $numEleve";
     $base->query($reqModif);
     header('Location: ../view/frontend/visiteur.php?page=eleve');
+    echo 'SALUT';
 }
 
 function afficher($numEleve) {
@@ -86,7 +87,6 @@ function afficher($numEleve) {
                 <input type="submit" name="remEleve" value="X" class="grey darken-4 waves-effect waves-light small">
             </form>
         </td>
-        <p>Ok</p>
         <?php
     }
 
