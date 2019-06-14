@@ -26,6 +26,6 @@ while ($donnees0 = $res0->fetch()) {
     $req2 = "INSERT INTO TRAVAILLE(ELE_NUM, APT_CODE, DAT_DATE) VALUES ($eleveNum, 'PAS ENCORE PASSEE', STR_TO_DATE('$dateheure', '%Y-%m-%d %H:%i'))";
     $base->query($req2);
 }
-//header('Location: ../view/frontend/visiteur.php?page=planning');
-//exit();
+header('Location: ../view/frontend/visiteur.php?page=planning');
+exit();
 ?>
