@@ -65,12 +65,12 @@ function statutAptitude($idEleve)
     $res = $pdoConnection->query($requeteCompetences);
 
     /*Premiere ligne (Competences)*/
-    $i = 0;
+    $i = 1;
     $j = 1;
     $tableau[1][0] = "";
     while ($donnees = $res->fetch()) {
         $tableau[0][0] = $donnees['ELE_PRENOM'].' '.$donnees['ELE_NOM'];
-        $tableau[0][$i+1] = $donnees['COM_NOM'];
+        $tableau[0][$i] = $donnees['COM_NOM'];
 
 
         /*Seconde ligne*/
@@ -85,7 +85,7 @@ function statutAptitude($idEleve)
             $aptitude[$j] = $donneesLigne2['APT_CODE'];
             $j++;
         }
-        $nbCaseCompetences[$i+1] = $nbAptComp;
+        $nbCaseCompetences[$i] = $nbAptComp;
         $resAptitude->closeCursor();
         /*Fin ligne 2*/
 
