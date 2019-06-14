@@ -90,6 +90,7 @@ function afficher($numEleve) {
     }
 
     echo "</tbody> </table>";
+    echo "SALUT";
 
     $res->closeCursor();
 }
