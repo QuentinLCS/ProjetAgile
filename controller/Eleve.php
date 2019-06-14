@@ -17,7 +17,7 @@ elseif (isset($_POST['formulaireModifier'])) {
 
 elseif (isset($_POST['tableauEleve'])) {
     echo "test";
-    $address = "../view/frontend/pageTableauEleve.php?id=".$_POST['numEleve'];
+    $address = "location: ../view/frontend/pageTableauEleve.php?id=".$_POST['numEleve'];
     header($address);
 }
 
