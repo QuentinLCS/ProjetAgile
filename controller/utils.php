@@ -1,6 +1,14 @@
 ﻿<?php
 
-$num = $_POST['num'];
+if (isset($_POST['num']))
+    $num = $_POST['num'];
+if (isset($_POST['numEleve'])) {
+
+    $numEleve = $_POST['numEleve'];
+    $date = $_POST['date'];
+    $aptitude = $_POST['aptitude'];
+}
+
 
 if (isset($_POST['setDirecteur'])) {
     modifierRole($num , "DIRECTEUR");
@@ -21,10 +29,12 @@ elseif (isset($_POST['remCompetences'])) {
     supprimerDonnee("COM_CODE = '$num'","PLO_COMPETENCES");
 }
 
+elseif (isset($_POST['remSeance'])) {
+    supprimerDonnee("ELE_NUM = $numEleve AND DAT_DATE = '$date' AND APT_CODE = '$aptitude'","TRAVAILLE");
+}
+
 elseif (isset($_POST['remAptitudes'])) {
     supprimerDonnee("APT_CODE = '$num'","PLO_APTITUDES");
-    echo 'coucou';
-    echo $num;
 }
 
 elseif (isset($_POST['afficherAptitudes'])) {
@@ -56,8 +66,10 @@ function supprimerDonnee ($condition, $table) {
 
     if ($table == "PLO_MEMBRE")
         header('Location: ../view/frontend/visiteur.php?page=Initiateurs');
-    if ($table == "PLO_COMPETENCES" || $table == "PLO_APTITUDES")
+    elseif ($table == "PLO_COMPETENCES" || $table == "PLO_APTITUDES")
         header('Location: ../view/frontend/visiteur.php?page=Competences');
+    else
+        header('Location: ../view/frontend/visiteur.php?page=Planning');
     exit();
 
 }

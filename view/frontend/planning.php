@@ -47,6 +47,7 @@ $res = $pdoConnection->query($req);
         <tbody>';
 while ($donnees = $res->fetch())
 {
+    //Le nom de l'initiateur est faux, c'était un test.
         echo "<tr> <td>".htmlspecialchars($donnees['DAT_DATE']) . "</td><td>" .htmlspecialchars($donnees['ELE_NOM'])." ".htmlspecialchars($donnees['ELE_PRENOM']). "</td><td>" .htmlspecialchars($_SESSION['nom'])." ".htmlspecialchars($_SESSION['prenom'])."</td><td>" .htmlspecialchars($donnees['APT_NOM'])."</td><td>".$donnees['EVA_COMMENTAIRE']."</td>";
         
         if(isset($_SESSION['role'])){
@@ -54,10 +55,10 @@ while ($donnees = $res->fetch())
                <td>
                     <form action="../../controller/utils.php" method="post" class="usersOptions">
                         <input type="number" name="numEleve" value="<?php echo $donnees['ELE_NUM'] ?>" style="display: none;">
-                        <input type="number" name="date" value="<?php echo $donnees['DAT_DATE'] ?>" style="display: none;">
-                        <input type="number" name="aptitude" value="<?php echo $donnees['APT_CODE'] ?>" style="display: none;">
+                        <input type="text" name="date" value="<?php echo $donnees['DAT_DATE'] ?>" style="display: none;">
+                        <input type="text" name="aptitude" value="<?php echo $donnees['APT_CODE'] ?>" style="display: none;">
                         <input type="submit" name="modifierSeance" value="MODIFIER" class="red darken-2 waves-effect waves-light small">
-                        <input type="submit" name="remUtilisateur" value="X" class="grey darken-4 waves-effect waves-light small">
+                        <input type="submit" name="remSeance" value="X" class="grey darken-4 waves-effect waves-light small">
                     </form>
                 </td>
                 <?php
