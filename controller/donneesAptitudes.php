@@ -175,7 +175,7 @@ function statutAptitude($idEleve)
         echo "<tr>";
         for ($j=0; $j<=(count($nombreAptitudes)+15); $j++){
 
-            $description = "";
+            $description = " pas de com ";
             if (isset($commentaire[$i][$j])){
                 $description = $commentaire[$i][$j];
             }
