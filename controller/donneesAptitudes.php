@@ -153,11 +153,11 @@ function statutAptitude($idEleve)
             while ($donneesValidation = $resValidation->fetch()) {
 
                 $x=2;
-                $validiteComp[$j] = 0;
+
                 foreach($listeDates as $uneDate) {
 
                     if ($donneesValidation['VAL_DATE'] == $tableau[$x][0]){
-                        $commentaire[$x][$j] = $donneesValidation['VAL_STATUT'];
+                        $commentaire[$x][$j] = $donneesValidation['EVA_COMMENTAIRE'];
                     }
                     $x++;
                 }
