@@ -15,7 +15,7 @@
                     <div class="row input-field col s6">
                         <select id ="formation" name="formation" class="validate">
                             <?php
-
+                            session_start();
                             $dbhost = 'localhost';
                             $dbuser = 'agile8';
                             $dbpass = 'ahV2FeemahM6Jiex';
@@ -29,7 +29,7 @@
                             }
 
                             $req = <<<HEREDOC
-SELECT * FROM FORMATION ORDER BY FOR_CODE asc;
+SELECT * FROM FORMATION WHERE ORDER BY FOR_CODE asc;
 HEREDOC;
 
                             $res = $pdoConnection->query($req);
