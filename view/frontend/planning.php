@@ -35,7 +35,6 @@ $res = $pdoConnection->query($req);
             <tr>
                 <th>DATE</th>
                 <th>ELEVE</th>
-                <th>INITIATEUR</th>
                 <th>APTITUDE</th>    
                 <th>COMMENTAIRE</th>';
     if(isset($_SESSION['role'])){
@@ -49,7 +48,7 @@ $res = $pdoConnection->query($req);
 while ($donnees = $res->fetch())
 {
     //Le nom de l'initiateur est faux, c'était un test.
-        echo "<tr> <td>".htmlspecialchars($donnees['DAT_DATE']) . "</td><td>" .htmlspecialchars($donnees['ELE_NOM'])." ".htmlspecialchars($donnees['ELE_PRENOM']). "</td><td>" .htmlspecialchars($_SESSION['nom'])." ".htmlspecialchars($_SESSION['prenom'])."</td><td>" .htmlspecialchars($donnees['APT_NOM'])."</td><td>".$donnees['EVA_COMMENTAIRE']."</td>";
+        echo "<tr> <td>".htmlspecialchars($donnees['DAT_DATE']) . "</td><td>" .htmlspecialchars($donnees['ELE_NOM'])." ".htmlspecialchars($donnees['ELE_PRENOM']). "</td><td>" .htmlspecialchars($donnees['APT_NOM'])."</td><td>".$donnees['EVA_COMMENTAIRE']."</td>";
         
         if(isset($_SESSION['role'])){
             if($_SESSION['role']=='DIRECTEUR' || $_SESSION['role']=='RESPONSABLE'){ ?>

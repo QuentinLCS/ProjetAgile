@@ -152,7 +152,7 @@ function statutAptitude($idEleve)
                     echo '<td colspan="'.$nbCaseCompetences[$j].'" class = "center">'. $tableau[$i][$j] . '</td>';
                 }
                 else{
-                    if($tableau[$i][$j] == "VALIDE"){
+                    if($tableau[$i][$j] == "ACQUIS"){
                         echo "<td class='center' style='background-color: #00C853'>" . $tableau[$i][$j] . "</td>";
                     }
                     else if($tableau[$i][$j] == "EN COURS"){
@@ -202,14 +202,8 @@ function statut($idEleve, $idApt){
 
 
         if ($donneesValidation['VAL_STATUT'] == "VALIDE"){
-                $validite++;
+            $validite++;
         }
-
-        $x++;
-
-
-
-        $z++;
     }
     if($validite>=3){
         return 'ACQUIS';
