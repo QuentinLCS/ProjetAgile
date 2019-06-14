@@ -19,7 +19,7 @@ if (isset($_GET['id'])){
         echo "Erreur connection : ".$e->getMessage();
     }
 
-    $reqCheck = "SELECT ELE_CODE FROM PLO_ELEVE WHERE ELE_CODE = '$idEleve'";
+    $reqCheck = "SELECT ELE_NUM FROM PLO_ELEVE WHERE ELE_NUM = '$idEleve'";
     $res = $pdoConnection->query($reqCheck);
 
     if ($res->fetch()){
