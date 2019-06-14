@@ -176,3 +176,41 @@ function statutAptitude($idEleve)
     echo "</table>";
 
 }
+
+function statut($idEleve, $idApt){
+
+    $dbuser = 'agile8';
+    $dbpass = 'ahV2FeemahM6Jiex';
+    $dsn = 'mysql:host=localhost;dbname=agile8_bd;charset=utf8';
+
+    try {
+        $pdoConnection = new PDO($dsn, $dbuser, $dbpass);
+        $pdoConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $e) {
+        echo "Erreur connection : " . $e->getMessage();
+    }
+
+    $requeteValidation = "SELECT VAL_STATUT, VAL_DATE FROM PLO_APTITUDES LEFT JOIN VALIDE USING(APT_CODE) WHERE APT_CODE = '$idApt' AND ELE_NUM = '$idEleve' ";
+    $resValidation = $pdoConnection->query($requeteValidation);
+
+
+
+    $total =0;
+    $validite = 0;
+
+    while ($donneesValidation = $resValidation->fetch()) {
+
+
+        if ($donneesValidation['VAL_STATUT'] == "VALIDE"){
+                $validite++;}
+        }
+
+        $x++;
+
+
+
+        $z++;
+    }
+    $resValidation->closeCursor();
+
+}
