@@ -31,7 +31,7 @@ $reponse=$pdoConnection->query($req);
                         <label for="Nom">Entrez Nom</label>
                     </div>
                 </div>
-                <button class="btn waves-effect waves-light" type="submit" name="updateInfos">Ajouter
+                <button class="btn waves-effect waves-light" type="submit" name="updateInfos">Modifier
                     <i class="material-icons right">send</i>
                 </button>
             </form>
