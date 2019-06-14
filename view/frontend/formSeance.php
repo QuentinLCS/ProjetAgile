@@ -14,9 +14,9 @@ try {
 
 ?>
 
-<a class="grey darken-2 waves-effect waves-light btn modal-trigger" href="#seance"><strong>Programmer une séance</strong></a>
+<a class="grey darken-1 waves-effect waves-light btn modal-trigger" href="#formSeance"><strong>Programmer une séance</strong></a>
 
-<div id="seance" class="modal ">
+<div id="formSeance" class="modal ">
     <h5 class="modal-close">&#10005;</h5>
     <div class="modal-content center">
         <h4>Programmer séance</h4>

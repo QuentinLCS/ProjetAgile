@@ -12,10 +12,16 @@ $req = "UPDATE TRAVAILLE SET APT_CODE = '$aptitude', EVA_COMMENTAIRE = '$comment
 $base->query($req);
 
 if (isset($_POST['estValide'])) {
-    $req3 = "INSERT INTO VALIDE(ELE_NUM, APT_CODE, VAL_DATE, VAL_STATUT) VALUES ('$eleveNum', '$aptitude', '$date', 'VALIDE')";
-    $base->query($req3);
-} else {
-    $req3 = "INSERT INTO VALIDE(ELE_NUM, APT_CODE, VAL_DATE, VAL_STATUT) VALUES ('$eleveNum', '$aptitude', '$date', 'EN COURS')";
+    if ($_POST['estValide'] == 1) {
+        $req3 = "INSERT INTO VALIDE(ELE_NUM, APT_CODE, VAL_DATE, VAL_STATUT) VALUES ('$eleveNum', '$aptitude', '$date', 'VALIDE')";
+    } elseif ($_POST['estValide'] == 2) {
+        $req3 = "INSERT INTO VALIDE(ELE_NUM, APT_CODE, VAL_DATE, VAL_STATUT) VALUES ('$eleveNum', '$aptitude', '$date', 'NON VALIDE')";
+    } elseif ($_POST['estValide'] == 3) {
+        $req3 = "INSERT INTO VALIDE(ELE_NUM, APT_CODE, VAL_DATE, VAL_STATUT) VALUES ('$eleveNum', '$aptitude', '$date', 'EN COURS')";
+    } else {
+        $req3 = "INSERT INTO VALIDE(ELE_NUM, APT_CODE, VAL_DATE, VAL_STATUT) VALUES ('$eleveNum', '$aptitude', '$date', 'ABSENT')";
+        $base->query($req3);
+    }
     $base->query($req3);
 }
 
