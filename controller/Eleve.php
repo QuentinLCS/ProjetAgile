@@ -15,6 +15,10 @@ elseif (isset($_POST['formulaireModifier'])) {
     include_once("../view/frontend/modifierEleve.php");
 }
 
+elseif (isset($_POST['tableauEleve'])) {
+    $address = "../view/frontend/pageTableauEleve.php?id=".$_POST['numEleve'];
+    header($address);
+}
 
 elseif (isset($_POST['remEleve'])) {
     supprimer($_SESSION['numEleve']);
@@ -71,12 +75,11 @@ function afficher($numEleve) {
 
     while ($donnees = $res->fetch())
     {
-
-        $lienTableau = "../view/frontend/pageTableauEleve.php?id=".$donnees['ELE_NUM'];
-        echo "<tr> <td>".'<a href="'.$lienTableau.'">'.htmlspecialchars($donnees['FOR_NOM'])."</a>". "</td><td>" .htmlspecialchars($donnees['ELE_NOM']). "</td><td>" .htmlspecialchars($donnees['ELE_PRENOM'])."</td>"?>
+        echo "<tr> <td>".htmlspecialchars($donnees['FOR_NOM']) . "</td><td>" .htmlspecialchars($donnees['ELE_NOM']). "</td><td>" .htmlspecialchars($donnees['ELE_PRENOM'])."</td>"?>
         <td>
             <form action="/controller/Eleve.php" method="post" class="usersOptions">
                 <input type="number" name="numEleve" value="<?php echo $num ?>" style="display: none;">
+                <input type="submit" name="tableauEleve" value="TABLEAU" class="green darken-2 waves-effect waves-light small">
                 <input type="submit" name="formulaireModifier" value="MODIFIER" class="red darken-2 waves-effect waves-light small">
                 <input type="submit" name="remEleve" value="X" class="grey darken-4 waves-effect waves-light small">
             </form>
