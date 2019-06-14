@@ -179,6 +179,9 @@ function statutAptitude($idEleve)
                     if($tableau[$i][$j] == "X"){
                         echo "<td style='background-color: #9fa8da'>" . $tableau[$i][$j] . "</td>";
                     }
+                    else{
+                        echo "<td>" . $tableau[$i][$j] . "</td>";
+                    }
 
                 }
             }
