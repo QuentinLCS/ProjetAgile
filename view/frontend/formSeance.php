@@ -28,15 +28,14 @@ try {
                         <select id ="niveauSeance" name="niveauSeance" class="validate">
                             <?php
 
-                            $req = <<<HEREDOC
-SELECT * FROM FORMATION ORDER BY FOR_CODE asc;
-HEREDOC;
+                            $req = "SELECT * FROM FORMATION ORDER BY FOR_CODE ASC";
 
                             $res = $pdoConnection->query($req);
                             //session_start();
                             while ($donnees = $res->fetch()) {
                                 echo '<option value="'.htmlspecialchars($donnees["FOR_CODE"]).'">'.htmlspecialchars($donnees["FOR_NOM"]).'</option>';
                             }
+                            $res->closeCursor();
                             ?>
                         </select>
                         <label>Niveau de la séance</label>
