@@ -51,17 +51,20 @@ while ($donnees = $res->fetch())
     echo "<tr> <td>".htmlspecialchars($num) . "</td><td>" .htmlspecialchars($donnees['FOR_CODE']). "</td><td>" .htmlspecialchars($donnees['COM_NOM'])."</td><td>".$donnees['COM_DESC']."</td>";
 
 
-        if(isset($_SESSION['role'])){
-            if($_SESSION['role']=='DIRECTEUR' || $_SESSION['role']=='RESPONSABLE'){ ?>
-               <td>
+        if(isset($_SESSION['role'])){?>
+            <td>
                     <form action="../../controller/utils.php" method="post" class="usersOptions">
-                        <input type="text" name="num" value="<?php echo $num ?>" style="display: none;">
-                        <input type="submit" name="afficherAptitudes" value="Aptitudes" class="green darken-4 waves-effect waves-light small">
+                    <input type="text" name="num" value="<?php echo $num ?>" style="display: none;">
+                    <input type="submit" name="afficherAptitudes" value="Aptitudes" class="green darken-4 waves-effect waves-light small">
+            <?php if($_SESSION['role']=='DIRECTEUR' || $_SESSION['role']=='RESPONSABLE'){ ?>
+               
+                        
                         <input type="submit" name="remCompetences" value="X" class="grey darken-4 waves-effect waves-light small">
-                    </form>
-                </td>
-                <?php
-            }
+                    
+                
+                <?php } ?>
+            </form>
+            </td><?php
         }
 }
 

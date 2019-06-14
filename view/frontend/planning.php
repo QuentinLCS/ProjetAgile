@@ -6,17 +6,16 @@ $dbuser = 'agile8';
 $dbpass = 'ahV2FeemahM6Jiex';
 $dsn = 'mysql:host=localhost;dbname=agile8_bd;charset=utf8';
 
+echo '<div class="modal-content center">';
+include_once("formEvaluation.php");
 if(isset($_SESSION['role'])){
     if($_SESSION['role']=='DIRECTEUR' || $_SESSION['role']=='RESPONSABLE'){ 
-        echo '<div class="modal-content center">';
-            include_once("formEvaluation.php");
-            include_once("formSeance.php");
-            include_once("pageTableauFormation.php");
-        echo '</div>';
+
+            include_once("formSeance.php");  
     }
 }
-
-    
+include_once("pageTableauFormation.php");
+ echo '</div>';    
 try {
   $pdoConnection = new PDO($dsn, $dbuser, $dbpass);
   $pdoConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
