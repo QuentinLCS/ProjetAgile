@@ -30,13 +30,11 @@ function heures($idEleve){
         $i++;
     }
 
-    echo 'nb date : '.$i;
+
 
 }
 
-/**
- * @param $idEleve
- */
+
 function statutAptitude($idEleve)
 {
 
@@ -91,8 +89,17 @@ function statutAptitude($idEleve)
     $res->closeCursor();
     $nombreAptitudes = $j;
 
-    echo 'Nombre aptitudes : ' . $nombreAptitudes;
 
+
+    for ($j=1; $j<$nombreAptitudes; $j++) {
+        $x=2;
+        foreach ($listeDates as $uneDate) {
+
+            $tableau[$x][$j] = " X ";
+            $x++;
+
+        }
+    }
 
 
     for ($j=0; $j<$nombreAptitudes; $j++){
@@ -101,22 +108,29 @@ function statutAptitude($idEleve)
             $x=2;
             foreach($listeDates as $uneDate) {
 
-                $tableau[$x][$j] = $uneDate;
+                $tableau[$x][0] = $uneDate;
                 $x++;
 
             }
         }
 
         else {
-            $requeteValidation = "SELECT VAL_STATUT FROM PLO_APTITUDES LEFT JOIN VALIDE USING(APT_CODE) WHERE APT_CODE = '$aptitude[$j]' AND ELE_NUM = '$idEleve' ORDER BY VAL_DATE ASC ";
+            $requeteValidation = "SELECT VAL_STATUT, VAL_DATE FROM PLO_APTITUDES LEFT JOIN VALIDE USING(APT_CODE) WHERE APT_CODE = '$aptitude[$j]' AND ELE_NUM = '$idEleve' ";
             $resValidation = $pdoConnection->query($requeteValidation);
 
             $z = 2;
             while ($donneesValidation = $resValidation->fetch()) {
 
+                $x=2;
+                foreach($listeDates as $uneDate) {
 
-                $tableau[$z][$j] = $donneesValidation['VAL_STATUT'];
+                    if ($donneesValidation['VAL_DATE'] == $tableau[$x][0]){
+                        $tableau[$x][$j] = $donneesValidation['VAL_STATUT'];
+                    }
 
+                    $x++;
+
+                }
 
                 $z++;
             }
@@ -126,16 +140,16 @@ function statutAptitude($idEleve)
 
 
 
-
-
     /*TEST*/
     echo '<table>';
-    foreach ($tableau as $ligne){
+    for($i=0; $i<= (count($listeDates)+2) ;$i++){
+
         echo "<tr>";
-        foreach ($ligne as $case){
+        for ($j=0; $j<=(count($nombreAptitudes)+2); $j++){
 
-            echo "<td>".$case."</td>";
-
+            if (isset($tableau[$i][$j])) {
+                echo "<td>" . $tableau[$i][$j] . "</td>";
+            }
         }
         echo "</tr>";
     }
