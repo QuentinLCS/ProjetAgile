@@ -124,7 +124,7 @@ function statutAptitude($idEleve)
 
         else {
             $requeteValidation = "SELECT VAL_STATUT, VAL_DATE FROM PLO_APTITUDES LEFT JOIN VALIDE USING(APT_CODE) WHERE APT_CODE = '$aptitude[$j]' AND ELE_NUM = '$idEleve' ";
-            $requeteCommentaire = "SELECT EVA_COMMENTAIRE FROM TRAVAILLE JOIN VALIDE ON TRAVAILLE.ELE_NUM = VALIDE.ELE_NUM AND TRAVAILLE.APT_CODE = VALIDE.APT_CODE AND TRAVAILLE.DAT_DATE = VALIDE.VAL_DATE WHERE VALIDE.APT_CODE ='$aptitude[$j]' AND VALIDE.ELE_NUM='$idEleve'";
+            $requeteCommentaire = "SELECT EVA_COMMENTAIRE, VAL_DATE FROM TRAVAILLE JOIN VALIDE ON TRAVAILLE.ELE_NUM = VALIDE.ELE_NUM AND TRAVAILLE.APT_CODE = VALIDE.APT_CODE AND TRAVAILLE.DAT_DATE = VALIDE.VAL_DATE WHERE VALIDE.APT_CODE ='$aptitude[$j]' AND VALIDE.ELE_NUM='$idEleve'";
             $resValidation = $pdoConnection->query($requeteValidation);
 
             $z = 2;
