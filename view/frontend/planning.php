@@ -57,7 +57,6 @@ while ($donnees = $res->fetch())
                         <input type="number" name="numEleve" value="<?php echo $donnees['ELE_NUM'] ?>" style="display: none;">
                         <input type="text" name="date" value="<?php echo $donnees['DAT_DATE'] ?>" style="display: none;">
                         <input type="text" name="aptitude" value="<?php echo $donnees['APT_CODE'] ?>" style="display: none;">
-                        <input type="submit" name="modifierSeance" value="MODIFIER" class="red darken-2 waves-effect waves-light small">
                         <input type="submit" name="remSeance" value="X" class="grey darken-4 waves-effect waves-light small">
                     </form>
                 </td>

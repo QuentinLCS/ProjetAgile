@@ -14,7 +14,7 @@ try {
 
 ?>
 
-<a class="grey darken-2 waves-effect waves-light btn modal-trigger" href="#seance"><strong>Créer une séance</strong></a>
+<a class="grey darken-2 waves-effect waves-light btn modal-trigger" href="#seance"><strong>Saisir un compte-rendu</strong></a>
 
 <div id="seance" class="modal ">
     <h5 class="modal-close">&#10005;</h5>

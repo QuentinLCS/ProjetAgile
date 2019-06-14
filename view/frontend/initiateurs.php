@@ -23,7 +23,7 @@ try {
 }
 
 $req = <<<HEREDOC
-SELECT MEM_NUM, MEM_NOM, MEM_PRENOM, MEM_ROLE, MEM_MAIL FROM PLO_MEMBRE ORDER BY MEM_NUM asc;
+SELECT MEM_NUM, MEM_NOM, MEM_PRENOM, MEM_ROLE, MEM_MAIL FROM PLO_MEMBRE ORDER BY MEM_NOM asc;
 HEREDOC;
 
 $res = $pdoConnection->query($req);
@@ -31,7 +31,6 @@ $res = $pdoConnection->query($req);
     echo '<table class="striped centered">
         <thead>
             <tr>
-                <th>NUMERO</th>
                 <th>NOM</th>
                 <th>PRENOM</th>    
                 <th>FONCTION</th>
@@ -47,7 +46,7 @@ $res = $pdoConnection->query($req);
 while ($donnees = $res->fetch())
 {
         $num = htmlspecialchars($donnees['MEM_NUM']);
-        echo "<tr> <td>".htmlspecialchars($num) . "</td><td>" .htmlspecialchars($donnees['MEM_NOM']). "</td><td>" .htmlspecialchars($donnees['MEM_PRENOM'])."</td><td>".$donnees['MEM_ROLE']."</td>";
+        echo "<tr> <td>" .htmlspecialchars($donnees['MEM_NOM']). "</td><td>" .htmlspecialchars($donnees['MEM_PRENOM'])."</td><td>".$donnees['MEM_ROLE']."</td>";
         
         if(isset($_SESSION['role'])){
             if($_SESSION['role']=='DIRECTEUR' || $_SESSION['role']=='RESPONSABLE'){ ?>
