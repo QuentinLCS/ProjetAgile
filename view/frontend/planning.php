@@ -34,9 +34,7 @@ $res = $pdoConnection->query($req);
         <thead>
             <tr>
                 <th>DATE</th>
-                <th>ELEVE</th>
-                <th>APTITUDE</th>    
-                <th>COMMENTAIRE</th>';
+                <th>ELEVE</th>';
     if(isset($_SESSION['role'])){
         if($_SESSION['role']=='DIRECTEUR' || $_SESSION['role']=='RESPONSABLE'){  
             echo'<th>EDITER UNE SEANCE...</th>';
@@ -47,8 +45,7 @@ $res = $pdoConnection->query($req);
         <tbody>';
 while ($donnees = $res->fetch())
 {
-    //Le nom de l'initiateur est faux, c'était un test.
-        echo "<tr> <td>".htmlspecialchars($donnees['DAT_DATE']) . "</td><td>" .htmlspecialchars($donnees['ELE_NOM'])." ".htmlspecialchars($donnees['ELE_PRENOM']). "</td><td>" .htmlspecialchars($donnees['APT_NOM'])."</td><td>".$donnees['EVA_COMMENTAIRE']."</td>";
+        echo "<tr> <td>".htmlspecialchars($donnees['DAT_DATE']) . "</td><td>" .htmlspecialchars($donnees['ELE_NOM'])." ".htmlspecialchars($donnees['ELE_PRENOM']). "</td>";
         
         if(isset($_SESSION['role'])){
             if($_SESSION['role']=='DIRECTEUR' || $_SESSION['role']=='RESPONSABLE'){ ?>
