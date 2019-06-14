@@ -20,7 +20,7 @@ function heures($idEleve){
     global $listeDates;
 
 
-    $requeteDates = "SELECT VAL_DATE FROM VALIDE WHERE ELE_NUM = '$idEleve' ORDER BY VAL_DATE ASC";
+    $requeteDates = "SELECT DISTINCT VAL_DATE FROM VALIDE WHERE ELE_NUM = '$idEleve' ORDER BY VAL_DATE ASC";
     $res = $pdoConnection->query($requeteDates);
 
     /*Remplissage du tableau de date*/
@@ -37,6 +37,9 @@ function heures($idEleve){
 
 function statutAptitude($idEleve)
 {
+
+    $nbCaseCompetences = array();
+    $nbCaseCompetences[0] = 1;
 
     echo "<br>";
 
@@ -58,16 +61,16 @@ function statutAptitude($idEleve)
     heures($idEleve);
 
 
-    $requeteCompetences = "SELECT DISTINCT COM_NOM, COM_CODE FROM PLO_COMPETENCES JOIN PLO_ELEVE USING(FOR_CODE)";
+    $requeteCompetences = "SELECT DISTINCT COM_NOM, COM_CODE, ELE_NOM, ELE_PRENOM FROM PLO_COMPETENCES JOIN PLO_ELEVE USING(FOR_CODE)";
     $res = $pdoConnection->query($requeteCompetences);
-
 
     /*Premiere ligne (Competences)*/
     $i = 0;
     $j = 1;
     $tableau[1][0] = "";
     while ($donnees = $res->fetch()) {
-        $tableau[0][$i] = $donnees['COM_NOM'] . " ";
+        $tableau[0][0] = $donnees['ELE_PRENOM'].' '.$donnees['ELE_NOM'];
+        $tableau[0][$i+1] = $donnees['COM_NOM'];
 
 
         /*Seconde ligne*/
@@ -75,11 +78,14 @@ function statutAptitude($idEleve)
         $requeteAptitude = "SELECT DISTINCT APT_NOM, APT_CODE FROM PLO_APTITUDES WHERE COM_CODE = '$comCode'";
         $resAptitude = $pdoConnection->query($requeteAptitude);
 
+        $nbAptComp = 0;
         while ($donneesLigne2 = $resAptitude->fetch()) {
-            $tableau[1][$j] = $donneesLigne2['APT_NOM'] . " ";
+            $nbAptComp ++;
+            $tableau[1][$j] = $donneesLigne2['APT_NOM'];
             $aptitude[$j] = $donneesLigne2['APT_CODE'];
             $j++;
         }
+        $nbCaseCompetences[$i+1] = $nbAptComp;
         $resAptitude->closeCursor();
         /*Fin ligne 2*/
 
@@ -95,7 +101,7 @@ function statutAptitude($idEleve)
         $x=2;
         foreach ($listeDates as $uneDate) {
 
-            $tableau[$x][$j] = " X ";
+            $tableau[$x][$j] = "X";
             $x++;
 
         }
@@ -148,7 +154,13 @@ function statutAptitude($idEleve)
         for ($j=0; $j<=(count($nombreAptitudes)+10); $j++){
 
             if (isset($tableau[$i][$j])) {
-                echo "<td>" . $tableau[$i][$j] . "</td>";
+
+                if ($i==0){
+                    echo '<td colspan="'.$nbCaseCompetences[$j].'" class = "center">'. $tableau[$i][$j] . '</td>';
+                }
+                else{
+                    echo "<td>" . $tableau[$i][$j] . "</td>";
+                }
             }
         }
         echo "</tr>";

@@ -9,6 +9,7 @@ $dsn = 'mysql:host=localhost;dbname=agile8_bd;charset=utf8';
 if(isset($_SESSION['role'])){
     if($_SESSION['role']=='DIRECTEUR' || $_SESSION['role']=='RESPONSABLE'){ 
         echo '<div class="modal-content center">';
+            include_once("formEvaluation.php");
             include_once("formSeance.php");
         echo '</div>';
     }
