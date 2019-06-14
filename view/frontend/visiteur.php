@@ -15,7 +15,8 @@ if (isset($_GET["page"])) {
     $title = $title . "Home";
 }
 ?>
-<html lang="fr">
+<html lang="fr">include_once($pageRepertory."navbar.php");
+include_once($pageRepertory . "login.php");
     <head>
         <?php include_once($pageRepertory."head.php"); ?>
         <title><?php echo $title ?></title>
@@ -24,8 +25,7 @@ if (isset($_GET["page"])) {
     <body>
         <header>
             <?php
-                include_once($pageRepertory."navbar.php");
-                include_once($pageRepertory . "login.php");
+
             ?>
         </header>
 
