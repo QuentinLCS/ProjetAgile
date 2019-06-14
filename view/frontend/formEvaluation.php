@@ -76,7 +76,7 @@ HEREDOC;
                         <?php
 
                         $req = <<<HEREDOC
-SELECT * FROM TRAVAILLE ORDER BY DAT_DATE asc;
+SELECT DISTINCT DAT_DATE FROM TRAVAILLE ORDER BY DAT_DATE asc;
 HEREDOC;
 
                         $res = $pdoConnection->query($req);

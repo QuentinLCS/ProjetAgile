@@ -119,8 +119,13 @@ $preDonnees = $res2->fetch();
             <tr>
                 <th>NUMERO</th>
                 <th>NOM</th>
-                <th>DESCRIPTION</th>  
-                <th>EDITER UNE APTITUDE...</th>         
+                <th>DESCRIPTION</th>';
+ if(isset($_SESSION['role'])){
+    if($_SESSION['role']=='DIRECTEUR' || $_SESSION['role']=='RESPONSABLE'){  
+               echo ' <th>EDITER UNE APTITUDE...</th> ' ;
+    }
+}
+echo '       
             </tr>
         </thead>
         <tbody>';
@@ -133,7 +138,12 @@ $preDonnees = $res2->fetch();
                 echo '<input type="text" name="num" value="';
                 echo $donnees["APT_CODE"];
                 echo '" style="display: none;">';
-                echo '<input type="submit" name="remAptitudes" value="X" class="grey darken-4 waves-effect waves-light small">';
+                if(isset($_SESSION['role'])){
+                    if($_SESSION['role']=='DIRECTEUR' || $_SESSION['role']=='RESPONSABLE'){
+                        echo '<input type="submit" name="remAptitudes" value="X" class="grey darken-4 waves-effect waves-light small">';
+                    }
+                }
+
             echo '</form>';
         echo '</td>';
     }
