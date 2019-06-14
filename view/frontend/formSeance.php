@@ -28,13 +28,31 @@ try {
                         <select id ="niveauSeance" name="niveauSeance" class="validate">
                             <?php
 
-                            $req = "SELECT * FROM FORMATION ORDER BY FOR_CODE ASC";
+                            if(isset($_SESSION['role'])){
+                                if($_SESSION['role']=='DIRECTEUR'){
+                                    $req = "SELECT * FROM FORMATION ORDER BY FOR_CODE ASC";
 
-                            $res = $pdoConnection->query($req);
-                            //session_start();
-                            while ($donnees = $res->fetch()) {
-                                echo '<option value="'.htmlspecialchars($donnees["FOR_CODE"]).'">'.htmlspecialchars($donnees["FOR_NOM"]).'</option>';
+                                    $res = $pdoConnection->query($req);
+                                    while ($donnees = $res->fetch()) {
+                                        echo '<option value="'.htmlspecialchars($donnees["FOR_CODE"]).'">'.htmlspecialchars($donnees["FOR_NOM"]).'</option>';
+                                    }
+                                } else {
+                                    $numSession=$_SESSION['num'];
+                                    $num = "SELECT MEM_NIVEAU_FORM FROM PLO_MEMBRE where MEM_NUM='$numSession' ";
+                                    $resultat = $pdoConnection->query($num);
+                                    $niveau = $resultat->fetch();
+                                    $niveauMembre=$niveau['MEM_NIVEAU_FORM'];
+
+                                    $req = "SELECT * FROM FORMATION WHERE FOR_CODE = '$niveauMembre'";
+                                    $res = $pdoConnection->query($req);
+                                    $donnees = $res->fetch();
+                                    echo '<option value="'.htmlspecialchars($donnees["FOR_CODE"]).'">'.htmlspecialchars($donnees["FOR_NOM"]).'</option>';
+
+
+                                }
                             }
+
+
                             $res->closeCursor();
                             ?>
                         </select>

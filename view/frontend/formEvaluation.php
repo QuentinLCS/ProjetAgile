@@ -59,7 +59,6 @@ HEREDOC;
 
                             $req = <<<HEREDOC
                             SELECT APT_CODE, APT_NOM FROM FORMATION LEFT JOIN PLO_COMPETENCES USING(FOR_CODE) LEFT JOIN PLO_APTITUDES USING(COM_CODE) WHERE FOR_CODE = '$niveauMembre';
-SELECT APT_CODE, APT_NOM FROM PLO_APTITUDES ORDER BY APT_NOM asc;
 HEREDOC;
 
                             $res = $pdoConnection->query($req);
