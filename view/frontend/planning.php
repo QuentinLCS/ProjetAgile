@@ -37,7 +37,6 @@ $res = $pdoConnection->query($req);
                 <th>INITIATEUR</th>
                 <th>APTITUDE</th>    
                 <th>COMMENTAIRE</th>
-                <th>STATUT</th>
                 ';
     if(isset($_SESSION['role'])){
         if($_SESSION['role']=='DIRECTEUR' || $_SESSION['role']=='RESPONSABLE'){  

@@ -74,7 +74,7 @@ HEREDOC;
                         }
                         ?>
                     </select>
-                    <label>Aptitude évaluée</label>
+                    <label>Séance évaluée</label>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
