@@ -3,6 +3,7 @@
 
 $listeDates = array();
 $tableau = array(array());
+$validiteComp = array();
 
 function heures($idEleve){
 
@@ -56,6 +57,7 @@ function statutAptitude($idEleve)
 
     global $tableau;
     global $listeDates;
+    global $validiteComp;
 
 
     heures($idEleve);
@@ -128,10 +130,17 @@ function statutAptitude($idEleve)
             while ($donneesValidation = $resValidation->fetch()) {
 
                 $x=2;
+                $validiteComp[$j] = 0;
                 foreach($listeDates as $uneDate) {
+
 
                     if ($donneesValidation['VAL_DATE'] == $tableau[$x][0]){
                         $tableau[$x][$j] = $donneesValidation['VAL_STATUT'];
+
+                        if ($donneesValidation['VAL_STATUT'] == "VALIDE"){
+                            $validiteComp[$j]++;
+                        }
+
                     }
 
                     $x++;
@@ -158,7 +167,19 @@ function statutAptitude($idEleve)
                     echo '<td colspan="'.$nbCaseCompetences[$j].'" class = "center">'. $tableau[$i][$j] . '</td>';
                 }
                 else{
-                    echo "<td>" . $tableau[$i][$j] . "</td>";
+                    if($tableau[$i][$j] == "VALIDE"){
+                        echo "<td style='background-color: #00C853'>" . $tableau[$i][$j] . "</td>";
+                    }
+                    if($tableau[$i][$j] == "EN COUR"){
+                        echo "<td style='background-color: #8d6e63'>" . $tableau[$i][$j] . "</td>";
+                    }
+                    if($tableau[$i][$j] == "ABSENT"){
+                        echo "<td style='background-color: #a21318'>" . $tableau[$i][$j] . "</td>";
+                    }
+                    if($tableau[$i][$j] == " X "){
+                        echo "<td style='background-color: #9fa8da'>" . $tableau[$i][$j] . "</td>";
+                    }
+
                 }
             }
         }
