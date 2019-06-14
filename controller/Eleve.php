@@ -1,5 +1,5 @@
 <?php
-
+echo "SALUT";
 session_start();
 if(isset($_POST['numEleve'])){
     $_SESSION['numEleve'] = $_POST['numEleve'];
@@ -45,7 +45,6 @@ function modifier($prenom, $nom, $numEleve){
     $reqModif = "UPDATE PLO_ELEVE SET ELE_PRENOM = '$prenom', ELE_NOM = '$nom' WHERE ELE_NUM = $numEleve";
     $base->query($reqModif);
     header('Location: ../view/frontend/visiteur.php?page=eleve');
-    echo 'SALUT';
 }
 
 function afficher($numEleve) {
@@ -91,6 +90,7 @@ function afficher($numEleve) {
     }
 
     echo "</tbody> </table>";
+    
     
 
     $res->closeCursor();
