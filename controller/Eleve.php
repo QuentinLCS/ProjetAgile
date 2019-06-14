@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 if(isset($_POST['numEleve'])){
     $_SESSION['numEleve'] = $_POST['numEleve'];
@@ -14,6 +13,11 @@ if (isset($_POST['updateInfos'])) {
 
 elseif (isset($_POST['formulaireModifier'])) {
     include_once("../view/frontend/modifierEleve.php");
+}
+
+elseif (isset($_POST['tableauEleve'])) {
+    $address = "../view/frontend/pageTableauEleve.php?id=".$_POST['numEleve'];
+    header($address);
 }
 
 elseif (isset($_POST['remEleve'])) {
@@ -76,6 +80,7 @@ function afficher($numEleve) {
         <td>
             <form action="/controller/Eleve.php" method="post" class="usersOptions">
                 <input type="number" name="numEleve" value="<?php echo $num ?>" style="display: none;">
+                <input type="submit" name="tableauEleve" value="TABLEAU" class="green darken-2 waves-effect waves-light small">
                 <input type="submit" name="formulaireModifier" value="MODIFIER" class="red darken-2 waves-effect waves-light small">
                 <input type="submit" name="remEleve" value="X" class="grey darken-4 waves-effect waves-light small">
             </form>
@@ -84,6 +89,8 @@ function afficher($numEleve) {
     }
 
     echo "</tbody> </table>";
+    
+    
 
     $res->closeCursor();
 }

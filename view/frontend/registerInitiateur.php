@@ -37,6 +37,31 @@
                     </select>
                     <label>Rôle de départ</label>
                 </div>
+                 <div class="row input-field col s12">
+                        <select id ="formation" name="formation" class="validate">
+                            <?php
+                            $dbhost = 'localhost';
+                            $dbuser = 'agile8';
+                            $dbpass = 'ahV2FeemahM6Jiex';
+                            $dsn = 'mysql:host=localhost;dbname=agile8_bd;charset=utf8';
+
+                            try {
+                                $pdoConnection = new PDO($dsn, $dbuser, $dbpass);
+                                $pdoConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                            } catch (PDOException $e) {
+                                echo "Erreur connection : ".$e->getMessage();
+                            }
+
+                            $req = "SELECT * FROM FORMATION ORDER BY FOR_CODE asc";
+                            $res = $pdoConnection->query($req);
+                            //session_start();
+                            while ($donnees = $res->fetch()) {
+                                echo '<option value="'.htmlspecialchars($donnees["FOR_CODE"]).'">'.htmlspecialchars($donnees["FOR_NOM"]).'</option>';
+                            }
+                            ?>
+                        </select>
+                        <label>Formation mère</label>
+                    </div>
                 <button class="btn waves-effect waves-light" type="submit" name="action">Ajouter
                     <i class="material-icons right">send</i>
                 </button>

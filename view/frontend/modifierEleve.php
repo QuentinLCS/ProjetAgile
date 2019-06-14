@@ -15,6 +15,7 @@ $reponse=$pdoConnection->query($req);
         $nom=$donnees['ELE_NOM'];
     }
 ?>
+<a href="../view/frontend/visiteur.php"><img src="../../Maison.png" height="40" width="40"></a>
 <div id="modifierEleve">
     <div class=" center">
         <h4>Modifier élève</h4>
@@ -31,7 +32,7 @@ $reponse=$pdoConnection->query($req);
                         <label for="Nom">Entrez Nom</label>
                     </div>
                 </div>
-                <button class="btn waves-effect waves-light" type="submit" name="updateInfos">Submit
+                <button class="btn waves-effect waves-light" type="submit" name="updateInfos">Modifier
                     <i class="material-icons right">send</i>
                 </button>
             </form>

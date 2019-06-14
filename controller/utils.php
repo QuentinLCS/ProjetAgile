@@ -75,7 +75,7 @@ function supprimerDonnee ($condition, $table) {
 }
 
 function afficherAptitudes($compCode) {
-
+    session_start();
     include_once("Menu.php");
     include_once ("../view/frontend/head.php");
     $page = "Aptitudes";
@@ -103,9 +103,14 @@ try {
 $req = <<<HEREDOC
 SELECT * FROM PLO_APTITUDES JOIN PLO_COMPETENCES USING(COM_CODE) WHERE COM_CODE = '$compCode';
 HEREDOC;
+$req2 = <<<HEREDOC
+SELECT * FROM PLO_COMPETENCES WHERE COM_CODE = '$compCode';
+HEREDOC;
 
 $res = $pdoConnection->query($req);
-$preDonnees = $res->fetch();
+$res2=  $pdoConnection->query($req2);
+
+$preDonnees = $res2->fetch();
 
     echo "<h1 class='center'>".$preDonnees['COM_NOM']."</h1>";
     echo '<table class="striped centered">
@@ -121,7 +126,7 @@ $preDonnees = $res->fetch();
 
     while ($donnees = $res->fetch())
     {
-        echo "<tr> <td>".htmlspecialchars($donnees['APT_CODE']) . "</td><td>" .htmlspecialchars($donnees['APT_NOM']). "</td><td>".$donnees['COM_DESC']."</td>";
+        echo "<tr> <td>".htmlspecialchars($donnees['APT_CODE']) . "</td><td>" .htmlspecialchars($donnees['APT_NOM']). "</td><td>".$donnees['APT_DESC']."</td>";
         echo "<td>";
             echo '<form action="../controller/utils.php" method="post" class="usersOptions">';
                 echo '<input type="text" name="num" value="';
