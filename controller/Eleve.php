@@ -81,7 +81,7 @@ function afficher($numEleve) {
         <td>
             <form action="/controller/Eleve.php" method="post" class="usersOptions">
                 <input type="number" name="numEleve" value="<?php echo $num ?>" style="display: none;">
-                <input type="submit" name="tableauEleve" value="TABLEAU" class="red darken-2 waves-effect waves-light small">
+                <input type="submit" name="tableauEleve" value="TABLEAU" class="green darken-2 waves-effect waves-light small">
                 <input type="submit" name="formulaireModifier" value="MODIFIER" class="red darken-2 waves-effect waves-light small">
                 <input type="submit" name="remEleve" value="X" class="grey darken-4 waves-effect waves-light small">
             </form>
