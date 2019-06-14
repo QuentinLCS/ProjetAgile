@@ -39,6 +39,12 @@
     </div>
 </nav>
 
+<ul class="sidenav" id="mobile-demo">
+    <li><a class="blue modal-trigger white-text" href="#"><strong>MON PROFIL</strong></a></li>
+    <li><a class="blue modal-trigger white-text" href="../../controller/deconnexion.php"><strong>SE DECONNECTER</strong></a></li>
+
+</ul>
+
 <script>
     $(document).ready(function () {
         $('.sidenav').sidenav();
