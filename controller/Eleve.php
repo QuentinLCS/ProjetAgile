@@ -86,7 +86,7 @@ function afficher($numEleve) {
                 <input type="submit" name="remEleve" value="X" class="grey darken-4 waves-effect waves-light small">
             </form>
         </td>
-        SALUT
+        <p>Ok</p>
         <?php
     }
 
