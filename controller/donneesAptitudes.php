@@ -61,7 +61,7 @@ function statutAptitude($idEleve)
     heures($idEleve);
 
 
-    $requeteCompetences = "SELECT DISTINCT COM_NOM, COM_CODE, ELE_NOM, ELE_PRENOM FROM PLO_COMPETENCES JOIN PLO_ELEVE USING(FOR_CODE)";
+    $requeteCompetences = "SELECT DISTINCT COM_NOM, COM_CODE, ELE_NOM, ELE_PRENOM FROM PLO_COMPETENCES JOIN PLO_ELEVE USING(FOR_CODE) WHERE ELE_NUM = '$idEleve'";
     $res = $pdoConnection->query($requeteCompetences);
 
     /*Premiere ligne (Competences)*/
