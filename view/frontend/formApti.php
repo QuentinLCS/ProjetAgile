@@ -15,7 +15,7 @@
                     <div class="row input-field col s6">
                         <select id ="competence" name="competence" class="validate">
                             <?php
-
+                            session_start();
                             $dbhost = 'localhost';
                             $dbuser = 'agile8';
                             $dbpass = 'ahV2FeemahM6Jiex';
@@ -27,9 +27,13 @@
                             } catch (PDOException $e) {
                                 echo "Erreur connection : ".$e->getMessage();
                             }
-
+                            $numSession=$_SESSION['num'];
+                            $num = "SELECT MEM_NIVEAU_FORM FROM PLO_MEMBRE where MEM_NUM='$numSession' ";
+                            $resultat = $pdoConnection->query($num);
+                            $niveau = $resultat->fetch();
+                            $niveauMembre=$niveau['MEM_NIVEAU_FORM'];
                             $req = <<<HEREDOC
-SELECT * FROM PLO_COMPETENCES ORDER BY COM_CODE asc;
+SELECT * FROM PLO_COMPETENCES WHERE FOR_CODE='$niveauMembre' ORDER BY COM_CODE asc;
 HEREDOC;
 
                             $res = $pdoConnection->query($req);
