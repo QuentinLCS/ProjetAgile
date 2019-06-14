@@ -145,7 +145,7 @@ function statutAptitude($idEleve)
     for($i=0; $i<= (count($listeDates)+2) ;$i++){
 
         echo "<tr>";
-        for ($j=0; $j<=(count($nombreAptitudes)+20); $j++){
+        for ($j=0; $j<=(count($nombreAptitudes)+10); $j++){
 
             if (isset($tableau[$i][$j])) {
                 echo "<td>" . $tableau[$i][$j] . "</td>";

@@ -103,9 +103,14 @@ try {
 $req = <<<HEREDOC
 SELECT * FROM PLO_APTITUDES JOIN PLO_COMPETENCES USING(COM_CODE) WHERE COM_CODE = '$compCode';
 HEREDOC;
+$req2 = <<<HEREDOC
+SELECT * FROM PLO_COMPETENCES WHERE COM_CODE = '$compCode';
+HEREDOC;
 
 $res = $pdoConnection->query($req);
-$preDonnees = $res->fetch();
+$res2=  $pdoConnection->query($req2);
+
+$preDonnees = $res2->fetch();
 
     echo "<h1 class='center'>".$preDonnees['COM_NOM']."</h1>";
     echo '<table class="striped centered">
