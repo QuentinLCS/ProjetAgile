@@ -156,7 +156,7 @@ function statutAptitude($idEleve)
             if (isset($tableau[$i][$j])) {
 
                 if ($i==0){
-                    echo '<td colspan="'.$nbCaseCompetences[$j].'">'. $tableau[$i][$j] . '</td>';
+                    echo '<td colspan="'.$nbCaseCompetences[$j].'" class = "center">'. $tableau[$i][$j] . '</td>';
                 }
                 else{
                     echo "<td>" . $tableau[$i][$j] . "</td>";
