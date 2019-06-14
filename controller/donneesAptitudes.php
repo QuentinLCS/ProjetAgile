@@ -190,7 +190,7 @@ function statutAptitude($idEleve)
                     if($tableau[$i][$j] == "VALIDE"){
                         echo "<td title = '".$description."' class='center' style='background-color: #00C853'>" . $tableau[$i][$j] . "</td>";
                     }
-                    else if($tableau[$i][$j] == "EN COUR"){
+                    else if($tableau[$i][$j] == "EN COURS"){
                         echo "<td title = '".$description."' class='center' style='background-color: #8d6e63'>" . $tableau[$i][$j] . "</td>";
                     }
                     else if($tableau[$i][$j] == "ABSENT"){
