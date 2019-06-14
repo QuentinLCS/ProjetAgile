@@ -148,9 +148,9 @@ function statutAptitude($idEleve)
             }
             $resValidation->closeCursor();
 
-            $resValidation = $pdoConnection->query($requeteCommentaire);
+            $resValidation2 = $pdoConnection->query($requeteCommentaire);
             $z = 2;
-            while ($donneesValidation = $resValidation->fetch()) {
+            while ($donneesValidation = $resValidation2->fetch()) {
 
                 $x=2;
 
@@ -163,7 +163,7 @@ function statutAptitude($idEleve)
                 }
                 $z++;
             }
-            $resValidation->closeCursor();
+            $resValidation2->closeCursor();
         }
     }
 
