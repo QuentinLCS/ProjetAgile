@@ -29,7 +29,10 @@ function eleve($idForm){
         $num=$donnees['ELE_NUM'];
         $i++;
     }
-    statutAptitude($num);
+    if(isset($num)){
+         statutAptitude($num);
+    }
+   
 }
 
 function statutAptitude($idEleve)
