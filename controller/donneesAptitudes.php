@@ -170,13 +170,13 @@ function statutAptitude($idEleve)
                     if($tableau[$i][$j] == "VALIDE"){
                         echo "<td style='background-color: #00C853'>" . $tableau[$i][$j] . "</td>";
                     }
-                    if($tableau[$i][$j] == "EN COUR"){
+                    else if($tableau[$i][$j] == "EN COUR"){
                         echo "<td style='background-color: #8d6e63'>" . $tableau[$i][$j] . "</td>";
                     }
-                    if($tableau[$i][$j] == "ABSENT"){
+                    else if($tableau[$i][$j] == "ABSENT"){
                         echo "<td style='background-color: #a21318'>" . $tableau[$i][$j] . "</td>";
                     }
-                    if($tableau[$i][$j] == "X"){
+                    else if($tableau[$i][$j] == "X"){
                         echo "<td style='background-color: #9fa8da'>" . $tableau[$i][$j] . "</td>";
                     }
                     else{
