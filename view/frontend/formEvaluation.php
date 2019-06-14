@@ -59,7 +59,7 @@ HEREDOC;
                         <label>Aptitude évaluée</label>
                     </div>
                 </div>
-                <div class="row input-field col">
+                <div class="row input-field col s12">
                     <select id ="seance" name="seance" class="validate">
                         <?php
 
