@@ -1,5 +1,4 @@
 <?php
-echo "SALUT";
 session_start();
 if(isset($_POST['numEleve'])){
     $_SESSION['numEleve'] = $_POST['numEleve'];
