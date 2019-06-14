@@ -75,7 +75,7 @@ function supprimerDonnee ($condition, $table) {
 }
 
 function afficherAptitudes($compCode) {
-
+    session_start();
     include_once("Menu.php");
     include_once ("../view/frontend/head.php");
     $page = "Aptitudes";
