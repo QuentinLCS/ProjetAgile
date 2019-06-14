@@ -20,7 +20,7 @@ function heures($idEleve){
     global $listeDates;
 
 
-    $requeteDates = "SELECT VAL_DATE FROM VALIDE WHERE ELE_NUM = '$idEleve' ORDER BY VAL_DATE ASC";
+    $requeteDates = "SELECT DISTINCT VAL_DATE FROM VALIDE WHERE ELE_NUM = '$idEleve' ORDER BY VAL_DATE ASC";
     $res = $pdoConnection->query($requeteDates);
 
     /*Remplissage du tableau de date*/
@@ -69,7 +69,7 @@ function statutAptitude($idEleve)
     $j = 1;
     $tableau[1][0] = "";
     while ($donnees = $res->fetch()) {
-        $tableau[0][0] = $donnees['ELE_PRENOM'].$donnees['ELE_NOM'];
+        $tableau[0][0] = $donnees['ELE_PRENOM'].' '.$donnees['ELE_NOM'];
         $tableau[0][$i+1] = $donnees['COM_NOM'];
 
 
