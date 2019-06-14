@@ -14,15 +14,15 @@ try {
 
 ?>
 
-<a class="grey darken-2 waves-effect waves-light btn modal-trigger" href="#eval"><strong>Saisir un compte-rendu</strong></a>
+<a class="grey darken-2 waves-effect waves-light btn modal-trigger" href="#eval"><strong>Saisir une évaluation</strong></a>
 
 <div id="eval" class="modal ">
     <h5 class="modal-close">&#10005;</h5>
     <div class="modal-content center">
-        <h4>Créer une séance</h4>
+        <h4>Saisir une évaluation</h4>
 
         <div class="row">
-            <form class="col s12" method="post" action="/controller/creerSeance.php">
+            <form class="col s12" method="post" action="/controller/creerEval.php">
                 <div class="row">
                     <div class="row input-field col s6">
                         <select id ="eleve" name="eleve" class="validate">
@@ -59,15 +59,22 @@ HEREDOC;
                         <label>Aptitude évaluée</label>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="input-field col s6">
-                        <input type="text" class="datepicker" name="date" required>
-                        <label for="description">Date</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <input type="text" class="timepicker" name="heure" required>
-                        <label for="description">Heure</label>
-                    </div>
+                <div class="row input-field col">
+                    <select id ="seance" name="seance" class="validate">
+                        <?php
+
+                        $req = <<<HEREDOC
+SELECT * FROM TRAVAILLE ORDER BY DAT_DATE asc;
+HEREDOC;
+
+                        $res = $pdoConnection->query($req);
+
+                        while ($donnees = $res->fetch()) {
+                            echo '<option value="'.htmlspecialchars($donnees["DAT_DATE"]).'">'.htmlspecialchars($donnees["DAT_DATE"]).'</option>';
+                        }
+                        ?>
+                    </select>
+                    <label>Aptitude évaluée</label>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
