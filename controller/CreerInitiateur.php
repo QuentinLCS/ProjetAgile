@@ -8,6 +8,7 @@
     $mdp = md5($_POST['mdp']);
     $mail = $_POST['mail'];
     $role = $_POST['role'];
+    $form=$_POST['formation'];
     $max = 0;
 
     $req = 'SELECT MAX(MEM_NUM) FROM PLO_MEMBRE';
@@ -17,7 +18,7 @@
     }
     $max++;
 
-    $req2 = "INSERT INTO PLO_MEMBRE(MEM_NUM, MEM_NOM, MEM_PRENOM, MEM_MAIL, MEM_MDP, MEM_ROLE) VALUES ('$max', '$nom', '$prenom', '$mail', '$mdp', '$role')";
+    $req2 = "INSERT INTO PLO_MEMBRE(MEM_NUM, MEM_NOM, MEM_PRENOM, MEM_MAIL, MEM_MDP, MEM_ROLE, MEM_NIVEAU_FORM) VALUES ('$max', '$nom', '$prenom', '$mail', '$mdp', '$role', '$form')";
     $base->query($req2);
 
     header('Location: ../view/frontend/visiteur.php?page=Initiateurs');
