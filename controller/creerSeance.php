@@ -9,6 +9,14 @@ $heure = $_POST['heure'];
 
 include_once("../view/frontend/connexionMySQL.php");
 
+$req1 = <<<HEREDOC
+SELECT APT_CODE FROM PLO_APTITUDES;
+HEREDOC;
+
+$res1 = $pdoConnection->query($req1);
+$donnees1 = $res1->fetch();
+$aptCode = $donnees1['APT_CODE'];
+
 $req0 = <<<HEREDOC
 SELECT * FROM PLO_ELEVE WHERE FOR_CODE = '$niveauFormation' ORDER BY ELE_NOM asc;
 HEREDOC;
@@ -21,9 +29,7 @@ while ($donnees0 = $res0->fetch()) {
 
     $dateheure = $date . " " . $heure;
 
-    echo $dateheure." ; ".$eleveNum." ; ".$niveauFormation;
-
-    $req2 = "INSERT INTO TRAVAILLE(ELE_NUM, APT_CODE, DAT_DATE) VALUES ($eleveNum, 'PAS ENCORE PASSEE', STR_TO_DATE('$dateheure', '%Y-%m-%d %H:%i'))";
+    $req2 = "INSERT INTO TRAVAILLE(ELE_NUM, APT_CODE, DAT_DATE) VALUES ($eleveNum, '$aptCode', STR_TO_DATE('$dateheure', '%Y-%m-%d %H:%i'))";
     $base->query($req2);
 }
 header('Location: ../view/frontend/visiteur.php?page=planning');
