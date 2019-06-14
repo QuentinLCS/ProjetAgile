@@ -2,30 +2,21 @@
 
 global $base;
 
-    include_once('../model/model.php');
+include_once('../model/model.php');
 
 
-$dbhost = 'localhost';
-$dbuser = 'agile8';
-$dbpass = 'ahV2FeemahM6Jiex';
-$dsn = 'mysql:host=localhost;dbname=agile8_bd;charset=utf8';
 
-try {
-    $pdoConnection = new PDO($dsn, $dbuser, $dbpass);
-     $pdoConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    echo "Erreur connection : ".$e->getMessage();
-}
 session_start();
 $numEleve=$_SESSION['num'];
 $num = "SELECT MEM_NIVEAU_FORM FROM PLO_MEMBRE where MEM_NUM='$numEleve'";
-$resultat = $pdoConnection->query($num);
-$niveau = $resultat->fetch();
-$niveauMembre=$niveau['MEM_NIVEAU_FORM'];
+$resultat = $base->query($num);
+foreach (mysqli_fetch_array($resultat) as $data) {
+    $niveau = $data;
+}
 
 $nom = $_POST['nomComp'];
 $description = $_POST['description'];
-$comCode = "F".$niveauMembre."C";
+$comCode = "F".$niveau."C";
 
 $req = 'SELECT COUNT(*) FROM PLO_COMPETENCES';
 $res = $base->query($req);
@@ -36,7 +27,7 @@ $max++;
 
 $comCode = $comCode.$max;
 
-$req2 = "INSERT INTO PLO_COMPETENCES(COM_CODE, FOR_CODE, COM_NOM, COM_DESC) VALUES ('$comCode', '$niveauMembre', '$nom', '$description')";
+$req2 = "INSERT INTO PLO_COMPETENCES(COM_CODE, FOR_CODE, COM_NOM, COM_DESC) VALUES ('$comCode', '$niveau', '$nom', '$description')";
 $base->query($req2);
 
 header('Location: ../view/frontend/visiteur.php?page=Competences');
