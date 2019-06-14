@@ -202,14 +202,8 @@ function statut($idEleve, $idApt){
 
 
         if ($donneesValidation['VAL_STATUT'] == "VALIDE"){
-                $validite++;
+            $validite++;
         }
-
-        $x++;
-
-
-
-        $z++;
     }
     if($validite>=3){
         return 'ACQUIS';
