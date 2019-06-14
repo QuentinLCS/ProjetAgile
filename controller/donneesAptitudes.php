@@ -4,7 +4,6 @@
 $listeDates = array();
 $tableau = array(array());
 $validiteComp = array();
-$valTester = array();
 
 function heures($idEleve){
 
@@ -59,7 +58,6 @@ function statutAptitude($idEleve)
     global $tableau;
     global $listeDates;
     global $validiteComp;
-    global $valTester;
 
 
     heures($idEleve);
@@ -132,10 +130,7 @@ function statutAptitude($idEleve)
             while ($donneesValidation = $resValidation->fetch()) {
 
                 $x=2;
-                $validiteComp[0]= 0;
-                $valTester[0]=0;
                 $validiteComp[$j] = 0;
-                $valTester[$j] = 0;
                 foreach($listeDates as $uneDate) {
 
 
@@ -145,8 +140,6 @@ function statutAptitude($idEleve)
                         if ($donneesValidation['VAL_STATUT'] == "VALIDE"){
                             $validiteComp[$j]++;
                         }
-
-                        $valTester[$j]++;
 
                     }
 
@@ -170,21 +163,8 @@ function statutAptitude($idEleve)
 
             if (isset($tableau[$i][$j])) {
 
-                if ($i == 0){
+                if ($i==0){
                     echo '<td colspan="'.$nbCaseCompetences[$j].'" class = "center">'. $tableau[$i][$j] . '</td>';
-                }
-                if ($i==1){
-
-                    if( $validiteComp[$j] >= 3){
-                        echo '<td  class = "center" style="background-color:#00C853">'. $tableau[$i][$j] . '</td>';
-                    }
-                    elseif ($valTester[$j] >= 1){
-                        echo '<td  class = "center" style="background-color:#8d6e63">'. $tableau[$i][$j] . '</td>';
-                    }
-                    else{
-                        echo '<td  class = "center" >'. $tableau[$i][$j] . '</td>';
-                    }
-
                 }
                 else{
                     if($tableau[$i][$j] == "VALIDE"){
