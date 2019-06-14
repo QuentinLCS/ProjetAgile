@@ -15,7 +15,7 @@ $reponse=$pdoConnection->query($req);
         $nom=$donnees['ELE_NOM'];
     }
 ?>
-<a href="visiteur.php"><img src="../../Maison.png" height="40" width="40"></a>
+<a href="../view/frontend/visiteur.php"><img src="../../Maison.png" height="40" width="40"></a>
 <div id="modifierEleve">
     <div class=" center">
         <h4>Modifier élève</h4>
