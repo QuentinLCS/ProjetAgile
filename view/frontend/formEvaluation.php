@@ -14,7 +14,7 @@ try {
 
 ?>
 
-<a class="grey darken-2 waves-effect waves-light btn modal-trigger" href="#eval"><strong>Saisir une évaluation</strong></a>
+<a class="grey darken-3 waves-effect waves-light btn modal-trigger" href="#eval"><strong>Saisir une évaluation</strong></a>
 
 <div id="eval" class="modal ">
     <h5 class="modal-close">&#10005;</h5>
