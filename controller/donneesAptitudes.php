@@ -39,6 +39,7 @@ function statutAptitude($idEleve)
 {
 
     $nbCaseCompetences = array();
+    $nbCaseCompetences[0] = 1;
 
     echo "<br>";
 
@@ -60,15 +61,15 @@ function statutAptitude($idEleve)
     heures($idEleve);
 
 
-    $requeteCompetences = "SELECT DISTINCT COM_NOM, COM_CODE FROM PLO_COMPETENCES JOIN PLO_ELEVE USING(FOR_CODE)";
+    $requeteCompetences = "SELECT DISTINCT COM_NOM, COM_CODE, ELE_NOM, ELE_PRENOM FROM PLO_COMPETENCES JOIN PLO_ELEVE USING(FOR_CODE)";
     $res = $pdoConnection->query($requeteCompetences);
-
 
     /*Premiere ligne (Competences)*/
     $i = 0;
     $j = 1;
     $tableau[1][0] = "";
     while ($donnees = $res->fetch()) {
+        $tableau[0][0] = $donnees['ELE_PRENOM'].$donnees['ELE_NOM'];
         $tableau[0][$i+1] = $donnees['COM_NOM'];
 
 
