@@ -116,7 +116,7 @@ function statutAptitude($idEleve)
         }
 
         else {
-            $requeteValidation = "SELECT VAL_STATUT, VAL_DATE FROM PLO_APTITUDES LEFT JOIN VALIDE USING(APT_CODE) WHERE APT_CODE = '$aptitude[$j]' AND ELE_NUM = '$idEleve' ";
+            $requeteValidation = "SELECT ELE_NOM FROM PLO_ELEVE WHERE ELE_NUM = '$idEleve' ";
             $resValidation = $pdoConnection->query($requeteValidation);
 
             $z = 2;
@@ -125,8 +125,8 @@ function statutAptitude($idEleve)
                 $x=2;
                 foreach($listeEleve as $uneDate) {
 
-                    if ($donneesValidation['VAL_DATE'] == $tableau[$x][0]){
-                        $tableau[$x][$j] = $donneesValidation['VAL_STATUT'];
+                    if ($donneesValidation['ELE_NOM'] == $tableau[$x][0]){
+                        $tableau[$x][$j] = statut($idEleve, $aptitude[$j]);
                     }
 
                     $x++;
@@ -155,7 +155,7 @@ function statutAptitude($idEleve)
                     if($tableau[$i][$j] == "VALIDE"){
                         echo "<td class='center' style='background-color: #00C853'>" . $tableau[$i][$j] . "</td>";
                     }
-                    else if($tableau[$i][$j] == "EN COUR"){
+                    else if($tableau[$i][$j] == "EN COURS"){
                         echo "<td class='center' style='background-color: #8d6e63'>" . $tableau[$i][$j] . "</td>";
                     }
                     else if($tableau[$i][$j] == "ABSENT"){
@@ -202,7 +202,7 @@ function statut($idEleve, $idApt){
 
 
         if ($donneesValidation['VAL_STATUT'] == "VALIDE"){
-                $validite++;}
+                $validite++;
         }
 
         $x++;
@@ -210,6 +210,17 @@ function statut($idEleve, $idApt){
 
 
         $z++;
+    }
+    if($validite>=3){
+        return 'ACQUIS';
+    }
+    else{
+        if($validite>0 && $validite<3){
+            return 'EN COURS';
+        }
+        else{
+            return 'X';
+        }
     }
     $resValidation->closeCursor();
 
