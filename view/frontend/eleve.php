@@ -4,7 +4,6 @@ if(isset($_SESSION['role'])){
 		echo "<div class='container center'>";
 		include_once($pageRepertory . "registerEleve.php");
 		echo "</div>";
-		echo "SALUT";
 	}
 }
 include_once("gestionEleve.php");

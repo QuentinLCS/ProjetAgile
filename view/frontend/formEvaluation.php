@@ -14,32 +14,49 @@ try {
 
 ?>
 
-<a class="grey darken-2 waves-effect waves-light btn modal-trigger" href="#seance"><strong>Programmer une séance</strong></a>
+<a class="grey darken-2 waves-effect waves-light btn modal-trigger" href="#eval"><strong>Saisir un compte-rendu</strong></a>
 
-<div id="seance" class="modal ">
+<div id="eval" class="modal ">
     <h5 class="modal-close">&#10005;</h5>
     <div class="modal-content center">
-        <h4>Saisir un compte-rendu</h4>
+        <h4>Créer une séance</h4>
 
         <div class="row">
             <form class="col s12" method="post" action="/controller/creerSeance.php">
                 <div class="row">
-                    <div class="row input-field col s12">
-                        <select id ="niveauSeance" name="niveauSeance" class="validate">
+                    <div class="row input-field col s6">
+                        <select id ="eleve" name="eleve" class="validate">
                             <?php
 
                             $req = <<<HEREDOC
-SELECT * FROM FORMATION ORDER BY FOR_CODE asc;
+SELECT ELE_NUM, ELE_NOM, ELE_PRENOM FROM PLO_ELEVE ORDER BY ELE_NOM asc;
 HEREDOC;
 
                             $res = $pdoConnection->query($req);
-                            //session_start();
+
                             while ($donnees = $res->fetch()) {
-                                echo '<option value="'.htmlspecialchars($donnees["FOR_CODE"]).'">'.htmlspecialchars($donnees["FOR_NOM"]).'</option>';
+                                echo '<option value="'.htmlspecialchars($donnees["ELE_NUM"]).'">'.htmlspecialchars($donnees["ELE_NOM"])." ".htmlspecialchars($donnees["ELE_PRENOM"]).'</option>';
                             }
                             ?>
                         </select>
-                        <label>Niveau de la séance</label>
+                        <label>Eleve évalué.e</label>
+                    </div>
+                    <div class="row input-field col s6">
+                        <select id ="aptitude" name="aptitude" class="validate">
+                            <?php
+
+                            $req = <<<HEREDOC
+SELECT APT_CODE, APT_NOM FROM PLO_APTITUDES ORDER BY APT_NOM asc;
+HEREDOC;
+
+                            $res = $pdoConnection->query($req);
+
+                            while ($donnees = $res->fetch()) {
+                                echo '<option value="'.htmlspecialchars($donnees["APT_CODE"]).'">'.htmlspecialchars($donnees["APT_NOM"]).'</option>';
+                            }
+                            ?>
+                        </select>
+                        <label>Aptitude évaluée</label>
                     </div>
                 </div>
                 <div class="row">
@@ -51,6 +68,20 @@ HEREDOC;
                         <input type="text" class="timepicker" name="heure" required>
                         <label for="description">Heure</label>
                     </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="commentaire" class="materialize-textarea" data-length="500" name="commentaire"></textarea>
+                        <label for="commentaire">Commentaire à propos du travail effectué</label>
+                    </div>
+                </div>
+                <div class="switch">
+                    <label>
+                        NON VALIDE
+                        <input type="checkbox" name="estValide">
+                        <span class="lever"></span>
+                        VALIDE
+                    </label>
                 </div>
                 <button class="btn waves-effect waves-light" type="submit" name="action" style="margin-top: 20px">Ajouter
                     <i class="material-icons right">send</i>
