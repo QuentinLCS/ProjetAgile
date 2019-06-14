@@ -82,14 +82,13 @@ HEREDOC;
                         <label for="commentaire">Commentaire à propos du travail effectué</label>
                     </div>
                 </div>
-                <div class="switch">
-                    <label>
-                        NON VALIDE
-                        <input type="checkbox" name="estValide">
-                        <span class="lever"></span>
-                        VALIDE
-                    </label>
-                </div>
+                <select id ="estValide" name="estValide" class="validate">
+                    <option value="1">Valide</option>
+                    <option value="2">Non Valide</option>
+                    <option value="3">En cours</option>
+                    <option value="4">Absent</option>
+                </select>
+                <label>état du compte rendu</label>
                 <button class="btn waves-effect waves-light" type="submit" name="action" style="margin-top: 20px">Ajouter
                     <i class="material-icons right">send</i>
                 </button>

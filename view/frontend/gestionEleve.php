@@ -26,7 +26,7 @@ echo '<table class="striped centered">
                 <th>PRENOM</th>';
 if(isset($_SESSION['role'])){
         if($_SESSION['role']=='DIRECTEUR' || $_SESSION['role']=='RESPONSABLE'){  
-            echo'<th>EDITER UN ELEVE...</th>  ';
+            echo'<th>GESTION ELEVE...</th>  ';
         }
     }     
                        
