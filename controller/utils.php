@@ -31,7 +31,7 @@ elseif (isset($_POST['remCompetences'])) {
 
 elseif (isset($_POST['remSeance'])) {
     supprimerDonnee("ELE_NUM = $numEleve AND DAT_DATE = '$date' AND APT_CODE = '$aptitude'","TRAVAILLE");
-    supprimerDonnee("ELE_NUM = $numEleve AND VAL_DATE = '$date' AND APT_CODE = '$aptitude'","VALIDE");
+    supprimerDonnee("ELE_NUM = $numEleve AND APT_CODE = '$aptitude'","VALIDE");
 }
 
 elseif (isset($_POST['remAptitudes'])) {
