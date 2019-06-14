@@ -132,6 +132,8 @@ function statutAptitude($idEleve)
             while ($donneesValidation = $resValidation->fetch()) {
 
                 $x=2;
+                $validiteComp[0]= 0;
+                $valTester[0]=0;
                 $validiteComp[$j] = 0;
                 $valTester[$j] = 0;
                 foreach($listeDates as $uneDate) {
