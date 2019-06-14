@@ -1,38 +1,29 @@
-<?php
+<a class="grey darken-2 waves-effect waves-light btn modal-trigger" href="#tableauForm"><strong>Consulter ma formation</strong></a>
 
-include_once("head.php");
+<div id="tableauForm" class="modal ">
+    <h5 class="modal-close">&#10005;</h5>
+    <div class="modal-content center">
+        <h4>Tableau de la Formation</h4>
+        <div class="row">
+            <?php
+            include_once("head.php");
 
-//?id=2;
-//if (isset($_GET['id'])){
+            $num = $_SESSION['num'];
 
-    $idForm = '1';
+            include_once('connexionMySQL.php');
 
-    $dbhost = 'localhost';
-    $dbuser = 'agile8';
-    $dbpass = 'ahV2FeemahM6Jiex';
-    $dsn = 'mysql:host=localhost;dbname=agile8_bd;charset=utf8';
+            $reqCheck = "SELECT MEM_NIVEAU_FORM FROM PLO_MEMBRE WHERE MEM_NUM = '$num'";
+            $res = $pdoConnection->query($reqCheck);
 
-    try {
-        $pdoConnection = new PDO($dsn, $dbuser, $dbpass);
-        $pdoConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e) {
-        echo "Erreur connection : ".$e->getMessage();
-    }
+                while($donnees= $res->fetch()){
+                    $idForm=$donnees['MEM_NIVEAU_FORM'];
+                }
+                include_once("../../controller/donneesFormation.php");
+                eleve($idForm);
 
-    /*$reqCheck = "SELECT ELE_NUM FROM PLO_ELEVE WHERE ELE_NUM = '$idEleve'";
-    $res = $pdoConnection->query($reqCheck);
+            $res->closeCursor();
 
-    if ($res->fetch()){*/
-
-        include_once("../../controller/donneesFormation.php");
-
-        eleve($idForm);
-
-    /*}
-    else{
-        echo "Mauvais id eleve";
-    }*/
-
-    //$res->closeCursor();
-
-//}
+            ?>
+        </div>
+    </div>
+</div>
