@@ -86,11 +86,12 @@ function afficher($numEleve) {
                 <input type="submit" name="remEleve" value="X" class="grey darken-4 waves-effect waves-light small">
             </form>
         </td>
+        SALUT
         <?php
     }
 
     echo "</tbody> </table>";
-    echo "SALUT";
+    
 
     $res->closeCursor();
 }
