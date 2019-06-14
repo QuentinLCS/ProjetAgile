@@ -4,9 +4,13 @@ global $base;
 
 include_once("../model/model.php");
 
+$numEleve=$_SESSION['num'];
+$num = "SELECT MEM_NIVEAU_FORM FROM PLO_MEMBRE where ELE_NUM='$numEleve' "
+$resultat = $base->query($num);
+$niveau = $resultat->fetch();
+
 $nom = $_POST['nomComp'];
 $description = $_POST['description'];
-$niveau = $_POST['formation'];
 $comCode = "F".$niveau."C";
 
 $req = 'SELECT COUNT(*) FROM PLO_COMPETENCES';
