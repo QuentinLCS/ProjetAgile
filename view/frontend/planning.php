@@ -11,6 +11,7 @@ if(isset($_SESSION['role'])){
         echo '<div class="modal-content center">';
             include_once("formEvaluation.php");
             include_once("formSeance.php");
+            include_once("pageTableauFormation.php");
         echo '</div>';
     }
 }

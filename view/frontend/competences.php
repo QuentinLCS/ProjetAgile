@@ -34,9 +34,13 @@ echo '<table class="striped centered">
                 <th>NUMERO</th>
                 <th>NIVEAU</th>
                 <th>NOM</th>    
-                <th>DESCRIPTION</th>  
-                <th>EDITER UNE COMPETENCE...</th>         
-            </tr>
+                <th>DESCRIPTION</th>';
+ if(isset($_SESSION['role'])){
+    if($_SESSION['role']=='DIRECTEUR' || $_SESSION['role']=='RESPONSABLE'){
+             echo '<th>EDITER UNE COMPETENCE...</th>';       
+    }
+}
+echo '  </tr>
         </thead>
         <tbody>';
 
@@ -44,15 +48,21 @@ while ($donnees = $res->fetch())
 {
     $num = htmlspecialchars($donnees['COM_CODE']);
 
-    echo "<tr> <td>".htmlspecialchars($num) . "</td><td>" .htmlspecialchars($donnees['FOR_CODE']). "</td><td>" .htmlspecialchars($donnees['COM_NOM'])."</td><td>".$donnees['COM_DESC']."</td>"?>
-    <td>
-        <form action="../../controller/utils.php" method="post" class="usersOptions">
-            <input type="text" name="num" value="<?php echo $num ?>" style="display: none;">
-            <input type="submit" name="afficherAptitudes" value="Aptitudes" class="green darken-4 waves-effect waves-light small">
-            <input type="submit" name="remCompetences" value="X" class="grey darken-4 waves-effect waves-light small">
-        </form>
-    </td>
-    <?php
+    echo "<tr> <td>".htmlspecialchars($num) . "</td><td>" .htmlspecialchars($donnees['FOR_CODE']). "</td><td>" .htmlspecialchars($donnees['COM_NOM'])."</td><td>".$donnees['COM_DESC']."</td>";
+
+
+        if(isset($_SESSION['role'])){
+            if($_SESSION['role']=='DIRECTEUR' || $_SESSION['role']=='RESPONSABLE'){ ?>
+               <td>
+                    <form action="../../controller/utils.php" method="post" class="usersOptions">
+                        <input type="text" name="num" value="<?php echo $num ?>" style="display: none;">
+                        <input type="submit" name="afficherAptitudes" value="Aptitudes" class="green darken-4 waves-effect waves-light small">
+                        <input type="submit" name="remCompetences" value="X" class="grey darken-4 waves-effect waves-light small">
+                    </form>
+                </td>
+                <?php
+            }
+        }
 }
 
 echo "</tbody> </table>";

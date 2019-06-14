@@ -7,7 +7,7 @@ $dbpass = 'ahV2FeemahM6Jiex';
 $dsn = 'mysql:host=localhost;dbname=agile8_bd;charset=utf8';
 
 if(isset($_SESSION['role'])){
-    if($_SESSION['role']=='DIRECTEUR' || $_SESSION['role']=='RESPONSABLE'){ 
+    if($_SESSION['role']=='DIRECTEUR'){ 
         echo '<div class="modal-content center">';
             include_once("registerInitiateur.php");
         echo '</div>';
@@ -36,7 +36,7 @@ $res = $pdoConnection->query($req);
                 <th>FONCTION</th>
                 ';
     if(isset($_SESSION['role'])){
-        if($_SESSION['role']=='DIRECTEUR' || $_SESSION['role']=='RESPONSABLE'){  
+        if($_SESSION['role']=='DIRECTEUR'){  
             echo'<th>EDITER UN MEMBRE...</th>';
         }
     }
@@ -49,7 +49,7 @@ while ($donnees = $res->fetch())
         echo "<tr> <td>" .htmlspecialchars($donnees['MEM_NOM']). "</td><td>" .htmlspecialchars($donnees['MEM_PRENOM'])."</td><td>".$donnees['MEM_ROLE']."</td>";
         
         if(isset($_SESSION['role'])){
-            if($_SESSION['role']=='DIRECTEUR' || $_SESSION['role']=='RESPONSABLE'){ ?>
+            if($_SESSION['role']=='DIRECTEUR'){ ?>
                <td>
                     <form action="../../controller/utils.php" method="post" class="usersOptions">
                         <input type="number" name="num" value="<?php echo $num ?>" style="display: none;">
