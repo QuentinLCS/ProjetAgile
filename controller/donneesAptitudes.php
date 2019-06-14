@@ -145,7 +145,6 @@ function statutAptitude($idEleve)
     }
 
 
-    include_once
     /*TEST*/
     echo '<table>';
     for($i=0; $i<= (count($listeDates)+2) ;$i++){
