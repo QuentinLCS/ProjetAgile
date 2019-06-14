@@ -124,6 +124,7 @@ function statutAptitude($idEleve)
 
         else {
             $requeteValidation = "SELECT VAL_STATUT, VAL_DATE FROM PLO_APTITUDES LEFT JOIN VALIDE USING(APT_CODE) WHERE APT_CODE = '$aptitude[$j]' AND ELE_NUM = '$idEleve' ";
+            $requeteCommentaire = "SELECT EVA_COMMENTAIRE FROM TRAVAILLE JOIN VALIDE ON TRAVAILLE.ELE_NUM = VALIDE.ELE_NUM AND TRAVAILLE.APT_CODE = VALIDE.APT_CODE AND TRAVAILLE.DAT_DATE = VALIDE.VAL_DATE WHERE VALIDE.APT_CODE ='$aptitude[$j]' AND VALIDE.ELE_NUM='$idEleve'";
             $resValidation = $pdoConnection->query($requeteValidation);
 
             $z = 2;
@@ -133,7 +134,6 @@ function statutAptitude($idEleve)
                 $validiteComp[$j] = 0;
                 foreach($listeDates as $uneDate) {
 
-
                     if ($donneesValidation['VAL_DATE'] == $tableau[$x][0]){
                         $tableau[$x][$j] = $donneesValidation['VAL_STATUT'];
 
@@ -142,11 +142,25 @@ function statutAptitude($idEleve)
                         }
 
                     }
-
                     $x++;
-
                 }
+                $z++;
+            }
+            $resValidation->closeCursor();
 
+            $resValidation = $pdoConnection->query($requeteCommentaire);
+            $z = 2;
+            while ($donneesValidation = $resValidation->fetch()) {
+
+                $x=2;
+                $validiteComp[$j] = 0;
+                foreach($listeDates as $uneDate) {
+
+                    if ($donneesValidation['VAL_DATE'] == $tableau[$x][0]){
+                        $commentaire[$x][$j] = $donneesValidation['VAL_STATUT'];
+                    }
+                    $x++;
+                }
                 $z++;
             }
             $resValidation->closeCursor();
@@ -159,25 +173,31 @@ function statutAptitude($idEleve)
     for($i=0; $i<= (count($listeDates)+2) ;$i++){
 
         echo "<tr>";
-        for ($j=0; $j<=(count($nombreAptitudes)+10); $j++){
+        for ($j=0; $j<=(count($nombreAptitudes)+15); $j++){
+
+            $description = "";
+            if (isset($commentaire[$i][$j])){
+                $description = $commentaire[$i][$j];
+            }
 
             if (isset($tableau[$i][$j])) {
+
 
                 if ($i==0){
                     echo '<td colspan="'.$nbCaseCompetences[$j].'" class = "center">'. $tableau[$i][$j] . '</td>';
                 }
                 else{
                     if($tableau[$i][$j] == "VALIDE"){
-                        echo "<td title = 'test desc' class='center' style='background-color: #00C853'>" . $tableau[$i][$j] . "</td>";
+                        echo "<td title = '".$description."' class='center' style='background-color: #00C853'>" . $tableau[$i][$j] . "</td>";
                     }
                     else if($tableau[$i][$j] == "EN COUR"){
-                        echo "<td title = 'test desc' class='center' style='background-color: #8d6e63'>" . $tableau[$i][$j] . "</td>";
+                        echo "<td title = '".$description."' class='center' style='background-color: #8d6e63'>" . $tableau[$i][$j] . "</td>";
                     }
                     else if($tableau[$i][$j] == "ABSENT"){
-                        echo "<td title = 'test desc' class='center' style='background-color: #a21318'>" . $tableau[$i][$j] . "</td>";
+                        echo "<td title = '".$description."' class='center' style='background-color: #a21318'>" . $tableau[$i][$j] . "</td>";
                     }
                     else if($tableau[$i][$j] == "X"){
-                        echo "<td title = 'test desc' class='center' style='background-color: #9fa8da'>" . $tableau[$i][$j] . "</td>";
+                        echo "<td title = '".$description."' class='center' style='background-color: #9fa8da'>" . $tableau[$i][$j] . "</td>";
                     }
                     else{
                         echo "<td class='center'>" . $tableau[$i][$j] . "</td>";
